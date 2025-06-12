@@ -215,7 +215,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%), url('hero-bg.png');
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
             background-size: cover;
             background-position: center;
             color: var(--white);
@@ -445,19 +445,15 @@
         .team-avatar {
             width: 100px;
             height: 100px;
+            background: var(--gradient);
             border-radius: 50%;
             margin: 0 auto 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
-            border: 3px solid var(--primary);
-        }
-
-        .team-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: bold;
         }
 
         .team-name {
@@ -978,7 +974,1017 @@
         </section>
     </div>
 
-    <!-- Other pages truncated for brevity in display -->
+    <!-- Technology Page -->
+    <div id="technology" class="page">
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Built on Research and Real-World Testing</h2>
+                    <p class="section-subtitle">Our platform is based on several years of research into privacy-preserving technology and digital wellness, with input from families, educators, and healthcare providers.</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <h3>Local Processing</h3>
+                        <p>Analysis happens on family devices, not in the cloud, ensuring personal information stays private while providing helpful insights.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3>Federated Learning</h3>
+                        <p>Our system improves while keeping individual data private by learning from general patterns across many families.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <h3>Differential Privacy</h3>
+                        <p>Mathematical techniques that protect personal information while still allowing for helpful analysis and recommendations.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3>Safety and Compliance</h3>
+                        <ul class="feature-list">
+                            <li>COPPA Compliant: Meets requirements for protecting children's privacy</li>
+                            <li>GDPR Compatible: Designed with European privacy standards</li>
+                            <li>Security Certified: Regular third-party security assessments</li>
+                            <li>Transparent Practices: Clear policies about how the system works</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Features Page -->
+    <div id="features" class="page">
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Solutions for Different Needs</h2>
+                    <p class="section-subtitle">Tailored features for families, healthcare providers, and educational institutions.</p>
+                </div>
+
+                <div style="margin-bottom: 4rem;">
+                    <h3 style="font-size: 2rem; margin-bottom: 2rem; text-align: center; color: var(--primary);">For Families</h3>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <h3>Early Awareness</h3>
+                            <ul class="feature-list">
+                                <li>Spot patterns that might indicate digital wellness concerns</li>
+                                <li>Receive gentle notifications with context</li>
+                                <li>Get suggestions for family conversations and activities</li>
+                                <li>Access resources for different situations</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h3>Family-Centered Tools</h3>
+                            <ul class="feature-list">
+                                <li>Conversation guides for discussing digital habits</li>
+                                <li>Activity suggestions for offline time</li>
+                                <li>Progress tracking for family digital wellness goals</li>
+                                <li>Crisis resources and professional referrals when needed</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <h3>Transparent Insights</h3>
+                            <ul class="feature-list">
+                                <li>See what patterns the system is tracking</li>
+                                <li>Understand how recommendations are made</li>
+                                <li>Customize privacy and sharing settings</li>
+                                <li>Regular family check-ins with guided discussions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 4rem;">
+                    <h3 style="font-size: 2rem; margin-bottom: 2rem; text-align: center; color: var(--primary);">For Healthcare Providers</h3>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-stethoscope"></i>
+                            </div>
+                            <h3>Clinical Support Tools</h3>
+                            <ul class="feature-list">
+                                <li>Assessment tools that integrate with existing workflows</li>
+                                <li>Population-level insights (anonymized)</li>
+                                <li>Early warning systems for patients at risk</li>
+                                <li>Evidence-based intervention recommendations</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 style="font-size: 2rem; margin-bottom: 2rem; text-align: center; color: var(--primary);">For Educational Institutions</h3>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h3>School-Wide Support</h3>
+                            <ul class="feature-list">
+                                <li>Anonymous monitoring of student digital wellness trends</li>
+                                <li>Integration with existing counseling and support services</li>
+                                <li>Professional development for staff</li>
+                                <li>Parent and family engagement resources</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Security Page -->
+    <div id="security" class="page">
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Your Privacy is Our Priority</h2>
+                    <p class="section-subtitle">We believe privacy is fundamental to healthy family relationships and effective support.</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>Local Processing</h3>
+                        <ul class="feature-list">
+                            <li>Analysis happens on your devices, not on our servers</li>
+                            <li>Personal messages and content never leave your family's devices</li>
+                            <li>Only aggregate patterns are used to improve the system</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Industry Standards</h3>
+                        <ul class="feature-list">
+                            <li>Regular security audits by independent firms</li>
+                            <li>Encryption for all data transmission</li>
+                            <li>Strict access controls for any system components</li>
+                            <li>Compliance with relevant privacy regulations</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h3>Transparent Practices</h3>
+                        <ul class="feature-list">
+                            <li>Clear explanations of how the system works</li>
+                            <li>User control over all privacy settings</li>
+                            <li>Regular reports on privacy and security practices</li>
+                            <li>Independent oversight of our privacy commitments</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Research Page -->
+    <div id="research" class="page">
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">SafeGuardAI Research Institute</h2>
+                    <p class="section-subtitle">Advancing digital wellness through rigorous scientific research at the intersection of neuroscience, psychology, and AI.</p>
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <img src="research-lab.png" alt="Research and scientific collaboration" style="max-width: 100%; height: 200px; object-fit: cover; border-radius: 1rem;" onerror="this.style.display='none';">
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <img src="https://raw.githubusercontent.com/clarence1212/safeguardai-website-images/main/claudeimage/research-lab.png" alt="Research and scientific collaboration" style="max-width: 100%; height: 200px; object-fit: cover; border-radius: 1rem;" onload="console.log('Research image loaded successfully')" onerror="console.log('Research image failed to load'); this.style.display='block'; this.style.background='#e2e8f0'; this.style.textAlign='center'; this.style.lineHeight='200px'; this.innerHTML='Research Image Loading...';">
+                    </div>
+                </div>
+
+                <!-- Research Focus Areas -->
+                <div style="margin-bottom: 4rem;">
+                    <h3 style="font-size: 2rem; margin-bottom: 2rem; text-align: center; color: var(--primary);">Research Focus Areas</h3>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h3>Neuroplasticity & Digital Media</h3>
+                            <ul class="feature-list">
+                                <li>How digital technology influences adolescent brain development</li>
+                                <li>Neuroplastic changes during critical developmental windows</li>
+                                <li>Brain-based intervention timing optimization</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>Privacy-Preserving AI</h3>
+                            <ul class="feature-list">
+                                <li>Federated learning and edge computing for adolescent mental health</li>
+                                <li>COPPA and GDPR compliance architectures</li>
+                                <li>Developmental psychology-informed privacy systems</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-laptop-medical"></i>
+                            </div>
+                            <h3>Digital Therapeutics</h3>
+                            <ul class="feature-list">
+                                <li>Evidence-based therapy adaptations for digital platforms</li>
+                                <li>Video-first therapeutic delivery mechanisms</li>
+                                <li>Clinical effectiveness validation of digital interventions</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-stethoscope"></i>
+                            </div>
+                            <h3>Clinical Assessment Integration</h3>
+                            <ul class="feature-list">
+                                <li>Neuropsychological frameworks for digital wellness</li>
+                                <li>Brain development research integration with clinical practice</li>
+                                <li>Digital assessment tools and methodologies</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- White Papers Section -->
+                <div style="margin-bottom: 4rem;">
+                    <h3 style="font-size: 2rem; margin-bottom: 2rem; text-align: center; color: var(--primary);">White Papers</h3>
+                    <p style="text-align: center; margin-bottom: 2rem; color: var(--text-secondary);">Practical implementation guides and policy frameworks</p>
+                    
+                    <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
+                        <!-- White Paper 1 -->
+                        <div class="feature-card">
+                            <div class="feature-icon" style="background: var(--gradient);">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h3>Brain-Based AI for Adolescent Mental Health</h3>
+                            <p style="color: var(--secondary); margin-bottom: 0.5rem;">Implementation Guide for Technology Companies</p>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Practical framework for implementing neurodevelopmentally-informed AI systems</p>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <a href="https://clarence1212.github.io/safeguardai-whitepaper/papers/CWP-Brain-AI.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- White Paper 2 -->
+                        <div class="feature-card">
+                            <div class="feature-icon" style="background: var(--gradient);">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h3>Neuropsychological Digital Wellness Assessment</h3>
+                            <p style="color: var(--secondary); margin-bottom: 0.5rem;">Clinical Practice Integration Guide</p>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">First systematic integration of neuroscience research with clinical psychology assessment</p>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <a href="https://clarence1212.github.io/safeguardai-whitepaper/papers/CWP-Neuropsychological-Digital-Wellness-Assessment.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- White Paper 3 -->
+                        <div class="feature-card">
+                            <div class="feature-icon" style="background: var(--gradient);">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h3>Privacy by Psychology</h3>
+                            <p style="color: var(--secondary); margin-bottom: 0.5rem;">Developmental Privacy Technology Framework</p>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Psychology-informed privacy design based on developmental research</p>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <a href="https://clarence1212.github.io/safeguardai-whitepaper/papers/CWP-Privacy-by-Psychology.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- White Paper 4 -->
+                        <div class="feature-card">
+                            <div class="feature-icon" style="background: var(--gradient);">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h3>Brain Recovery Science</h3>
+                            <p style="color: var(--secondary); margin-bottom: 0.5rem;">Digital Interventions for Positive Brain Change</p>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Synthesis of neuroimaging studies on therapeutic brain changes in adolescents</p>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <a href="https://clarence1212.github.io/safeguardai-whitepaper/papers/WP-Brain-Recovery-Science.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- White Paper 5 -->
+                        <div class="feature-card">
+                            <div class="feature-icon" style="background: var(--gradient);">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h3>Digital Content and Teen Psychology</h3>
+                            <p style="color: var(--secondary); margin-bottom: 0.5rem;">Video Platforms and Mental Health Research</p>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Research synthesis on video-based social media effects on psychological development</p>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <a href="https://clarence1212.github.io/safeguardai-whitepaper/papers/WP-Digital-Content-and-Teen-Psychology.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- White Paper 6 -->
+                        <div class="feature-card">
+                            <div class="feature-icon" style="background: var(--gradient);">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h3>Evidence-Based Digital Therapy for Adolescents</h3>
+                            <p style="color: var(--secondary); margin-bottom: 0.5rem;">Video-First Mental Health Platform Guide</p>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Implementation guide for digital therapeutics targeting adolescent mental health</p>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <a href="https://clarence1212.github.io/safeguardai-whitepaper/papers/WP-Evidence.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- White Paper 7 -->
+                        <div class="feature-card">
+                            <div class="feature-icon" style="background: var(--gradient);">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h3>How Digital Media Reshapes Teen Brains</h3>
+                            <p style="color: var(--secondary); margin-bottom: 0.5rem;">Neuroscience Research for Parents and Educators</p>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Translation of brain research into practical insights for supporting healthy development</p>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <a href="https://clarence1212.github.io/safeguardai-whitepaper/papers/WP-How-Digital-Media-Reshapes-Teen-Brains.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- White Paper 8 -->
+                        <div class="feature-card">
+                            <div class="feature-icon" style="background: var(--gradient);">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h3>Privacy-Preserving AI for Teen Mental Health</h3>
+                            <p style="color: var(--secondary); margin-bottom: 0.5rem;">Technical Feasibility and Implementation</p>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Technical analysis of privacy-preserving AI architectures for adolescent applications</p>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <a href="https://clarence1212.github.io/safeguardai-whitepaper/papers/WP-Privacy.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- White Paper 9 -->
+                        <div class="feature-card">
+                            <div class="feature-icon" style="background: var(--gradient);">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h3>Scalable AI Architectures for Real-Time Assessment</h3>
+                            <p style="color: var(--secondary); margin-bottom: 0.5rem;">Implementation and Deployment Guide</p>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Technical deployment guide for scalable AI systems in adolescent mental health</p>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <a href="https://clarence1212.github.io/safeguardai-whitepaper/papers/WP-Scalable-AI-Architectures-for-Real.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Academic Papers Section -->
+                <div style="margin-bottom: 4rem;">
+                    <h3 style="font-size: 2rem; margin-bottom: 2rem; text-align: center; color: var(--primary);">Academic Papers</h3>
+                    <p style="text-align: center; margin-bottom: 2rem; color: var(--text-secondary);">Peer-reviewed research studies and systematic reviews</p>
+                    
+                    <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
+                        <!-- Academic Paper 1 -->
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <h3>Cognitive Rewiring Through Digital Interventions</h3>
+                            <p style="color: var(--primary); margin-bottom: 0.5rem;">Neural Mechanisms of Adolescent Brain Change</p>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Systematic review and meta-analysis of intervention neuroimaging studies</p>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <a href="https://clarence1212.github.io/safeguardai-academic-paper/papers/AP-Cognitive-Rewiring-Through-Digital-Intervention1.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Academic Paper 2 -->
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <h3>Digital Content Impact on Adolescent Psychology</h3>
+                            <p style="color: var(--primary); margin-bottom: 0.5rem;">Video-Based Social Media and Mental Health</p>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Narrative review examining psychological mechanisms in digital content</p>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <a href="https://clarence1212.github.io/safeguardai-academic-paper/papers/AP-Digital-Content-Impact-on-Adolescent-Psychology.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Academic Paper 3 -->
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <h3>Digital Intervention Psychology for Adolescents</h3>
+                            <p style="color: var(--primary); margin-bottom: 0.5rem;">Evidence-Based Therapy for Video-First Platforms</p>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Systematic review of digital therapy adaptations following PRISMA guidelines</p>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <a href="https://clarence1212.github.io/safeguardai-academic-paper/papers/AP-Digital-Intervention-Psychology-for-Adolescents.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Academic Paper 4 -->
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <h3>Neuroplasticity and Digital Media</h3>
+                            <p style="color: var(--primary); margin-bottom: 0.5rem;">Brain Development and Adolescent Mental Health</p>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Systematic review and meta-analysis of neuroimaging studies</p>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <a href="https://clarence1212.github.io/safeguardai-academic-paper/papers/AP-Neuroplasticity-and-Digita-Media.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Academic Paper 5 -->
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <h3>Privacy-Preserving AI Technical Analysis</h3>
+                            <p style="color: var(--primary); margin-bottom: 0.5rem;">Federated Learning and Edge Computing Performance</p>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Systematic technical analysis of privacy-preserving AI architectures</p>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <a href="https://clarence1212.github.io/safeguardai-academic-paper/papers/AP-Privacy.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Academic Paper 6 -->
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <h3>Scalable AI Architectures Performance Analysis</h3>
+                            <p style="color: var(--primary); margin-bottom: 0.5rem;">Real-Time Mental Health Assessment Systems</p>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Systematic analysis of scalable AI architectures for real-time assessment</p>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <a href="https://clarence1212.github.io/safeguardai-academic-paper/papers/AP-Scalable-AI-Architectures-for-Real.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Clinical Assessment Papers Section -->
+                <div style="margin-bottom: 4rem;">
+                    <h3 style="font-size: 2rem; margin-bottom: 2rem; text-align: center; color: var(--primary);">Clinical Assessment Papers</h3>
+                    <p style="text-align: center; margin-bottom: 2rem; color: var(--text-secondary);">Clinical integration frameworks and assessment methodologies</p>
+                    
+                    <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
+                        <!-- Clinical Paper 1 -->
+                        <div class="feature-card">
+                            <div class="feature-icon" style="background: var(--secondary);">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                            <h3>Neuropsychological Digital Assessment</h3>
+                            <p style="color: var(--primary); margin-bottom: 0.5rem;">Brain Development Research in Clinical Evaluation</p>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">First integrated neuropsychological framework for digital wellness assessment</p>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <a href="https://clarence1212.github.io/safeguardai-academic-paper/papers/CAP-Neuropsychological-Digital-Assessment.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Clinical Paper 2 -->
+                        <div class="feature-card">
+                            <div class="feature-icon" style="background: var(--secondary);">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                            <h3>Privacy by Psychology Framework</h3>
+                            <p style="color: var(--primary); margin-bottom: 0.5rem;">AI Systems Respecting Adolescent Autonomy</p>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Psychology-informed privacy framework for healthy autonomy development</p>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <a href="https://clarence1212.github.io/safeguardai-academic-paper/papers/CAP-Privacy-by-Psychology1.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Clinical Paper 3 -->
+                        <div class="feature-card">
+                            <div class="feature-icon" style="background: var(--secondary);">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                            <h3>Neurodevelopmentally-Informed AI Systems</h3>
+                            <p style="color: var(--primary); margin-bottom: 0.5rem;">Age-Appropriate Digital Mental Health Technologies</p>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Theoretical framework for AI systems aligned with brain development</p>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <a href="https://clarence1212.github.io/safeguardai-academic-paper/papers/CAP-Toward-Neurodevelopmentally.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Clinical Paper 4 -->
+                        <div class="feature-card">
+                            <div class="feature-icon" style="background: var(--secondary);">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                            <h3>Unified Digital Wellness Framework</h3>
+                            <p style="color: var(--primary); margin-bottom: 0.5rem;">Psychology, Neuroscience, and AI Integration</p>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Comprehensive framework synthesizing research across multiple domains</p>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <a href="https://clarence1212.github.io/safeguardai-academic-paper/papers/CAP-Unified-Digital-Wellness-Framework.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Research Contact -->
+                <div style="background: var(--bg-light); padding: 3rem; border-radius: 1rem; text-align: center;">
+                    <h3 style="margin-bottom: 1rem; color: var(--primary);">Research Collaboration</h3>
+                    <p style="margin-bottom: 2rem; color: var(--text-secondary);">
+                        SafeGuardAI Research Institute welcomes collaboration with academic institutions, healthcare organizations, and researchers advancing digital wellness science.
+                    </p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem;">
+                        <div>
+                            <strong>Lead Researcher:</strong><br>
+                            Elias Kairos Chen, PhD<br>
+                            e.chen@safeguardai.com
+                        </div>
+                        <div>
+                            <strong>Research Email:</strong><br>
+                            research@safeguardai.com<br>
+                            research@safeguardai.org
+                        </div>
+                    <div style="text-align: center; margin-top: 3rem;">
+                        <h4 style="color: var(--primary); margin-bottom: 1rem;">Our Singapore Office</h4>
+                        <img src="singapore-office.png" alt="SafeGuardAI Research Institute Office in Singapore" style="max-width: 100%; height: 200px; object-fit: cover; border-radius: 1rem; margin-bottom: 1rem;" onerror="this.style.display='none';">
+                        <p>
+                            <strong>Institute Address:</strong><br>
+                            13 Stamford Rd, #02-11-26<br>
+                            Capitol Singapore 178905
+                        </p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Solutions Page -->
+    <div id="solutions" class="page">
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Real Impact in Real Communities</h2>
+                    <p class="section-subtitle">Success stories from healthcare providers, schools, and families who have found value in our approach.</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-hospital"></i>
+                        </div>
+                        <h3>Community Health Center</h3>
+                        <p style="margin-bottom: 1rem;"><strong>Situation:</strong> A community health center wanted better ways to support teen patients between appointments.</p>
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Results:</h4>
+                        <ul class="feature-list">
+                            <li>Earlier identification of patients who might benefit from additional support</li>
+                            <li>Improved patient engagement between appointments</li>
+                            <li>Better family communication about digital wellness</li>
+                            <li>Positive feedback from both teens and parents</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-school"></i>
+                        </div>
+                        <h3>School District Pilot</h3>
+                        <p style="margin-bottom: 1rem;"><strong>Situation:</strong> Mid-sized school district piloted digital wellness monitoring with interested families.</p>
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Results:</h4>
+                        <ul class="feature-list">
+                            <li>Participating families reported improved communication about technology use</li>
+                            <li>Earlier identification of students who might benefit from counseling support</li>
+                            <li>Positive reception from both parents and students</li>
+                            <li>Expansion to additional schools in the district</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- About Page -->
+    <div id="about" class="page">
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Our Mission and Team</h2>
+                    <p class="section-subtitle">SafeGuardAI was founded to help families navigate digital life in a healthy, balanced way.</p>
+                </div>
+
+                <div style="margin-bottom: 4rem; text-align: center;">
+                    <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
+                        We believe technology should support family relationships, not strain them. Our team combines expertise in technology, psychology, and family wellness to create tools that are both effective and respectful of privacy and family autonomy.
+                    </p>
+                </div>
+
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-avatar">EC</div>
+                        <div class="team-name">Elias Kairos Chen, PhD</div>
+                        <div class="team-role">Founder & CEO</div>
+                        <div class="team-bio">Background in computer science and privacy-preserving technology. Experience in healthcare technology applications and advocate for responsible AI development.</div>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-avatar">VT</div>
+                        <div class="team-name">Victoria Tan</div>
+                        <div class="team-role">Research Director</div>
+                        <div class="team-bio">Background in psychology with focus on digital behavior. Experience in research on technology and youth development.</div>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-avatar">KG</div>
+                        <div class="team-name">Dr. Kristina Garcia-Tan, MD</div>
+                        <div class="team-role">Medical Advisor</div>
+                        <div class="team-bio">Practicing neurologist with experience in adolescent care. Advisor on clinical applications and ethical considerations.</div>
+                    </div>
+                </div>
+
+                <div style="background: var(--bg-light); padding: 3rem; border-radius: 1.5rem; text-align: center; margin-top: 4rem; position: relative;">
+                    <div style="position: absolute; top: -30px; left: 50%; transform: translateX(-50%); background: var(--white); padding: 1rem 2rem; border-radius: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                        <span style="font-size: 2rem;">✨</span>
+                    </div>
+                    <h3 style="margin-bottom: 2rem; color: var(--primary); margin-top: 1rem;">Our Values & Approach</h3>
+                    <div class="features-grid">
+                        <div style="text-align: center;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">🔒</div>
+                            <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Privacy & Trust</h4>
+                            <p style="color: var(--text-secondary);">We believe privacy is fundamental to healthy family relationships and effective support.</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">🧠</div>
+                            <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Evidence-Based</h4>
+                            <p style="color: var(--text-secondary);">Our recommendations are based on established research and best practices.</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">🤝</div>
+                            <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Family-Centered</h4>
+                            <p style="color: var(--text-secondary);">Families know their needs best; our role is to provide helpful information and tools.</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">⚡</div>
+                            <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Responsible Innovation</h4>
+                            <p style="color: var(--text-secondary);">We develop technology thoughtfully, with careful attention to potential impacts.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Resources Page -->
+    <div id="resources" class="page">
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Getting the Most from SafeGuardAI</h2>
+                    <p class="section-subtitle">Educational resources and support materials for families and professionals.</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>Getting Started Guides</h3>
+                        <ul class="feature-list">
+                            <li>Setting up SafeGuardAI with your family</li>
+                            <li>Having productive conversations about digital wellness</li>
+                            <li>Understanding your privacy settings</li>
+                            <li>Making the most of insights and recommendations</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Ongoing Support</h3>
+                        <ul class="feature-list">
+                            <li>Regular webinars on digital wellness topics</li>
+                            <li>Community forum for families using SafeGuardAI</li>
+                            <li>Resource library with articles and research summaries</li>
+                            <li>Direct support when you have questions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-stethoscope"></i>
+                        </div>
+                        <h3>For Healthcare Providers</h3>
+                        <ul class="feature-list">
+                            <li>Integration guides for clinical workflows</li>
+                            <li>Training materials for staff</li>
+                            <li>Research summaries and evidence base</li>
+                            <li>Compliance and privacy documentation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>For Educators</h3>
+                        <ul class="feature-list">
+                            <li>School implementation guides</li>
+                            <li>Professional development materials</li>
+                            <li>Parent engagement resources</li>
+                            <li>Student privacy considerations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page">
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Get Started or Learn More</h2>
+                    <p class="section-subtitle">We offer a free 30-day trial for families, with no commitment required. We're also happy to answer questions or provide demonstrations.</p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 3rem; margin-bottom: 4rem;">
+                    <div class="feature-card">
+                        <h3 style="color: var(--primary); margin-bottom: 1rem;">Ready to Try SafeGuardAI?</h3>
+                        <p style="margin-bottom: 1.5rem;">Experience how SafeGuardAI can help your family create healthier digital habits while respecting privacy and building trust.</p>
+                        
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">What You'll Get:</h4>
+                        <ul class="feature-list">
+                            <li>Free 30-day trial with full access</li>
+                            <li>Family consultation to discuss your needs</li>
+                            <li>Expert onboarding support</li>
+                            <li>Cancel anytime, no commitment</li>
+                        </ul>
+                        
+                        <div style="margin-top: 1.5rem;">
+                            <div class="btn btn-primary" style="margin-right: 1rem; margin-bottom: 1rem;">Start Free Trial</div>
+                            <div class="btn btn-secondary" style="margin-bottom: 1rem;">Schedule Consultation</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form">
+                        <h3 style="margin-bottom: 1.5rem; text-align: center;">Contact Us</h3>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Full Name *</label>
+                            <input type="text" class="form-input" placeholder="Enter your full name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Email Address *</label>
+                            <input type="email" class="form-input" placeholder="Enter your email address" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">I'm interested in SafeGuardAI for:</label>
+                            <select class="form-input">
+                                <option>Select an option</option>
+                                <option>My family</option>
+                                <option>Healthcare practice</option>
+                                <option>School or educational institution</option>
+                                <option>Research collaboration</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">How can we help you?</label>
+                            <textarea class="form-input form-textarea" placeholder="Tell us about your specific needs and goals..."></textarea>
+                        </div>
+                        
+                        <button class="btn btn-primary" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </div>
+                </div>
+
+                <div style="background: var(--bg-light); padding: 3rem; border-radius: 1rem;">
+                    <h3 style="text-align: center; margin-bottom: 2rem; color: var(--primary);">Contact Information</h3>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h4>General Inquiries</h4>
+                            <p>hello@safeguardai.com</p>
+                            <p>+65 6123 4567 (Singapore)</p>
+                            <p>+1 855 SAFEGUARD (US/Canada)</p>
+                        </div>
+                        
+                        <div style="text-align: center;">
+                            <div style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;">
+                                <i class="fas fa-life-ring"></i>
+                            </div>
+                            <h4>Support</h4>
+                            <p>support@safeguardai.com</p>
+                            <p>Technical questions and assistance</p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 3rem; text-align: center;">
+                        <h4 style="color: var(--primary); margin-bottom: 1rem;">Office Location</h4>
+                        <p>
+                            <strong>Singapore Headquarters</strong><br>
+                            13 Stamford Rd<br>
+                            Capitol Singapore 178905
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="page">
+        <div class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Simple, Transparent Pricing</h2>
+                    <p class="section-subtitle">Choose the plan that fits your needs. All plans include privacy-first architecture and family-friendly design.</p>
+                </div>
+
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <div class="pricing-name">Basic Plan</div>
+                        <div class="pricing-price">Free</div>
+                        <ul class="pricing-features">
+                            <li>Up to 2 family members</li>
+                            <li>Basic digital wellness insights</li>
+                            <li>Weekly reports</li>
+                            <li>Email support</li>
+                        </ul>
+                        <div class="btn btn-secondary" style="width: 100%;">Get Started Free</div>
+                    </div>
+                    
+                    <div class="pricing-card featured">
+                        <div class="pricing-badge">Most Popular</div>
+                        <div class="pricing-name">Family Plan</div>
+                        <div class="pricing-price">$25<span class="period">/month</span></div>
+                        <ul class="pricing-features">
+                            <li>Up to 5 family members</li>
+                            <li>Real-time insights and alerts</li>
+                            <li>Personalized recommendations</li>
+                            <li>Priority support</li>
+                            <li>Family communication tools</li>
+                            <li>Advanced privacy controls</li>
+                        </ul>
+                        <div class="btn btn-primary" style="width: 100%;">Start Free Trial</div>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <div class="pricing-name">Extended Family Plan</div>
+                        <div class="pricing-price">$40<span class="period">/month</span></div>
+                        <ul class="pricing-features">
+                            <li>Unlimited family members</li>
+                            <li>Advanced analytics</li>
+                            <li>Professional consultation access</li>
+                            <li>Custom reporting</li>
+                            <li>Healthcare provider integration</li>
+                            <li>Dedicated support specialist</li>
+                        </ul>
+                        <div class="btn btn-secondary" style="width: 100%;">Contact Us</div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: var(--bg-light); border-radius: 1rem;">
+                    <p style="margin-bottom: 1rem;">For schools, healthcare providers, and organizations, we offer custom pricing based on your specific needs and population size.</p>
+                    <div class="btn btn-secondary" onclick="showPage('contact')">Contact Us for Custom Pricing</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>How It Works</h3>
+                    <ul class="footer-links">
+                        <li><a onclick="showPage('technology')">Technology</a></li>
+                        <li><a onclick="showPage('features')">Features</a></li>
+                        <li><a onclick="showPage('security')">Safety</a></li>
+                        <li><a onclick="showPage('pricing')">Pricing</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Research</h3>
+                    <ul class="footer-links">
+                        <li><a onclick="showPage('research')">Studies</a></li>
+                        <li><a onclick="showPage('research')">Insights</a></li>
+                        <li><a onclick="showPage('solutions')">Success Stories</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Solutions</h3>
+                    <ul class="footer-links">
+                        <li><a onclick="showPage('solutions')">For Families</a></li>
+                        <li><a onclick="showPage('solutions')">For Healthcare</a></li>
+                        <li><a onclick="showPage('solutions')">For Education</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a onclick="showPage('resources')">Guides</a></li>
+                        <li><a onclick="showPage('resources')">Support</a></li>
+                        <li><a onclick="showPage('resources')">Community</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a onclick="showPage('about')">About Us</a></li>
+                        <li><a onclick="showPage('about')">Team</a></li>
+                        <li><a onclick="showPage('contact')">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 SafeGuardAI Research Institute. All rights reserved.</p>
+                <p style="margin-top: 0.5rem; font-style: italic;">"Technology that supports families, respects privacy, and promotes healthy digital habits."</p>
+                
+                <div class="trust-badges">
+                    <div class="trust-badge">Privacy & security certified</div>
+                    <div class="trust-badge">Compliant with child protection regulations</div>
+                    <div class="trust-badge">Regular independent audits</div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script>
         // Wait for DOM to be fully loaded
@@ -1075,9 +2081,82 @@
                 }
             });
 
+            // Accessibility improvements
+            document.addEventListener('keydown', function(e) {
+                try {
+                    if (e.key === 'Escape') {
+                        const navMenu = document.getElementById('nav-menu');
+                        if (navMenu && navMenu.classList) {
+                            navMenu.classList.remove('active');
+                        }
+                    }
+                } catch (error) {
+                    console.log('Keydown error:', error);
+                }
+            });
+
+            // Test JavaScript image loading
+            const jsContainer = document.getElementById('js-image-container');
+            if (jsContainer) {
+                const img = new Image();
+                img.crossOrigin = 'anonymous';
+                img.onload = function() {
+                    jsContainer.innerHTML = '';
+                    img.style.maxWidth = '200px';
+                    img.style.height = '80px';
+                    img.style.objectFit = 'cover';
+                    img.style.borderRadius = '0.5rem';
+                    jsContainer.appendChild(img);
+                    const status = document.createElement('p');
+                    status.innerHTML = '✅ JavaScript method works';
+                    status.style.color = 'green';
+                    status.style.margin = '0.5rem 0 0 0';
+                    status.style.fontWeight = 'bold';
+                    status.style.fontSize = '0.9rem';
+                    jsContainer.appendChild(status);
+                };
+                img.onerror = function() {
+                    jsContainer.innerHTML = '<p style="margin: 0; font-weight: bold; font-size: 0.9rem; color: red;">❌ JavaScript method failed</p>';
+                };
+                img.src = 'https://raw.githubusercontent.com/clarence1212/safeguardai-website-images/main/claudeimage/hero-bg.png';
+            }
+            
             // Initialize home page
             showPage('home');
+            
+            // Progressive enhancement check
+            try {
+                if (!CSS.supports('backdrop-filter', 'blur(20px)')) {
+                    const navbar = document.querySelector('.navbar');
+                    if (navbar) {
+                        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                    }
+                }
+            } catch (error) {
+                console.log('CSS support error:', error);
+            }
+        });
+
+        // Animation on scroll (simplified)
+        window.addEventListener('scroll', function() {
+            try {
+                const elements = document.querySelectorAll('.feature-card, .stat-card, .team-card, .pricing-card');
+                elements.forEach(element => {
+                    if (element && element.getBoundingClientRect) {
+                        const elementTop = element.getBoundingClientRect().top;
+                        const elementVisible = 150;
+                        
+                        if (elementTop < window.innerHeight - elementVisible && element.classList) {
+                            element.classList.add('animate-on-scroll');
+                        }
+                    }
+                });
+            } catch (error) {
+                console.log('Scroll animation error:', error);
+            }
         });
     </script>
+</body>
+</html>
 </body>
 </html>
