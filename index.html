@@ -215,7 +215,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%), url('hero-bg.png');
             background-size: cover;
             background-position: center;
             color: var(--white);
@@ -396,35 +396,6 @@
             font-weight: bold;
         }
 
-        /* Stats Grid */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .stat-card {
-            text-align: center;
-            padding: 2rem;
-            background: var(--white);
-            border-radius: 1rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            display: block;
-        }
-
-        .stat-label {
-            color: var(--text-secondary);
-            margin-top: 0.5rem;
-            font-size: 0.9rem;
-        }
-
         /* Team Grid */
         .team-grid {
             display: grid;
@@ -445,15 +416,19 @@
         .team-avatar {
             width: 100px;
             height: 100px;
-            background: var(--gradient);
             border-radius: 50%;
             margin: 0 auto 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--white);
-            font-size: 1.5rem;
-            font-weight: bold;
+            overflow: hidden;
+            border: 3px solid var(--primary);
+        }
+
+        .team-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .team-name {
@@ -470,83 +445,6 @@
         .team-bio {
             color: var(--text-secondary);
             font-size: 0.9rem;
-        }
-
-        /* Pricing Cards */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .pricing-card {
-            background: var(--white);
-            border: 2px solid var(--border);
-            border-radius: 1rem;
-            padding: 2rem;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .pricing-card.featured {
-            border-color: var(--primary);
-            transform: scale(1.05);
-        }
-
-        .pricing-card:hover {
-            border-color: var(--primary);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .pricing-badge {
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--gradient-2);
-            color: var(--white);
-            padding: 0.5rem 1rem;
-            border-radius: 2rem;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .pricing-name {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .pricing-price {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .pricing-price .period {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            font-weight: 400;
-        }
-
-        .pricing-features {
-            list-style: none;
-            margin: 1.5rem 0;
-        }
-
-        .pricing-features li {
-            padding: 0.5rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .pricing-features li::before {
-            content: '✓';
-            color: var(--secondary);
-            font-weight: bold;
         }
 
         /* Contact Form */
@@ -721,10 +619,6 @@
 
             .section-title {
                 font-size: 2rem;
-            }
-
-            .pricing-card.featured {
-                transform: none;
             }
 
             .container {
@@ -902,7 +796,7 @@
                             <p class="quote-author">- Parent feedback</p>
                         </div>
                         <div style="flex: 0 0 200px;">
-                            <img src="family-conversation.png" alt="Family having a positive conversation about technology" style="width: 100%; height: 150px; object-fit: cover; border-radius: 0.5rem;" onerror="this.style.display='none';">
+                            <img src="family-conversation.png" alt="Family having a positive conversation about technology" style="width: 100%; height: 150px; object-fit: cover; border-radius: 0.5rem; border: 2px solid #2563eb;" onerror="this.style.display='none';">
                         </div>
                     </div>
                 </div>
@@ -1176,12 +1070,9 @@
                 <div class="section-header">
                     <h2 class="section-title">SafeGuardAI Research Institute</h2>
                     <p class="section-subtitle">Advancing digital wellness through rigorous scientific research at the intersection of neuroscience, psychology, and AI.</p>
-                    <div style="text-align: center; margin-top: 2rem;">
-                        <img src="research-lab.png" alt="Research and scientific collaboration" style="max-width: 100%; height: 200px; object-fit: cover; border-radius: 1rem;" onerror="this.style.display='none';">
-                    </div>
                     
                     <div style="text-align: center; margin-top: 2rem;">
-                        <img src="https://raw.githubusercontent.com/clarence1212/safeguardai-website-images/main/claudeimage/research-lab.png" alt="Research and scientific collaboration" style="max-width: 100%; height: 200px; object-fit: cover; border-radius: 1rem;" onload="console.log('Research image loaded successfully')" onerror="console.log('Research image failed to load'); this.style.display='block'; this.style.background='#e2e8f0'; this.style.textAlign='center'; this.style.lineHeight='200px'; this.innerHTML='Research Image Loading...';">
+                        <img src="research-lab.png" alt="Research and scientific collaboration" style="max-width: 100%; height: 200px; object-fit: cover; border-radius: 1rem;" onerror="this.style.display='none';">
                     </div>
                 </div>
 
@@ -1641,21 +1532,27 @@
 
                 <div class="team-grid">
                     <div class="team-card">
-                        <div class="team-avatar">EC</div>
+                        <div class="team-avatar">
+                            <img src="team-elias.png" alt="Elias Kairos Chen, PhD" onerror="this.parentElement.innerHTML='<div style=\'background: var(--gradient); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: bold; border-radius: 50%;\'>EC</div>';">
+                        </div>
                         <div class="team-name">Elias Kairos Chen, PhD</div>
                         <div class="team-role">Founder & CEO</div>
                         <div class="team-bio">Background in computer science and privacy-preserving technology. Experience in healthcare technology applications and advocate for responsible AI development.</div>
                     </div>
                     
                     <div class="team-card">
-                        <div class="team-avatar">VT</div>
+                        <div class="team-avatar">
+                            <img src="team-victoria.png" alt="Victoria Tan" onerror="this.parentElement.innerHTML='<div style=\'background: var(--gradient); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: bold; border-radius: 50%;\'>VT</div>';">
+                        </div>
                         <div class="team-name">Victoria Tan</div>
                         <div class="team-role">Research Director</div>
                         <div class="team-bio">Background in psychology with focus on digital behavior. Experience in research on technology and youth development.</div>
                     </div>
                     
                     <div class="team-card">
-                        <div class="team-avatar">KG</div>
+                        <div class="team-avatar">
+                            <img src="team-kristina.png" alt="Dr. Kristina Garcia-Tan, MD" onerror="this.parentElement.innerHTML='<div style=\'background: var(--gradient); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: bold; border-radius: 50%;\'>KG</div>';">
+                        </div>
                         <div class="team-name">Dr. Kristina Garcia-Tan, MD</div>
                         <div class="team-role">Medical Advisor</div>
                         <div class="team-bio">Practicing neurologist with experience in adolescent care. Advisor on clinical applications and ethical considerations.</div>
@@ -1862,66 +1759,6 @@
         </section>
     </div>
 
-    <!-- Pricing Section -->
-    <section id="pricing" class="page">
-        <div class="section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Simple, Transparent Pricing</h2>
-                    <p class="section-subtitle">Choose the plan that fits your needs. All plans include privacy-first architecture and family-friendly design.</p>
-                </div>
-
-                <div class="pricing-grid">
-                    <div class="pricing-card">
-                        <div class="pricing-name">Basic Plan</div>
-                        <div class="pricing-price">Free</div>
-                        <ul class="pricing-features">
-                            <li>Up to 2 family members</li>
-                            <li>Basic digital wellness insights</li>
-                            <li>Weekly reports</li>
-                            <li>Email support</li>
-                        </ul>
-                        <div class="btn btn-secondary" style="width: 100%;">Get Started Free</div>
-                    </div>
-                    
-                    <div class="pricing-card featured">
-                        <div class="pricing-badge">Most Popular</div>
-                        <div class="pricing-name">Family Plan</div>
-                        <div class="pricing-price">$25<span class="period">/month</span></div>
-                        <ul class="pricing-features">
-                            <li>Up to 5 family members</li>
-                            <li>Real-time insights and alerts</li>
-                            <li>Personalized recommendations</li>
-                            <li>Priority support</li>
-                            <li>Family communication tools</li>
-                            <li>Advanced privacy controls</li>
-                        </ul>
-                        <div class="btn btn-primary" style="width: 100%;">Start Free Trial</div>
-                    </div>
-                    
-                    <div class="pricing-card">
-                        <div class="pricing-name">Extended Family Plan</div>
-                        <div class="pricing-price">$40<span class="period">/month</span></div>
-                        <ul class="pricing-features">
-                            <li>Unlimited family members</li>
-                            <li>Advanced analytics</li>
-                            <li>Professional consultation access</li>
-                            <li>Custom reporting</li>
-                            <li>Healthcare provider integration</li>
-                            <li>Dedicated support specialist</li>
-                        </ul>
-                        <div class="btn btn-secondary" style="width: 100%;">Contact Us</div>
-                    </div>
-                </div>
-
-                <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: var(--bg-light); border-radius: 1rem;">
-                    <p style="margin-bottom: 1rem;">For schools, healthcare providers, and organizations, we offer custom pricing based on your specific needs and population size.</p>
-                    <div class="btn btn-secondary" onclick="showPage('contact')">Contact Us for Custom Pricing</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -1932,7 +1769,7 @@
                         <li><a onclick="showPage('technology')">Technology</a></li>
                         <li><a onclick="showPage('features')">Features</a></li>
                         <li><a onclick="showPage('security')">Safety</a></li>
-                        <li><a onclick="showPage('pricing')">Pricing</a></li>
+                        <li><a onclick="showPage('contact')">Pricing</a></li>
                     </ul>
                 </div>
                 
@@ -2094,32 +1931,6 @@
                     console.log('Keydown error:', error);
                 }
             });
-
-            // Test JavaScript image loading
-            const jsContainer = document.getElementById('js-image-container');
-            if (jsContainer) {
-                const img = new Image();
-                img.crossOrigin = 'anonymous';
-                img.onload = function() {
-                    jsContainer.innerHTML = '';
-                    img.style.maxWidth = '200px';
-                    img.style.height = '80px';
-                    img.style.objectFit = 'cover';
-                    img.style.borderRadius = '0.5rem';
-                    jsContainer.appendChild(img);
-                    const status = document.createElement('p');
-                    status.innerHTML = '✅ JavaScript method works';
-                    status.style.color = 'green';
-                    status.style.margin = '0.5rem 0 0 0';
-                    status.style.fontWeight = 'bold';
-                    status.style.fontSize = '0.9rem';
-                    jsContainer.appendChild(status);
-                };
-                img.onerror = function() {
-                    jsContainer.innerHTML = '<p style="margin: 0; font-weight: bold; font-size: 0.9rem; color: red;">❌ JavaScript method failed</p>';
-                };
-                img.src = 'https://raw.githubusercontent.com/clarence1212/safeguardai-website-images/main/claudeimage/hero-bg.png';
-            }
             
             // Initialize home page
             showPage('home');
@@ -2140,7 +1951,7 @@
         // Animation on scroll (simplified)
         window.addEventListener('scroll', function() {
             try {
-                const elements = document.querySelectorAll('.feature-card, .stat-card, .team-card, .pricing-card');
+                const elements = document.querySelectorAll('.feature-card, .team-card');
                 elements.forEach(element => {
                     if (element && element.getBoundingClientRect) {
                         const elementTop = element.getBoundingClientRect().top;
