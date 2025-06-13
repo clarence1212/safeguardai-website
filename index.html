@@ -7,10 +7,12 @@
     <meta name="description" content="Helping families navigate digital life together. Supporting healthy digital habits for teens and young adults while keeping personal information private.">
     
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Icons -->
+    <!-- Icons - Multiple Sources for Better Compatibility -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css">
     
     <style>
         * {
@@ -20,26 +22,133 @@
         }
 
         :root {
-            --primary: #2563eb;
-            --primary-dark: #1e40af;
-            --secondary: #10b981;
-            --accent: #f59e0b;
-            --bg-light: #f8fafc;
-            --bg-dark: #0f172a;
-            --text-primary: #1e293b;
-            --text-secondary: #64748b;
-            --border: #e2e8f0;
+            --primary: #0F172A;
+            --primary-light: #1E293B;
+            --secondary: #3B82F6;
+            --accent: #10B981;
+            --accent-light: #34D399;
+            --bg-dark: #000000;
+            --bg-light: #F1F5F9;
+            --bg-glass: rgba(255, 255, 255, 0.1);
+            --text-primary: #0F172A;
+            --text-secondary: #334155;
+            --text-light: #64748B;
+            --border: #E2E8F0;
             --white: #ffffff;
             --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-2: linear-gradient(135deg, #2563eb 0%, #10b981 100%);
+            --gradient-2: linear-gradient(135deg, #0F172A 0%, #3B82F6 50%, #10B981 100%);
+            --gradient-3: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+            --gradient-hero: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(59, 130, 246, 0.8) 50%, rgba(16, 185, 129, 0.7) 100%);
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Space Grotesk', 'Inter', sans-serif;
             line-height: 1.6;
             color: var(--text-primary);
             background: var(--white);
             overflow-x: hidden;
+            font-weight: 500;
+        }
+
+        /* Fallback icons using Unicode symbols */
+        .icon-fallback-rocket::before { content: "🚀"; }
+        .icon-fallback-info::before { content: "ℹ️"; }
+        .icon-fallback-envelope::before { content: "✉️"; }
+        .icon-fallback-book::before { content: "📚"; }
+        .icon-fallback-play::before { content: "▶️"; }
+        .icon-fallback-calendar::before { content: "📅"; }
+        .icon-fallback-download::before { content: "⬇️"; }
+        .icon-fallback-eye::before { content: "👁️"; }
+        .icon-fallback-bookmark::before { content: "🔖"; }
+        .icon-fallback-share::before { content: "🔗"; }
+        .icon-fallback-phone::before { content: "📞"; }
+        .icon-fallback-handshake::before { content: "🤝"; }
+        .icon-fallback-send::before { content: "✈️"; }
+        .icon-fallback-microscope::before { content: "🔬"; }
+        .icon-fallback-brain::before { content: "🧠"; }
+        .icon-fallback-shield::before { content: "🛡️"; }
+
+        /* Advanced background patterns */
+        .bg-pattern-grid {
+            background-image: 
+                linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        .bg-pattern-dots {
+            background-image: radial-gradient(circle, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .bg-pattern-circuit {
+            background-image: 
+                linear-gradient(90deg, rgba(16, 185, 129, 0.1) 50%, transparent 50%),
+                linear-gradient(rgba(59, 130, 246, 0.1) 50%, transparent 50%);
+            background-size: 100px 100px, 60px 60px;
+        }
+
+        /* Glass morphism utility */
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .glass-dark {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Professional AI/Tech Icons */
+        .tech-icon {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tech-icon::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            background: conic-gradient(from 0deg, rgba(59, 130, 246, 0.2), rgba(16, 185, 129, 0.2), rgba(59, 130, 246, 0.2));
+            border-radius: inherit;
+            animation: rotate 3s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Neural network animation */
+        .neural-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.3) 2px, transparent 2px),
+                radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.3) 2px, transparent 2px),
+                radial-gradient(circle at 40% 60%, rgba(59, 130, 246, 0.3) 2px, transparent 2px),
+                radial-gradient(circle at 70% 80%, rgba(16, 185, 129, 0.3) 2px, transparent 2px);
+            background-size: 200px 200px;
+            animation: neuralPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes neuralPulse {
+            0%, 100% { opacity: 0.1; }
+            50% { opacity: 0.2; }
         }
 
         /* Navigation */
@@ -93,7 +202,7 @@
         .nav-link {
             text-decoration: none;
             color: var(--text-primary);
-            font-weight: 500;
+            font-weight: 600;
             padding: 0.5rem 1rem;
             border-radius: 0.5rem;
             transition: all 0.3s ease;
@@ -152,8 +261,9 @@
             align-items: center;
         }
 
+        /* Enhanced button styles with better icon spacing */
         .btn {
-            padding: 0.75rem 1.5rem;
+            padding: 1rem 2rem;
             border-radius: 0.75rem;
             text-decoration: none;
             font-weight: 600;
@@ -162,28 +272,78 @@
             cursor: pointer;
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .btn i {
+            font-size: 0.9em;
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover i {
+            transform: translateX(2px);
+        }
+
+        /* Special button animations */
+        .btn-primary:hover i {
+            animation: iconBounce 0.6s ease;
+        }
+
+        .btn-secondary:hover i {
+            animation: iconPulse 0.6s ease;
+        }
+
+        @keyframes iconBounce {
+            0%, 100% { transform: translateX(2px) translateY(0); }
+            50% { transform: translateX(2px) translateY(-3px); }
+        }
+
+        @keyframes iconPulse {
+            0%, 100% { transform: translateX(2px) scale(1); }
+            50% { transform: translateX(2px) scale(1.1); }
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
         }
 
         .btn-primary {
             background: var(--gradient-2);
             color: var(--white);
+            box-shadow: var(--shadow-lg);
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.4);
         }
 
         .btn-secondary {
-            background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
         }
 
         .btn-secondary:hover {
-            background: var(--primary);
-            color: var(--white);
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
         }
 
         /* Mobile Menu */
@@ -215,42 +375,129 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%), url('hero-bg.png');
-            background-size: cover;
-            background-position: center;
+            background: 
+                var(--gradient-hero),
+                radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.15) 0%, transparent 50%),
+                linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(15, 23, 42, 0.6) 100%),
+                url('https://clarence1212.github.io/safeguardai-website-images/claudeimage/hero-bg.png');
+            background-size: cover, 800px 800px, 600px 600px, cover, cover;
+            background-position: center, 0% 50%, 100% 20%, center, center;
+            background-attachment: fixed;
             color: var(--white);
-            padding: 6rem 0;
+            padding: 8rem 0;
             position: relative;
             overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(45deg, transparent 30%, rgba(59, 130, 246, 0.1) 50%, transparent 70%),
+                linear-gradient(-45deg, transparent 30%, rgba(16, 185, 129, 0.1) 50%, transparent 70%);
+            background-size: 200px 200px, 150px 150px;
+            animation: backgroundShift 20s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes backgroundShift {
+            0%, 100% { 
+                background-position: 0% 0%, 100% 100%; 
+                opacity: 0.3;
+            }
+            50% { 
+                background-position: 100% 100%, 0% 0%; 
+                opacity: 0.6;
+            }
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 100px 100px, 150px 150px, 80px 80px;
+            animation: floatingDots 15s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes floatingDots {
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-20px) rotate(360deg); }
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
             text-align: center;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+            letter-spacing: -0.025em;
+            background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 50%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Space Grotesk', sans-serif;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .hero h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--gradient-2);
+            border-radius: 2px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; transform: translateX(-50%) scaleX(1); }
+            50% { opacity: 1; transform: translateX(-50%) scaleX(1.2); }
         }
 
         .hero .subtitle {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             margin-bottom: 2rem;
-            opacity: 0.9;
+            opacity: 0.95;
             font-weight: 500;
+            color: rgba(255, 255, 255, 0.9);
         }
 
         .hero .description {
-            font-size: 1.1rem;
+            font-size: 1.25rem;
             margin-bottom: 3rem;
-            opacity: 0.8;
-            line-height: 1.8;
+            opacity: 0.85;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .hero-buttons {
@@ -284,11 +531,26 @@
 
         /* Section Styles */
         .section {
-            padding: 5rem 0;
+            padding: 6rem 0;
+            position: relative;
         }
 
         .section-alt {
-            background: var(--bg-light);
+            background: 
+                linear-gradient(135deg, rgba(248, 250, 252, 0.8) 0%, rgba(241, 245, 249, 0.9) 100%),
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233b82f6' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            position: relative;
+        }
+
+        .section-alt::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 40%, rgba(59, 130, 246, 0.02) 50%, transparent 60%);
+            pointer-events: none;
         }
 
         .section-header {
@@ -297,17 +559,21 @@
         }
 
         .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            letter-spacing: -0.025em;
+            line-height: 1.1;
         }
 
         .section-subtitle {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             color: var(--text-secondary);
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
+            line-height: 1.6;
+            font-weight: 500;
         }
 
         /* Features Grid */
@@ -328,13 +594,14 @@
 
         .feature-card {
             background: var(--white);
-            padding: 2.5rem;
+            padding: 3rem;
             border-radius: 1.5rem;
-            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.06);
+            box-shadow: var(--shadow-md);
             border: 1px solid var(--border);
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
+            backdrop-filter: blur(10px);
         }
 
         .feature-card::before {
@@ -343,38 +610,99 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
+            bottom: 0;
             background: var(--gradient-2);
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.4s ease;
+            z-index: -1;
         }
 
         .feature-card:hover::before {
-            opacity: 1;
+            opacity: 0.03;
         }
 
         .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-xl);
+            border-color: rgba(59, 130, 246, 0.2);
         }
 
         .feature-icon {
-            width: 70px;
-            height: 70px;
+            width: 80px;
+            height: 80px;
             background: var(--gradient-2);
-            border-radius: 1.2rem;
+            border-radius: 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1.8rem;
+            margin-bottom: 2rem;
             color: var(--white);
-            font-size: 1.8rem;
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+            font-size: 2rem;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-icon::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
+                conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: scale(0);
+            transition: transform 0.4s ease;
+            animation: iconShimmer 3s linear infinite;
+        }
+
+        @keyframes iconShimmer {
+            0% { transform: scale(0) rotate(0deg); }
+            50% { transform: scale(1) rotate(180deg); }
+            100% { transform: scale(0) rotate(360deg); }
+        }
+
+        .feature-card:hover .feature-icon::before {
+            transform: scale(1);
+        }
+
+        /* Enhanced icon styles for different categories */
+        .icon-brain { 
+            background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%);
+        }
+        
+        .icon-shield { 
+            background: linear-gradient(135deg, #10B981 0%, #34D399 100%);
+        }
+        
+        .icon-chart { 
+            background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%);
+        }
+        
+        .icon-medical { 
+            background: linear-gradient(135deg, #EF4444 0%, #F87171 100%);
+        }
+
+        .icon-tech { 
+            background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%);
         }
 
         .feature-card h3 {
-            margin-bottom: 1rem;
-            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        .feature-list li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
         }
 
         .feature-list {
@@ -490,9 +818,27 @@
 
         /* Footer */
         .footer {
-            background: var(--bg-dark);
+            background: var(--primary);
             color: var(--white);
-            padding: 3rem 0 1rem;
+            padding: 4rem 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-3);
+            opacity: 0.9;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 2;
         }
 
         .footer-content {
@@ -711,8 +1057,14 @@
             </ul>
 
             <div class="cta-buttons">
-                <div class="btn btn-secondary" onclick="showPage('contact')">Learn More</div>
-                <div class="btn btn-primary">Try Free for 30 Days</div>
+                <div class="btn btn-secondary" onclick="showPage('contact')">
+                    <span>📚</span>
+                    Learn More
+                </div>
+                <div class="btn btn-primary">
+                    <span>▶️</span>
+                    Try Free for 30 Days
+                </div>
             </div>
 
             <button class="mobile-menu-btn" id="mobile-menu-btn">
@@ -727,29 +1079,38 @@
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h1>Supporting Families in Creating Healthy Digital Experiences</h1>
-                    <p class="subtitle">Helping families navigate digital life together with evidence-based guidance and privacy-first technology.</p>
-                    <p class="description">SafeGuardAI combines smart technology with expert insights to help families understand digital behavior patterns and create healthier online experiences—while keeping personal information completely private and secure.</p>
+                    <h1>Advancing Digital Wellness Through Scientific Excellence</h1>
+                    <p class="subtitle">AI-powered insights for healthier digital relationships, built on rigorous research and uncompromising privacy standards.</p>
+                    <p class="description">Our research institute combines cutting-edge neuroscience, clinical psychology, and privacy-preserving AI to create breakthrough solutions for digital wellness in the modern age.</p>
                     
                     <div class="hero-buttons">
-                        <div class="btn btn-primary">Try Free for 30 Days</div>
-                        <div class="btn btn-secondary" onclick="showPage('contact')">Learn More</div>
-                        <div class="btn btn-secondary" onclick="showPage('contact')">Contact Us</div>
+                        <div class="btn btn-primary">
+                            <span>🚀</span>
+                            Try Free for 30 Days
+                        </div>
+                        <div class="btn btn-secondary" onclick="showPage('contact')">
+                            <span>ℹ️</span>
+                            Learn More
+                        </div>
+                        <div class="btn btn-secondary" onclick="showPage('contact')">
+                            <span>✉️</span>
+                            Contact Us
+                        </div>
                     </div>
 
                     <div class="trust-indicators">
                         <div class="trust-items">
                             <div class="trust-item">
-                                <i class="fas fa-shield-alt"></i>
-                                <span>Privacy-focused design</span>
+                                <i class="fas fa-microscope"></i>
+                                <span>Research-driven approach</span>
                             </div>
                             <div class="trust-item">
-                                <i class="fas fa-heart"></i>
-                                <span>Family-friendly approach</span>
+                                <i class="fas fa-brain"></i>
+                                <span>Neuroscience-based insights</span>
                             </div>
                             <div class="trust-item">
-                                <i class="fas fa-certificate"></i>
-                                <span>Evidence-based guidance</span>
+                                <i class="fas fa-shield-check"></i>
+                                <span>Enterprise-grade privacy</span>
                             </div>
                         </div>
                     </div>
@@ -761,42 +1122,54 @@
         <section class="section">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Digital Life Can Be Overwhelming</h2>
-                    <p class="section-subtitle">Many families are looking for better ways to support healthy digital habits.</p>
+                    <h2 class="section-title">The Digital Wellness Challenge</h2>
+                    <p class="section-subtitle">Modern families need sophisticated, evidence-based solutions for navigating an increasingly complex digital landscape.</p>
+                    
+                    <!-- Add a professional header image -->
+                    <div style="text-align: center; margin: 3rem 0;">
+                        <div style="position: relative; display: inline-block; border-radius: 1rem; overflow: hidden; box-shadow: var(--shadow-xl);">
+                            <img src="digital-wellness-header.jpg" alt="Digital wellness research and family technology" style="width: 100%; max-width: 800px; height: 300px; object-fit: cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <!-- Fallback with CSS background -->
+                            <div style="display: none; width: 800px; height: 300px; background: var(--gradient-2); border-radius: 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: 600;">
+                                🧠 Digital Wellness Research
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="features-grid">
                     <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-users"></i>
+                        <div class="feature-icon icon-brain">
+                            <i class="fas fa-brain"></i>
                         </div>
-                        <h3>What Families Tell Us</h3>
+                        <h3>Research-Based Understanding</h3>
                         <ul class="feature-list">
-                            <li>Parents want to support teens without being overly intrusive</li>
-                            <li>Teens prefer guidance over restrictions for their digital life</li>
-                            <li>Everyone agrees that privacy and trust are essential</li>
-                            <li>Current tools often feel too restrictive or unhelpful</li>
+                            <li>Neuroscience research shows digital media impacts developing brains differently</li>
+                            <li>Clinical psychology reveals the importance of balanced digital engagement</li>
+                            <li>Privacy concerns require sophisticated technical solutions</li>
+                            <li>One-size-fits-all approaches fail to address individual family needs</li>
                         </ul>
                     </div>
                     
                     <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-lightbulb"></i>
+                        <div class="feature-icon icon-medical">
+                            <i class="fas fa-microscope"></i>
                         </div>
-                        <h3>Why This Matters</h3>
-                        <p style="margin-bottom: 1rem;">Research shows that digital wellness is an important part of overall wellbeing, especially for young people who have grown up with technology.</p>
-                        <p>Finding the right balance between support and independence is key.</p>
+                        <h3>The Scientific Imperative</h3>
+                        <p style="margin-bottom: 1rem;">Emerging research in neuroscience and developmental psychology demonstrates the critical need for evidence-based digital wellness interventions during key developmental periods.</p>
+                        <p>Our approach combines rigorous scientific methodology with practical, privacy-preserving implementation.</p>
                     </div>
                 </div>
 
                 <div class="quote-box">
                     <div style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
                         <div style="flex: 1; min-width: 300px;">
-                            <p class="quote-text">"We wanted something that could help us have better conversations about digital wellness without feeling like we were spying on our teenager."</p>
-                            <p class="quote-author">- Parent feedback</p>
+                            <p class="quote-text">"We need sophisticated, evidence-based approaches to digital wellness that respect both scientific rigor and family autonomy."</p>
+                            <p class="quote-author">- Clinical Research Findings</p>
                         </div>
-                        <div style="flex: 0 0 200px;">
-                            <img src="family-conversation.png" alt="Family having a positive conversation about technology" style="width: 100%; height: 150px; object-fit: cover; border-radius: 0.5rem; border: 2px solid #2563eb;" onerror="this.style.display='none';">
+                        <div style="flex: 0 0 200px; position: relative;">
+                            <div style="position: absolute; inset: 0; background: var(--gradient-2); border-radius: 0.5rem; opacity: 0.1;"></div>
+                            <img src="https://clarence1212.github.io/safeguardai-website-images/claudeimage/family-conversation.png" alt="Professional consultation about digital wellness" style="width: 100%; height: 150px; object-fit: cover; border-radius: 0.5rem; border: 2px solid var(--secondary); position: relative; z-index: 1;" onerror="this.style.display='none';">
                         </div>
                     </div>
                 </div>
@@ -807,60 +1180,71 @@
         <section class="section section-alt">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Smart Technology with Privacy Built In</h2>
-                    <p class="section-subtitle">SafeGuardAI analyzes digital behavior patterns using privacy-preserving technology, then provides insights and suggestions to help families make informed decisions.</p>
+                    <h2 class="section-title">Advanced AI Architecture with Uncompromising Privacy</h2>
+                    <p class="section-subtitle">Our proprietary technology stack combines cutting-edge machine learning with enterprise-grade privacy protection, designed specifically for sensitive family and clinical data.</p>
+                    
+                    <!-- Add technology architecture image -->
+                    <div style="text-align: center; margin: 3rem 0;">
+                        <div style="position: relative; display: inline-block; border-radius: 1rem; overflow: hidden; box-shadow: var(--shadow-xl);">
+                            <img src="ai-architecture.jpg" alt="AI architecture and privacy-preserving technology" style="width: 100%; max-width: 900px; height: 400px; object-fit: cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <!-- Fallback with tech pattern -->
+                            <div style="display: none; width: 900px; height: 400px; background: var(--gradient-2), url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><defs><pattern id=\"tech\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\"><circle cx=\"10\" cy=\"10\" r=\"2\" fill=\"rgba(255,255,255,0.1)\"/><line x1=\"10\" y1=\"0\" x2=\"10\" y2=\"20\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"0\" y1=\"10\" x2=\"20\" y2=\"10\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/></pattern></defs><rect width=\"100\" height=\"100\" fill=\"url(%23tech)\"/></svg>'); border-radius: 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: 600;">
+                                🔬 AI Architecture
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="features-grid">
                     <div class="feature-card">
-                        <div class="feature-icon">
+                        <div class="feature-icon icon-shield">
                             <i class="fas fa-lock"></i>
                         </div>
-                        <h3>Privacy-First Design</h3>
+                        <h3>Zero-Knowledge Architecture</h3>
                         <ul class="feature-list">
-                            <li>Analysis happens on your own devices</li>
-                            <li>Personal data stays local and private</li>
-                            <li>Only general patterns and insights are shared</li>
-                            <li>Meets strict privacy standards for young people</li>
+                            <li>End-to-end encrypted processing pipelines</li>
+                            <li>Homomorphic encryption for computational privacy</li>
+                            <li>Differential privacy with mathematical guarantees</li>
+                            <li>HIPAA, COPPA, and GDPR compliant by design</li>
                         </ul>
                     </div>
                     
                     <div class="feature-card">
-                        <div class="feature-icon">
+                        <div class="feature-icon icon-brain">
                             <i class="fas fa-brain"></i>
                         </div>
-                        <h3>Expert-Informed Insights</h3>
+                        <h3>Neuroscience-Informed AI</h3>
                         <ul class="feature-list">
-                            <li>Developed with input from child psychologists</li>
-                            <li>Based on established research about healthy digital habits</li>
-                            <li>Regularly updated with new findings</li>
-                            <li>Focuses on positive behavior patterns</li>
+                            <li>Machine learning models trained on neuroimaging data</li>
+                            <li>Developmental psychology frameworks integrated into algorithms</li>
+                            <li>Real-time adaptation to individual neural patterns</li>
+                            <li>Evidence-based intervention timing optimization</li>
                         </ul>
                     </div>
                     
                     <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-bolt"></i>
+                        <div class="feature-icon icon-tech">
+                            <i class="fas fa-microchip"></i>
                         </div>
-                        <h3>Real-Time Awareness</h3>
+                        <h3>Edge Computing Excellence</h3>
                         <ul class="feature-list">
-                            <li>Identifies concerning patterns early when help is most effective</li>
-                            <li>Provides context and suggested responses</li>
-                            <li>Multiple levels of alerts based on family preferences</li>
-                            <li>Connects families with professional resources when appropriate</li>
+                            <li>On-device processing for maximum privacy</li>
+                            <li>Federated learning across encrypted networks</li>
+                            <li>Sub-millisecond response times for real-time insights</li>
+                            <li>Continuous model improvement without data sharing</li>
                         </ul>
                     </div>
                     
                     <div class="feature-card">
-                        <div class="feature-icon">
+                        <div class="feature-icon icon-chart">
                             <i class="fas fa-chart-line"></i>
                         </div>
-                        <h3>Clear, Actionable Information</h3>
+                        <h3>Clinical-Grade Analytics</h3>
                         <ul class="feature-list">
-                            <li>Easy-to-understand reports and trends</li>
-                            <li>Personalized suggestions based on individual patterns</li>
-                            <li>Family discussion guides and conversation starters</li>
-                            <li>Optional integration with healthcare providers</li>
+                            <li>Multi-modal data fusion from diverse sources</li>
+                            <li>Predictive modeling with clinical validation</li>
+                            <li>Interpretable AI for transparent decision-making</li>
+                            <li>Seamless integration with healthcare systems</li>
                         </ul>
                     </div>
                 </div>
@@ -1072,7 +1456,14 @@
                     <p class="section-subtitle">Advancing digital wellness through rigorous scientific research at the intersection of neuroscience, psychology, and AI.</p>
                     
                     <div style="text-align: center; margin-top: 2rem;">
-                        <img src="research-lab.png" alt="Research and scientific collaboration" style="max-width: 100%; height: 200px; object-fit: cover; border-radius: 1rem;" onerror="this.style.display='none';">
+                        <div style="position: relative; display: inline-block; border-radius: 1rem; overflow: hidden; box-shadow: var(--shadow-xl);">
+                            <img src="https://clarence1212.github.io/safeguardai-website-images/claudeimage/research-lab.png" alt="Research and scientific collaboration" style="width: 100%; max-width: 900px; height: 300px; object-fit: cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <!-- Enhanced fallback -->
+                            <div style="display: none; width: 900px; height: 300px; background: var(--gradient-2); border-radius: 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.8rem; font-weight: 600; flex-direction: column; gap: 1rem;">
+                                <div style="font-size: 3rem;">🔬</div>
+                                <div>Research Laboratory</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -1146,7 +1537,10 @@
                             <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Practical framework for implementing neurodevelopmentally-informed AI systems</p>
                             <div style="display: flex; gap: 0.5rem;">
                                 <a href="https://clarence1212.github.io/safeguardai-whitepaper/papers/CWP-Brain-AI.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
-                                    <i class="fas fa-download"></i> Download PDF
+                                    <span>⬇️</span> Download PDF
+                                </a>
+                                <a href="#" class="btn btn-secondary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" onclick="return false;">
+                                    <span>👁️</span> Preview
                                 </a>
                             </div>
                         </div>
@@ -1163,6 +1557,9 @@
                                 <a href="https://clarence1212.github.io/safeguardai-whitepaper/papers/CWP-Neuropsychological-Digital-Wellness-Assessment.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
                                     <i class="fas fa-download"></i> Download PDF
                                 </a>
+                                <a href="#" class="btn btn-secondary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" onclick="return false;">
+                                    <i class="fas fa-bookmark"></i> Save
+                                </a>
                             </div>
                         </div>
 
@@ -1177,6 +1574,9 @@
                             <div style="display: flex; gap: 0.5rem;">
                                 <a href="https://clarence1212.github.io/safeguardai-whitepaper/papers/CWP-Privacy-by-Psychology.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
                                     <i class="fas fa-download"></i> Download PDF
+                                </a>
+                                <a href="#" class="btn btn-secondary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" onclick="return false;">
+                                    <i class="fas fa-share-alt"></i> Share
                                 </a>
                             </div>
                         </div>
@@ -1445,6 +1845,18 @@
                     <p style="margin-bottom: 2rem; color: var(--text-secondary);">
                         SafeGuardAI Research Institute welcomes collaboration with academic institutions, healthcare organizations, and researchers advancing digital wellness science.
                     </p>
+                    
+                    <!-- Add team collaboration image -->
+                    <div style="margin: 2rem 0;">
+                        <div style="position: relative; display: inline-block; border-radius: 1rem; overflow: hidden; box-shadow: var(--shadow-lg);">
+                            <img src="team-collaboration.jpg" alt="Research team collaboration" style="width: 100%; max-width: 600px; height: 200px; object-fit: cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <!-- Fallback -->
+                            <div style="display: none; width: 600px; height: 200px; background: var(--gradient-3); border-radius: 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: 600;">
+                                👥 Research Collaboration
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem;">
                         <div>
                             <strong>Lead Researcher:</strong><br>
@@ -1458,8 +1870,15 @@
                         </div>
                     <div style="text-align: center; margin-top: 3rem;">
                         <h4 style="color: var(--primary); margin-bottom: 1rem;">Our Singapore Office</h4>
-                        <img src="singapore-office.png" alt="SafeGuardAI Research Institute Office in Singapore" style="max-width: 100%; height: 200px; object-fit: cover; border-radius: 1rem; margin-bottom: 1rem;" onerror="this.style.display='none';">
-                        <p>
+                        <div style="position: relative; display: inline-block; border-radius: 1rem; overflow: hidden; box-shadow: var(--shadow-lg);">
+                            <img src="https://clarence1212.github.io/safeguardai-website-images/claudeimage/singapore-office.png" alt="SafeGuardAI Research Institute Office in Singapore" style="width: 100%; max-width: 500px; height: 200px; object-fit: cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <!-- Enhanced office fallback -->
+                            <div style="display: none; width: 500px; height: 200px; background: linear-gradient(135deg, #0F172A 0%, #3B82F6 100%); border-radius: 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: 600; flex-direction: column; gap: 0.5rem;">
+                                <div style="font-size: 2rem;">🏢</div>
+                                <div>Singapore Office</div>
+                            </div>
+                        </div>
+                        <p style="margin-top: 1rem;">
                             <strong>Institute Address:</strong><br>
                             13 Stamford Rd, #02-11-26<br>
                             Capitol Singapore 178905
@@ -1533,7 +1952,7 @@
                 <div class="team-grid">
                     <div class="team-card">
                         <div class="team-avatar">
-                            <img src="team-elias.png" alt="Elias Kairos Chen, PhD" onerror="this.parentElement.innerHTML='<div style=\'background: var(--gradient); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: bold; border-radius: 50%;\'>EC</div>';">
+                            <img src="https://clarence1212.github.io/safeguardai-website-images/claudeimage/team-elias.png" alt="Elias Kairos Chen, PhD" onerror="this.parentElement.innerHTML='<div style=\'background: var(--gradient); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: bold; border-radius: 50%;\'>EC</div>';">
                         </div>
                         <div class="team-name">Elias Kairos Chen, PhD</div>
                         <div class="team-role">Founder & CEO</div>
@@ -1542,7 +1961,7 @@
                     
                     <div class="team-card">
                         <div class="team-avatar">
-                            <img src="team-victoria.png" alt="Victoria Tan" onerror="this.parentElement.innerHTML='<div style=\'background: var(--gradient); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: bold; border-radius: 50%;\'>VT</div>';">
+                            <img src="https://clarence1212.github.io/safeguardai-website-images/claudeimage/team-victoria.png" alt="Victoria Tan" onerror="this.parentElement.innerHTML='<div style=\'background: var(--gradient); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: bold; border-radius: 50%;\'>VT</div>';">
                         </div>
                         <div class="team-name">Victoria Tan</div>
                         <div class="team-role">Research Director</div>
@@ -1551,7 +1970,7 @@
                     
                     <div class="team-card">
                         <div class="team-avatar">
-                            <img src="team-kristina.png" alt="Dr. Kristina Garcia-Tan, MD" onerror="this.parentElement.innerHTML='<div style=\'background: var(--gradient); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: bold; border-radius: 50%;\'>KG</div>';">
+                            <img src="https://clarence1212.github.io/safeguardai-website-images/claudeimage/team-kristina.png" alt="Dr. Kristina Garcia-Tan, MD" onerror="this.parentElement.innerHTML='<div style=\'background: var(--gradient); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: bold; border-radius: 50%;\'>KG</div>';">
                         </div>
                         <div class="team-name">Dr. Kristina Garcia-Tan, MD</div>
                         <div class="team-role">Medical Advisor</div>
@@ -1680,8 +2099,14 @@
                         </ul>
                         
                         <div style="margin-top: 1.5rem;">
-                            <div class="btn btn-primary" style="margin-right: 1rem; margin-bottom: 1rem;">Start Free Trial</div>
-                            <div class="btn btn-secondary" style="margin-bottom: 1rem;">Schedule Consultation</div>
+                            <div class="btn btn-primary" style="margin-right: 1rem; margin-bottom: 1rem;">
+                                <span>🚀</span>
+                                Start Free Trial
+                            </div>
+                            <div class="btn btn-secondary" style="margin-bottom: 1rem;">
+                                <span>📅</span>
+                                Schedule Consultation
+                            </div>
                         </div>
                     </div>
 
@@ -1716,7 +2141,7 @@
                         </div>
                         
                         <button class="btn btn-primary" style="width: 100%;">
-                            <i class="fas fa-paper-plane"></i>
+                            <span>✈️</span>
                             Send Message
                         </button>
                     </div>
@@ -1967,7 +2392,5 @@
             }
         });
     </script>
-</body>
-</html>
 </body>
 </html>
