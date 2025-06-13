@@ -975,6 +975,37 @@
             animation: fadeInUp 0.6s ease-out;
         }
     </style>
+    <script>
+        // Define showPage function immediately so it's available for onclick handlers
+        function showPage(pageId) {
+            try {
+                // Hide all pages
+                const pages = document.querySelectorAll('.page');
+                pages.forEach(page => {
+                    if (page && page.classList) {
+                        page.classList.remove('active');
+                    }
+                });
+                
+                // Show selected page
+                const targetPage = document.getElementById(pageId);
+                if (targetPage && targetPage.classList) {
+                    targetPage.classList.add('active');
+                }
+                
+                // Close mobile menu
+                const navMenu = document.getElementById('nav-menu');
+                if (navMenu && navMenu.classList) {
+                    navMenu.classList.remove('active');
+                }
+                
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } catch (error) {
+                console.log('Navigation error:', error);
+            }
+        }
+    </script>
 </head>
 <body>
     <!-- Navigation -->
@@ -1531,6 +1562,24 @@
                             </div>
                         </div>
 
+                        <!-- White Paper 2 -->
+                        <div class="feature-card">
+                            <div class="feature-icon" style="background: var(--gradient);">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h3>Neuropsychological Digital Wellness Assessment</h3>
+                            <p style="color: var(--secondary); margin-bottom: 0.5rem;">Clinical Practice Integration Guide</p>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Integration of neuroscience research with clinical psychology assessment</p>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <a href="https://clarence1212.github.io/safeguardai-whitepaper/papers/CWP-Brain-AI.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                                <a href="#" class="btn btn-secondary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" onclick="return false;">
+                                    <i class="fas fa-eye"></i> Preview
+                                </a>
+                            </div>
+                        </div>
+
                         <!-- White Paper 3 -->
                         <div class="feature-card">
                             <div class="feature-icon" style="background: var(--gradient);">
@@ -1744,7 +1793,7 @@
                     <h3 style="font-size: 2rem; margin-bottom: 2rem; text-align: center; color: var(--primary);">Clinical Assessment Papers</h3>
                     <p style="text-align: center; margin-bottom: 2rem; color: var(--text-secondary);">Clinical integration frameworks and assessment methodologies</p>
                     
-                    <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minfix(350px, 1fr));">
+                    <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
                         <!-- Clinical Paper 1 -->
                         <div class="feature-card">
                             <div class="feature-icon" style="background: var(--secondary);">
@@ -1939,12 +1988,6 @@
                     <div class="team-card">
                         <div class="team-avatar">
                             <img src="https://clarence1212.github.io/safeguardai-website/team-kristina.png" alt="Dr. Kristina Garcia-Tan, MD" onerror="this.parentElement.innerHTML='<div style=\'background: var(--gradient); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: bold; border-radius: 50%;\'>KG</div>';">
-                        </div>
-                        <div class="team-name">Dr. Kristina Garcia-Tan, MD</div>
-                        <div class="team-role">Medical Advisor</div>
-                        <div class="team-bio">Practicing neurologist with experience in adolescent care. Advisor on clinical applications and ethical considerations.</div>
-                    </div>
-                </div>
                         </div>
                         <div class="team-name">Dr. Kristina Garcia-Tan, MD</div>
                         <div class="team-role">Medical Advisor</div>
@@ -2225,36 +2268,6 @@
     <script>
         // Wait for DOM to be fully loaded
         document.addEventListener('DOMContentLoaded', function() {
-            
-            // Navigation functionality
-            window.showPage = function(pageId) {
-                try {
-                    // Hide all pages
-                    const pages = document.querySelectorAll('.page');
-                    pages.forEach(page => {
-                        if (page && page.classList) {
-                            page.classList.remove('active');
-                        }
-                    });
-                    
-                    // Show selected page
-                    const targetPage = document.getElementById(pageId);
-                    if (targetPage && targetPage.classList) {
-                        targetPage.classList.add('active');
-                    }
-                    
-                    // Close mobile menu
-                    const navMenu = document.getElementById('nav-menu');
-                    if (navMenu && navMenu.classList) {
-                        navMenu.classList.remove('active');
-                    }
-                    
-                    // Scroll to top
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                } catch (error) {
-                    console.log('Navigation error:', error);
-                }
-            };
 
             // Mobile menu toggle
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -2367,23 +2380,4 @@
         });
     </script>
 </body>
-</html>(--secondary); margin-bottom: 0.5rem;">Implementation Guide for Technology Companies</p>
-                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Practical framework for implementing neurodevelopmentally-informed AI systems</p>
-                            <div style="display: flex; gap: 0.5rem;">
-                                <a href="https://clarence1212.github.io/safeguardai-whitepaper/papers/CWP-Brain-AI.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
-                                    <span>⬇️</span> Download PDF
-                                </a>
-                                <a href="#" class="btn btn-secondary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" onclick="return false;">
-                                    <span>👁️</span> Preview
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- White Paper 2 -->
-                        <div class="feature-card">
-                            <div class="feature-icon" style="background: var(--gradient);">
-                                <i class="fas fa-file-alt"></i>
-                            </div>
-                            <h3>Neuropsychological Digital Wellness Assessment</h3>
-                            <p style="color: var(--secondary); margin-bottom: 0.5rem;">Clinical Practice Integration Guide</p>
-                            <p style="color: var
+</html>
