@@ -1,0 +1,2156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeGuardAI - Research Institute</title>
+    <meta name="description" content="Advancing digital wellness through rigorous scientific research at the intersection of neuroscience, psychology, and AI. Access our white papers and academic publications.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons - Multiple Sources for Better Compatibility -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0F172A;
+            --primary-light: #1E293B;
+            --secondary: #3B82F6;
+            --accent: #10B981;
+            --accent-light: #34D399;
+            --bg-dark: #000000;
+            --bg-light: #F1F5F9;
+            --bg-glass: rgba(255, 255, 255, 0.1);
+            --text-primary: #0F172A;
+            --text-secondary: #334155;
+            --text-light: #64748B;
+            --border: #E2E8F0;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #0F172A 0%, #3B82F6 50%, #10B981 100%);
+            --gradient-3: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+            --gradient-hero: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(59, 130, 246, 0.8) 50%, rgba(16, 185, 129, 0.7) 100%);
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        body {
+            font-family: 'Space Grotesk', 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--white);
+            overflow-x: hidden;
+            font-weight: 500;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .nav-link:hover {
+            background: var(--bg-light);
+            color: var(--primary);
+        }
+
+        .nav-link.active {
+            background: var(--bg-light);
+            color: var(--primary);
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-link {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            margin-bottom: 0.25rem;
+            cursor: pointer;
+        }
+
+        .dropdown-link:hover {
+            background: var(--bg-light);
+            color: var(--primary);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        /* Enhanced button styles with better icon spacing */
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .btn i {
+            font-size: 0.9em;
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover i {
+            transform: translateX(2px);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: var(--gradient-2);
+            color: var(--white);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-primary);
+        }
+
+        /* Page Content */
+        .page {
+            padding-top: 100px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            letter-spacing: -0.025em;
+            line-height: 1.1;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        /* Research Overview Section */
+        .research-overview {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(59, 130, 246, 0.85));
+            color: white;
+            padding: 3rem;
+            border-radius: 1rem;
+            margin: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .research-overview::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .research-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 0.75rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Research Focus Areas - NEW PROMINENT SECTION */
+        .research-focus-section {
+            background: linear-gradient(to bottom, var(--white), rgba(241, 245, 249, 0.5));
+            padding: 4rem 0;
+            margin: 2rem 0;
+        }
+
+        .focus-areas-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .focus-areas-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .focus-areas-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Tab Navigation */
+        .tab-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 0.75rem 1.5rem;
+            background: var(--white);
+            border: 2px solid var(--border);
+            border-radius: 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tab-btn:hover {
+            color: var(--primary);
+            border-color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .tab-btn.active {
+            background: var(--gradient-2);
+            color: var(--white);
+            border-color: transparent;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Featured Research Section */
+        .featured-research {
+            margin-bottom: 4rem;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .featured-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow-lg);
+            border: 2px solid var(--secondary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--gradient);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* Research Paper Card */
+        .research-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .research-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .paper-type-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--bg-light);
+            color: var(--primary);
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .research-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            line-height: 1.4;
+        }
+
+        .paper-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            flex-wrap: wrap;
+        }
+
+        .paper-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .key-findings {
+            background: var(--bg-light);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .key-findings h4 {
+            color: var(--primary);
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .key-findings ul {
+            list-style: none;
+            margin: 0;
+        }
+
+        .key-findings li {
+            padding: 0.25rem 0;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            position: relative;
+            padding-left: 1.25rem;
+        }
+
+        .key-findings li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        .paper-abstract {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .paper-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .paper-actions .btn {
+            font-size: 0.875rem;
+            padding: 0.5rem 1rem;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Special grid for 4 columns */
+        .features-grid-4 {
+            display: grid !important;
+            grid-template-columns: repeat(4, 1fr) !important;
+            gap: 1.5rem !important;
+            margin-top: 3rem;
+        }
+        
+        /* Force 4 columns for research grids */
+        #research .features-grid-4 {
+            display: grid !important;
+            grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+            gap: 1.5rem !important;
+        }
+
+        /* Ensure cards fit in 4-column layout */
+        #research .features-grid-4 .feature-card {
+            padding: 1.5rem !important;
+        }
+
+        #research .features-grid-4 .feature-icon {
+            width: 60px !important;
+            height: 60px !important;
+            font-size: 1.4rem !important;
+            margin-bottom: 1rem !important;
+        }
+
+        #research .features-grid-4 .feature-card h3 {
+            font-size: 1.25rem !important;
+            margin-bottom: 0.75rem !important;
+        }
+
+        #research .features-grid-4 .feature-card p {
+            font-size: 0.9rem !important;
+        }
+
+        /* Responsive adjustments for 4-column grid */
+        @media (max-width: 1400px) {
+            .features-grid-4,
+            #research .features-grid-4 {
+                gap: 1rem !important;
+            }
+            
+            .features-grid-4 .feature-card {
+                padding: 1.5rem !important;
+            }
+            
+            .features-grid-4 .feature-card h3 {
+                font-size: 1.25rem;
+            }
+            
+            .features-grid-4 .feature-list {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .features-grid-4,
+            #research .features-grid-4 {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 1.5rem !important;
+            }
+            
+            .features-grid-4 .feature-card {
+                padding: 2rem !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .features-grid-4,
+            #research .features-grid-4 {
+                grid-template-columns: 1fr !important;
+            }
+
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 1.5rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .features-grid-4 .feature-list,
+        #research .feature-list {
+            list-style: none !important;
+        }
+        
+        .features-grid-4 .feature-list li,
+        #research .feature-list li {
+            font-size: 0.9rem !important;
+            padding: 0.3rem 0 0.3rem 1.5rem !important;
+            position: relative !important;
+            color: var(--text-secondary) !important;
+            font-weight: 500 !important;
+        }
+        
+        .features-grid-4 .feature-list li::before,
+        #research .feature-list li::before {
+            content: '✓' !important;
+            color: var(--secondary) !important;
+            font-weight: bold !important;
+            position: absolute !important;
+            left: 0 !important;
+            top: 0.3rem !important;
+            font-size: 1rem !important;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-2);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+
+        .feature-card:hover::before {
+            opacity: 0.03;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-xl);
+            border-color: rgba(59, 130, 246, 0.2);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-2);
+            border-radius: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            color: var(--white);
+            font-size: 2rem;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-icon::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
+                conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: scale(0);
+            transition: transform 0.4s ease;
+            animation: iconShimmer 3s linear infinite;
+        }
+
+        @keyframes iconShimmer {
+            0% { transform: scale(0) rotate(0deg); }
+            50% { transform: scale(1) rotate(180deg); }
+            100% { transform: scale(0) rotate(360deg); }
+        }
+
+        .feature-card:hover .feature-icon::before {
+            transform: scale(1);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .feature-list li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            color: var(--secondary);
+            font-weight: bold;
+            flex-shrink: 0;
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-3);
+            opacity: 0.9;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            position: relative;
+            z-index: 2;
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                border-top: 1px solid var(--border);
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .dropdown {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                border: none;
+                padding: 0;
+                margin-left: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .cta-buttons {
+                display: none;
+            }
+
+            .research-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .tab-nav {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 0.5rem;
+            }
+
+            .focus-areas-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">SafeGuardAI</div>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <div class="nav-link">Home</div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">
+                        Platform <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdown-link">Technology</div>
+                        <div class="dropdown-link">Features</div>
+                        <div class="dropdown-link">Safety</div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link active">
+                        Research <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdown-link active">Studies</div>
+                        <a href="research-insights.html" class="dropdown-link">Insights</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">
+                        Solutions <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdown-link">For Families</div>
+                        <div class="dropdown-link">For Schools</div>
+                        <div class="dropdown-link">For Healthcare</div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">
+                        About <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdown-link">Our Mission</div>
+                        <div class="dropdown-link">Team</div>
+                        <div class="dropdown-link">Leadership</div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">
+                        Resources <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdown-link">Blog</div>
+                        <div class="dropdown-link">Guides</div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Contact</div>
+                </li>
+            </ul>
+
+            <div class="cta-buttons">
+                <div class="btn btn-secondary">
+                    <span>📚</span>
+                    Learn More
+                </div>
+                <div class="btn btn-primary">
+                    <span>▶️</span>
+                    Try Free for 30 Days
+                </div>
+            </div>
+
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Research Page Content -->
+    <div id="research" class="page">
+        <section class="section" style="background: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.8)), url('https://clarence1212.github.io/safeguardai-website/research-lab.png'); background-size: cover; background-position: center; background-attachment: fixed; position: relative;">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">SafeGuardAI Research Institute</h2>
+                    <p class="section-subtitle">Advancing digital wellness through rigorous scientific research at the intersection of neuroscience, psychology, and AI.</p>
+                </div>
+
+                <!-- Research Overview Summary -->
+                <div class="research-overview">
+                    <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Research Impact at a Glance</h3>
+                    <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.95;">Our research institute synthesizes global scientific findings to develop evidence-based frameworks for adolescent digital wellness. Through comprehensive literature reviews and meta-analyses, we translate complex research into actionable insights.</p>
+                    
+                    <div class="research-stats">
+                        <div class="stat-card">
+                            <div class="stat-number">9</div>
+                            <div class="stat-label">White Papers</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">10</div>
+                            <div class="stat-label">Research Review Papers</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">100+</div>
+                            <div class="stat-label">Studies Synthesized</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">4</div>
+                            <div class="stat-label">Core Research Areas</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NEW: Research Focus Areas Section - Moved to Main Page -->
+                <div class="research-focus-section">
+                    <div class="focus-areas-header">
+                        <h3 class="focus-areas-title">Our 4 Core Research Areas</h3>
+                        <p class="focus-areas-subtitle">
+                            Each research area represents rigorous scientific investigation into critical aspects of adolescent digital wellness, 
+                            combining cutting-edge technology with developmental psychology insights.
+                        </p>
+                    </div>
+
+                    <div class="features-grid-4">
+                        <div class="feature-card">
+                            <div style="width: 80px; height: 80px; margin-bottom: 2rem; border-radius: 1.5rem; overflow: hidden; box-shadow: var(--shadow-lg);">
+                                <img src="https://clarence1212.github.io/safeguardai-website/brain-neuroplasticity.png" 
+                                     alt="Brain and Digital Media" 
+                                     style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <h3>Neuroplasticity & Digital Media</h3>
+                            <ul class="feature-list">
+                                <li>How digital technology influences adolescent brain development</li>
+                                <li>Neuroplastic changes during critical developmental windows</li>
+                                <li>Brain-based intervention timing optimization</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div style="width: 80px; height: 80px; margin-bottom: 2rem; border-radius: 1.5rem; overflow: hidden; box-shadow: var(--shadow-lg);">
+                                <img src="https://clarence1212.github.io/safeguardai-website/shield-privacy-ai.png" 
+                                     alt="Privacy-Preserving AI" 
+                                     style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <h3>Privacy-Preserving AI</h3>
+                            <ul class="feature-list">
+                                <li>Federated learning and edge computing for adolescent mental health</li>
+                                <li>COPPA and GDPR compliance architectures</li>
+                                <li>Developmental psychology-informed privacy systems</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div style="width: 80px; height: 80px; margin-bottom: 2rem; border-radius: 1.5rem; overflow: hidden; box-shadow: var(--shadow-lg);">
+                                <img src="https://clarence1212.github.io/safeguardai-website/laptop-digital-therapeutics.png" 
+                                     alt="Digital Therapeutics" 
+                                     style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <h3>Digital Therapeutics</h3>
+                            <ul class="feature-list">
+                                <li>Evidence-based therapy adaptations for digital platforms</li>
+                                <li>Video-first therapeutic delivery mechanisms</li>
+                                <li>Clinical effectiveness validation of digital interventions</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div style="width: 80px; height: 80px; margin-bottom: 2rem; border-radius: 1.5rem; overflow: hidden; box-shadow: var(--shadow-lg);">
+                                <img src="https://clarence1212.github.io/safeguardai-website/stethoscope-clinical-assessment.png" 
+                                     alt="Clinical Assessment Integration" 
+                                     style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <h3>Clinical Assessment Integration</h3>
+                            <ul class="feature-list">
+                                <li>Neuropsychological frameworks for digital wellness</li>
+                                <li>Brain development research integration with clinical practice</li>
+                                <li>Digital assessment tools and methodologies</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab Navigation -->
+                <div class="tab-nav">
+                    <button class="tab-btn active" onclick="showResearchTab('featured')">
+                        <i class="fas fa-star"></i> Featured Research
+                    </button>
+                    <button class="tab-btn" onclick="showResearchTab('neuroimaging')">
+                        <i class="fas fa-brain"></i> Neuroimaging Studies
+                    </button>
+                    <button class="tab-btn" onclick="showResearchTab('clinical')">
+                        <i class="fas fa-stethoscope"></i> Clinical Frameworks
+                    </button>
+                    <button class="tab-btn" onclick="showResearchTab('technical')">
+                        <i class="fas fa-microchip"></i> Technical Papers
+                    </button>
+                    <button class="tab-btn" onclick="showResearchTab('implementation')">
+                        <i class="fas fa-book"></i> Implementation Guides
+                    </button>
+                    <button class="tab-btn" onclick="showResearchTab('all')">
+                        <i class="fas fa-list"></i> All Papers
+                    </button>
+                </div>
+
+                <!-- Featured Research Tab -->
+                <div id="featured-tab" class="tab-content active">
+                    <div class="featured-research">
+                        <h3 style="font-size: 1.75rem; margin-bottom: 2rem; text-align: center; color: var(--primary);">Key Research Insights</h3>
+                        
+                        <div class="featured-grid">
+                            <!-- Featured Paper 1 -->
+                            <div class="featured-card">
+                                <span class="featured-badge">FEATURED</span>
+                                <h3>Cognitive Rewiring Through Digital Interventions</h3>
+                                <p style="color: var(--secondary); margin-bottom: 0.5rem;">Neural Mechanisms of Adolescent Brain Change</p>
+                                
+                                <div class="key-findings">
+                                    <h4>Key Discovery:</h4>
+                                    <ul>
+                                        <li>Adolescents show 1.5-2x greater brain changes compared to adults</li>
+                                        <li>Digital therapeutics accelerate plasticity by 2-4 weeks</li>
+                                        <li>89.3% accuracy in early crisis detection achieved</li>
+                                    </ul>
+                                </div>
+                                
+                                <p class="paper-abstract">
+                                    Systematic review of 18 neuroimaging studies (N=1,089) revealing how therapeutic interventions induce beneficial neuroplastic changes during adolescent development.
+                                </p>
+                                
+                                <div class="paper-actions">
+                                    <a href="https://clarence1212.github.io/safeguardai-academic-paper/papers/AP-Cognitive-Rewiring-Through-Digital-Intervention1.pdf" class="btn btn-primary" target="_blank">
+                                        <i class="fas fa-download"></i> Download PDF
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Featured Paper 2 -->
+                            <div class="featured-card">
+                                <span class="featured-badge">KEY PAPER</span>
+                                <h3>Privacy by Psychology Framework</h3>
+                                <p style="color: var(--secondary); margin-bottom: 0.5rem;">Innovative Approach to Adolescent Digital Rights</p>
+                                
+                                <div class="key-findings">
+                                    <h4>Innovation:</h4>
+                                    <ul>
+                                        <li>First psychology-informed privacy framework</li>
+                                        <li>Supports healthy autonomy development</li>
+                                        <li>Enhances family relationships vs. traditional monitoring</li>
+                                    </ul>
+                                </div>
+                                
+                                <p class="paper-abstract">
+                                    Research shows traditional monitoring approaches may increase online risks while damaging family trust. Our framework proposes collaborative, developmentally-informed alternatives.
+                                </p>
+                                
+                                <div class="paper-actions">
+                                    <a href="https://clarence1212.github.io/safeguardai-whitepaper/papers/CWP-Privacy-by-Psychology.pdf" class="btn btn-primary" target="_blank">
+                                        <i class="fas fa-download"></i> Download PDF
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Neuroimaging Studies Tab -->
+                <div id="neuroimaging-tab" class="tab-content">
+                    <h3 style="font-size: 1.75rem; margin-bottom: 2rem; text-align: center; color: var(--primary);">Neuroimaging and Brain Development Research</h3>
+                    
+                    <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
+                        <!-- Neuroplasticity Paper -->
+                        <div class="research-card">
+                            <div class="paper-type-badge">NEUROIMAGING STUDY</div>
+                            <h3>Neuroplasticity and Digital Media: Brain Development Implications</h3>
+                            <div class="paper-meta">
+                                <span><i class="fas fa-users"></i> 11,234 participants</span>
+                                <span><i class="fas fa-brain"></i> fMRI & DTI analysis</span>
+                            </div>
+                            <div class="key-findings">
+                                <h4>Major Findings:</h4>
+                                <ul>
+                                    <li>Habitual social media users show altered reward system development</li>
+                                    <li>Effects strongest during ages 11-14 (peak neuroplasticity)</li>
+                                    <li>Longitudinal changes in amygdala, striatum, and prefrontal cortex</li>
+                                </ul>
+                            </div>
+                            <p class="paper-abstract">
+                                Comprehensive meta-analysis revealing how digital media exposure during adolescence reshapes fundamental brain development processes.
+                            </p>
+                            <div class="paper-actions">
+                                <a href="https://clarence1212.github.io/safeguardai-academic-paper/papers/AP-Neuroplasticity-and-Digita-Media.pdf" class="btn btn-primary" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Cognitive Rewiring Paper -->
+                        <div class="research-card">
+                            <div class="paper-type-badge">META-ANALYSIS</div>
+                            <h3>Cognitive Rewiring Through Digital Interventions</h3>
+                            <div class="paper-meta">
+                                <span><i class="fas fa-chart-line"></i> 18 studies analyzed</span>
+                                <span><i class="fas fa-check-circle"></i> 79% showed neuroplastic changes</span>
+                            </div>
+                            <div class="key-findings">
+                                <h4>Clinical Applications:</h4>
+                                <ul>
+                                    <li>Mindfulness interventions increased hippocampal gray matter (d=0.67)</li>
+                                    <li>CBT enhanced amygdala-prefrontal connectivity (d=0.58)</li>
+                                    <li>Digital therapeutics showed unique global network integration</li>
+                                </ul>
+                            </div>
+                            <p class="paper-abstract">
+                                Evidence that therapeutic interventions can literally rewire adolescent brains for positive change, with enhanced effectiveness during critical developmental windows.
+                            </p>
+                            <div class="paper-actions">
+                                <a href="https://clarence1212.github.io/safeguardai-academic-paper/papers/AP-Cognitive-Rewiring-Through-Digital-Intervention1.pdf" class="btn btn-primary" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Brain Reshaping Paper -->
+                        <div class="research-card">
+                            <div class="paper-type-badge">PARENT/EDUCATOR GUIDE</div>
+                            <h3>How Digital Media Reshapes Teen Brains</h3>
+                            <div class="paper-meta">
+                                <span><i class="fas fa-graduation-cap"></i> For educators & parents</span>
+                                <span><i class="fas fa-microscope"></i> Research translation</span>
+                            </div>
+                            <div class="key-findings">
+                                <h4>Practical Insights:</h4>
+                                <ul>
+                                    <li>Heavy social media users show different brain development patterns</li>
+                                    <li>Early adolescence (11-14) is window of maximum vulnerability</li>
+                                    <li>Evidence-based strategies for healthy digital habits</li>
+                                </ul>
+                            </div>
+                            <p class="paper-abstract">
+                                Translation of cutting-edge neuroscience into practical guidance for supporting healthy adolescent development in the digital age.
+                            </p>
+                            <div class="paper-actions">
+                                <a href="https://clarence1212.github.io/safeguardai-whitepaper/papers/WP-How-Digital-Media-Reshapes-Teen-Brains.pdf" class="btn btn-primary" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Brain Recovery Science -->
+                        <div class="research-card">
+                            <div class="paper-type-badge">NEUROPLASTICITY STUDY</div>
+                            <h3>Brain Recovery Science: Digital Interventions</h3>
+                            <div class="paper-meta">
+                                <span><i class="fas fa-sync"></i> Positive rewiring</span>
+                                <span><i class="fas fa-brain"></i> 1,000+ participants</span>
+                            </div>
+                            <div class="key-findings">
+                                <h4>Neuroplasticity Findings:</h4>
+                                <ul>
+                                    <li>Adolescents show 1.5-2x greater brain changes vs adults</li>
+                                    <li>Digital therapeutics accelerate plasticity by 2-4 weeks</li>
+                                    <li>Critical windows identified for maximum intervention impact</li>
+                                </ul>
+                            </div>
+                            <p class="paper-abstract">
+                                Synthesis of 18 neuroimaging studies revealing how therapeutic interventions can rewire adolescent brains for lasting positive change.
+                            </p>
+                            <div class="paper-actions">
+                                <a href="https://clarence1212.github.io/safeguardai-whitepaper/papers/WP-Brain-Recovery-Science.pdf" class="btn btn-primary" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Clinical Frameworks Tab -->
+                <div id="clinical-tab" class="tab-content">
+                    <h3 style="font-size: 1.75rem; margin-bottom: 2rem; text-align: center; color: var(--primary);">Clinical Assessment and Integration Frameworks</h3>
+                    
+                    <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
+                        <!-- Neuropsychological Assessment -->
+                        <div class="research-card">
+                            <div class="paper-type-badge">CLINICAL FRAMEWORK</div>
+                            <h3>Neuropsychological Digital Assessment</h3>
+                            <div class="paper-meta">
+                                <span><i class="fas fa-clipboard-check"></i> Comprehensive framework</span>
+                                <span><i class="fas fa-hospital"></i> For clinicians</span>
+                            </div>
+                            <div class="key-findings">
+                                <h4>Clinical Innovation:</h4>
+                                <ul>
+                                    <li>Integrates brain development research with psychological assessment</li>
+                                    <li>Enhanced predictive accuracy for intervention outcomes</li>
+                                    <li>Evidence-based timing for therapeutic engagement</li>
+                                </ul>
+                            </div>
+                            <p class="paper-abstract">
+                                Comprehensive framework combining neuroscience findings with clinical psychology protocols for digital wellness evaluation.
+                            </p>
+                            <div class="paper-actions">
+                                <a href="https://clarence1212.github.io/safeguardai-academic-paper/papers/CAP-Neuropsychological-Digital-Assessment.pdf" class="btn btn-primary" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Unified Framework -->
+                        <div class="research-card">
+                            <div class="paper-type-badge">COMPREHENSIVE FRAMEWORK</div>
+                            <h3>Unified Digital Wellness Framework</h3>
+                            <div class="paper-meta">
+                                <span><i class="fas fa-puzzle-piece"></i> Interdisciplinary integration</span>
+                                <span><i class="fas fa-award"></i> Evidence-based</span>
+                            </div>
+                            <div class="key-findings">
+                                <h4>Framework Components:</h4>
+                                <ul>
+                                    <li>Psychology: Digital content effects and mechanisms</li>
+                                    <li>Neuroscience: Brain development and plasticity</li>
+                                    <li>AI: Privacy-preserving intervention delivery</li>
+                                </ul>
+                            </div>
+                            <p class="paper-abstract">
+                                Meta-integration synthesizing research across psychology, neuroscience, and AI for comprehensive adolescent mental health interventions.
+                            </p>
+                            <div class="paper-actions">
+                                <a href="https://clarence1212.github.io/safeguardai-academic-paper/papers/CAP-Unified-Digital-Wellness-Framework.pdf" class="btn btn-primary" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Neurodevelopmental AI -->
+                        <div class="research-card">
+                            <div class="paper-type-badge">THEORETICAL FRAMEWORK</div>
+                            <h3>Neurodevelopmentally-Informed AI Systems</h3>
+                            <div class="paper-meta">
+                                <span><i class="fas fa-robot"></i> AI design principles</span>
+                                <span><i class="fas fa-child"></i> Age-appropriate tech</span>
+                            </div>
+                            <div class="key-findings">
+                                <h4>Design Principles:</h4>
+                                <ul>
+                                    <li>Age-stratified algorithms based on brain development</li>
+                                    <li>Attention-aware interfaces matching cognitive capacity</li>
+                                    <li>Graduated privacy controls aligned with autonomy development</li>
+                                </ul>
+                            </div>
+                            <p class="paper-abstract">
+                                Novel framework for designing AI systems that align with adolescent neurodevelopmental processes for safer, more effective mental health technologies.
+                            </p>
+                            <div class="paper-actions">
+                                <a href="https://clarence1212.github.io/safeguardai-academic-paper/papers/CAP-Toward-Neurodevelopmentally.pdf" class="btn btn-primary" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Privacy by Psychology Clinical -->
+                        <div class="research-card">
+                            <div class="paper-type-badge">PRIVACY FRAMEWORK</div>
+                            <h3>Privacy by Psychology: Clinical Applications</h3>
+                            <div class="paper-meta">
+                                <span><i class="fas fa-user-shield"></i> Autonomy development</span>
+                                <span><i class="fas fa-family"></i> Family dynamics</span>
+                            </div>
+                            <div class="key-findings">
+                                <h4>Clinical Benefits:</h4>
+                                <ul>
+                                    <li>Supports healthy autonomy development in adolescents</li>
+                                    <li>Enhances family therapeutic relationships</li>
+                                    <li>Evidence-based privacy design for clinical tools</li>
+                                </ul>
+                            </div>
+                            <p class="paper-abstract">
+                                Psychology-informed privacy framework that respects adolescent autonomy while maintaining family relationships in clinical settings.
+                            </p>
+                            <div class="paper-actions">
+                                <a href="https://clarence1212.github.io/safeguardai-academic-paper/papers/CAP-Privacy-by-Psychology1.pdf" class="btn btn-primary" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Digital Intervention Psychology -->
+                        <div class="research-card">
+                            <div class="paper-type-badge">INTERVENTION FRAMEWORK</div>
+                            <h3>Digital Intervention Psychology Framework</h3>
+                            <div class="paper-meta">
+                                <span><i class="fas fa-video"></i> Video-based therapy</span>
+                                <span><i class="fas fa-gamepad"></i> Gamification elements</span>
+                            </div>
+                            <div class="key-findings">
+                                <h4>Clinical Evidence:</h4>
+                                <ul>
+                                    <li>83% effectiveness rate for digital interventions</li>
+                                    <li>Gamified elements achieve g=0.38 effect size</li>
+                                    <li>Video-based delivery enhances engagement</li>
+                                </ul>
+                            </div>
+                            <p class="paper-abstract">
+                                Systematic review of evidence-based therapy adaptations for video-first platforms with clinical implementation guidelines.
+                            </p>
+                            <div class="paper-actions">
+                                <a href="https://clarence1212.github.io/safeguardai-academic-paper/papers/AP-Digital-Intervention-Psychology-for-Adolescents.pdf" class="btn btn-primary" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Papers Tab -->
+                <div id="technical-tab" class="tab-content">
+                    <h3 style="font-size: 1.75rem; margin-bottom: 2rem; text-align: center; color: var(--primary);">Technical Implementation and Architecture Studies</h3>
+                    
+                    <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
+                        <!-- Privacy-Preserving AI -->
+                        <div class="research-card">
+                            <div class="paper-type-badge">TECHNICAL ANALYSIS</div>
+                            <h3>Privacy-Preserving AI for Teen Mental Health</h3>
+                            <div class="paper-meta">
+                                <span><i class="fas fa-lock"></i> 47 studies reviewed</span>
+                                <span><i class="fas fa-shield-alt"></i> COPPA/GDPR compliant</span>
+                            </div>
+                            <div class="key-findings">
+                                <h4>Technical Achievements:</h4>
+                                <ul>
+                                    <li>Federated learning: 85-98% accuracy vs centralized</li>
+                                    <li>Edge computing: 50-200ms real-time inference</li>
+                                    <li>Differential privacy maintains 95% accuracy (ε=1.0)</li>
+                                </ul>
+                            </div>
+                            <p class="paper-abstract">
+                                Comprehensive analysis demonstrating technical feasibility of privacy-preserving AI for adolescent applications with acceptable performance trade-offs.
+                            </p>
+                            <div class="paper-actions">
+                                <a href="https://clarence1212.github.io/safeguardai-academic-paper/papers/AP-Privacy.pdf" class="btn btn-primary" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Scalable Architectures -->
+                        <div class="research-card">
+                            <div class="paper-type-badge">ARCHITECTURE STUDY</div>
+                            <h3>Scalable AI Architectures for Real-Time Assessment</h3>
+                            <div class="paper-meta">
+                                <span><i class="fas fa-server"></i> 52 systems analyzed</span>
+                                <span><i class="fas fa-tachometer-alt"></i> Production-ready</span>
+                            </div>
+                            <div class="key-findings">
+                                <h4>Performance Metrics:</h4>
+                                <ul>
+                                    <li>99.9% availability with microservices architecture</li>
+                                    <li>10,000+ concurrent users supported</li>
+                                    <li>40-60% cost reduction through auto-scaling</li>
+                                </ul>
+                            </div>
+                            <p class="paper-abstract">
+                                Analysis of production-ready architectures enabling real-time mental health assessment at scale with enterprise-grade reliability.
+                            </p>
+                            <div class="paper-actions">
+                                <a href="https://clarence1212.github.io/safeguardai-academic-paper/papers/AP-Scalable-AI-Architectures-for-Real.pdf" class="btn btn-primary" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Privacy Whitepaper -->
+                        <div class="research-card">
+                            <div class="paper-type-badge">TECHNICAL WHITE PAPER</div>
+                            <h3>Privacy-Preserving AI: Technical Feasibility</h3>
+                            <div class="paper-meta">
+                                <span><i class="fas fa-balance-scale"></i> Regulatory compliance</span>
+                                <span><i class="fas fa-chart-bar"></i> Performance analysis</span>
+                            </div>
+                            <div class="key-findings">
+                                <h4>Implementation Results:</h4>
+                                <ul>
+                                    <li>15-40% computational overhead for compliance</li>
+                                    <li>Privacy attack resistance improved by 34%</li>
+                                    <li>40-75% reduction in compliance costs long-term</li>
+                                </ul>
+                            </div>
+                            <p class="paper-abstract">
+                                Executive white paper examining technical and economic viability of privacy-preserving AI for adolescent mental health applications.
+                            </p>
+                            <div class="paper-actions">
+                                <a href="https://clarence1212.github.io/safeguardai-whitepaper/papers/WP-Privacy.pdf" class="btn btn-primary" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Digital Content Impact -->
+                        <div class="research-card">
+                            <div class="paper-type-badge">TECHNICAL REVIEW</div>
+                            <h3>Digital Content Impact: Technical Analysis</h3>
+                            <div class="paper-meta">
+                                <span><i class="fas fa-video"></i> Video platforms</span>
+                                <span><i class="fas fa-brain"></i> Psychological mechanisms</span>
+                            </div>
+                            <div class="key-findings">
+                                <h4>Platform Analysis:</h4>
+                                <ul>
+                                    <li>Video content shows distinct psychological pathways</li>
+                                    <li>Social comparison mechanisms amplified in video formats</li>
+                                    <li>Algorithm design impacts mental health outcomes</li>
+                                </ul>
+                            </div>
+                            <p class="paper-abstract">
+                                Technical analysis of how video-based platforms affect adolescent psychology through specific algorithmic and design mechanisms.
+                            </p>
+                            <div class="paper-actions">
+                                <a href="https://clarence1212.github.io/safeguardai-academic-paper/papers/AP-Digital-Content-Impact-on-Adolescent-Psychology.pdf" class="btn btn-primary" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Implementation Guides Tab -->
+                <div id="implementation-tab" class="tab-content">
+                    <h3 style="font-size: 1.75rem; margin-bottom: 2rem; text-align: center; color: var(--primary);">Practical Implementation Guides</h3>
+                    
+                    <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
+                        <!-- Digital Therapy Guide -->
+                        <div class="research-card">
+                            <div class="paper-type-badge">IMPLEMENTATION GUIDE</div>
+                            <h3>Evidence-Based Digital Therapy for Adolescents</h3>
+                            <div class="paper-meta">
+                                <span><i class="fas fa-video"></i> Video-first platforms</span>
+                                <span><i class="fas fa-check"></i> 83% effectiveness rate</span>
+                            </div>
+                            <div class="key-findings">
+                                <h4>Implementation Insights:</h4>
+                                <ul>
+                                    <li>Mental health apps show 83% effectiveness for adolescents</li>
+                                    <li>Gamified interventions achieve g=0.38 effect size</li>
+                                    <li>No negative effects reported across studies</li>
+                                </ul>
+                            </div>
+                            <p class="paper-abstract">
+                                Comprehensive guide for healthcare organizations implementing video-first digital therapeutics with proven clinical effectiveness.
+                            </p>
+                            <div class="paper-actions">
+                                <a href="https://clarence1212.github.io/safeguardai-whitepaper/papers/WP-Evidence.pdf" class="btn btn-primary" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Brain-Based AI Guide -->
+                        <div class="research-card">
+                            <div class="paper-type-badge">TECHNOLOGY GUIDE</div>
+                            <h3>Brain-Based AI for Adolescent Mental Health</h3>
+                            <div class="paper-meta">
+                                <span><i class="fas fa-building"></i> For tech companies</span>
+                                <span><i class="fas fa-brain"></i> ND-AI framework</span>
+                            </div>
+                            <div class="key-findings">
+                                <h4>Business Benefits:</h4>
+                                <ul>
+                                    <li>Enhanced safety during vulnerable developmental periods</li>
+                                    <li>Improved engagement through age-appropriate design</li>
+                                    <li>Competitive advantage through scientific innovation</li>
+                                </ul>
+                            </div>
+                            <p class="paper-abstract">
+                                Practical framework for implementing neurodevelopmentally-informed AI systems that align with adolescent brain development patterns.
+                            </p>
+                            <div class="paper-actions">
+                                <a href="https://clarence1212.github.io/safeguardai-whitepaper/papers/CWP-Brain-AI.pdf" class="btn btn-primary" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Clinical Implementation -->
+                        <div class="research-card">
+                            <div class="paper-type-badge">CLINICAL GUIDE</div>
+                            <h3>Neuropsychological Assessment Implementation</h3>
+                            <div class="paper-meta">
+                                <span><i class="fas fa-user-md"></i> For practitioners</span>
+                                <span><i class="fas fa-tools"></i> Practice enhancement</span>
+                            </div>
+                            <div class="key-findings">
+                                <h4>Clinical Benefits:</h4>
+                                <ul>
+                                    <li>40% improvement in therapy engagement</li>
+                                    <li>Enhanced assessment accuracy with brain data</li>
+                                    <li>Evidence-based intervention timing optimization</li>
+                                </ul>
+                            </div>
+                            <p class="paper-abstract">
+                                Step-by-step implementation guide for mental health practitioners integrating neuropsychological assessment into clinical practice.
+                            </p>
+                            <div class="paper-actions">
+                                <a href="https://clarence1212.github.io/safeguardai-whitepaper/papers/CWP-Neuropsychological-Digital-Wellness-Assessment.pdf" class="btn btn-primary" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Privacy by Psychology Guide -->
+                        <div class="research-card">
+                            <div class="paper-type-badge">POLICY GUIDE</div>
+                            <h3>Privacy by Psychology Framework</h3>
+                            <div class="paper-meta">
+                                <span><i class="fas fa-shield-alt"></i> Privacy technology</span>
+                                <span><i class="fas fa-users"></i> Family-centered</span>
+                            </div>
+                            <div class="key-findings">
+                                <h4>Framework Benefits:</h4>
+                                <ul>
+                                    <li>Supports healthy autonomy development</li>
+                                    <li>Enhances family relationships</li>
+                                    <li>Evidence-based privacy design</li>
+                                </ul>
+                            </div>
+                            <p class="paper-abstract">
+                                Innovative approach to privacy technology that strengthens rather than damages family relationships while supporting adolescent development.
+                            </p>
+                            <div class="paper-actions">
+                                <a href="https://clarence1212.github.io/safeguardai-whitepaper/papers/CWP-Privacy-by-Psychology.pdf" class="btn btn-primary" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Brain Recovery Science -->
+                        <div class="research-card">
+                            <div class="paper-type-badge">INTERVENTION GUIDE</div>
+                            <h3>Brain Recovery Science</h3>
+                            <div class="paper-meta">
+                                <span><i class="fas fa-brain"></i> Neuroplasticity</span>
+                                <span><i class="fas fa-sync"></i> Positive rewiring</span>
+                            </div>
+                            <div class="key-findings">
+                                <h4>Key Discoveries:</h4>
+                                <ul>
+                                    <li>Digital interventions accelerate brain changes by 2-4 weeks</li>
+                                    <li>Adolescents show 1.5-2x greater neuroplastic response</li>
+                                    <li>Optimal timing windows identified for interventions</li>
+                                </ul>
+                            </div>
+                            <p class="paper-abstract">
+                                Translating neuroscience research into practical solutions for rewiring adolescent brains for positive change through digital interventions.
+                            </p>
+                            <div class="paper-actions">
+                                <a href="https://clarence1212.github.io/safeguardai-whitepaper/papers/WP-Brain-Recovery-Science.pdf" class="btn btn-primary" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Scalable AI Implementation -->
+                        <div class="research-card">
+                            <div class="paper-type-badge">TECHNICAL GUIDE</div>
+                            <h3>Scalable AI Architectures Implementation</h3>
+                            <div class="paper-meta">
+                                <span><i class="fas fa-server"></i> Production systems</span>
+                                <span><i class="fas fa-rocket"></i> Real-time processing</span>
+                            </div>
+                            <div class="key-findings">
+                                <h4>Implementation Results:</h4>
+                                <ul>
+                                    <li>99.9% availability with microservices</li>
+                                    <li>Supports 10,000+ concurrent users</li>
+                                    <li>40-60% cost reduction through auto-scaling</li>
+                                </ul>
+                            </div>
+                            <p class="paper-abstract">
+                                Comprehensive deployment guide for scalable AI systems enabling real-time mental health assessment with enterprise-grade reliability.
+                            </p>
+                            <div class="paper-actions">
+                                <a href="https://clarence1212.github.io/safeguardai-whitepaper/papers/WP-Scalable-AI-Architectures-for-Real.pdf" class="btn btn-primary" target="_blank">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- All Papers Tab -->
+                <div id="all-tab" class="tab-content">
+                    <div style="margin-bottom: 3rem;">
+                        <h3 style="font-size: 1.75rem; margin-bottom: 2rem; text-align: center; color: var(--primary);">Complete Research Library</h3>
+                        <p style="text-align: center; color: var(--text-secondary); max-width: 800px; margin: 0 auto 3rem;">
+                            Access our full collection of 19 papers: 9 white papers and 10 research review papers. Each represents rigorous analysis and synthesis of global research in adolescent digital wellness.
+                        </p>
+                    </div>
+
+                    <!-- All Papers Listed -->
+                    <!-- White Papers Section -->
+                    <div style="margin: 0 -100vw; padding: 4rem 100vw; background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(59, 130, 246, 0.08) 100%);">
+                        <h3 style="font-size: 2rem; margin-bottom: 2rem; text-align: center; color: var(--primary);">White Papers (9)</h3>
+                        <p style="text-align: center; margin-bottom: 2rem; color: var(--text-secondary);">Practical implementation guides and policy frameworks</p>
+                        
+                        <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
+                            <!-- Original white papers with brief descriptions -->
+                            <div class="feature-card">
+                                <div class="feature-icon" style="background: var(--gradient);">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <h3>Brain-Based AI for Adolescent Mental Health</h3>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Implementation guide for technology companies developing neurodevelopmentally-informed AI systems.</p>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <a href="https://clarence1212.github.io/safeguardai-whitepaper/papers/CWP-Brain-AI.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                        <i class="fas fa-download"></i> Download PDF
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="feature-card">
+                                <div class="feature-icon" style="background: var(--gradient);">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <h3>Neuropsychological Digital Wellness Assessment</h3>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Clinical implementation guide for integrating brain development research with psychological assessment.</p>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <a href="https://clarence1212.github.io/safeguardai-whitepaper/papers/CWP-Neuropsychological-Digital-Wellness-Assessment.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                        <i class="fas fa-download"></i> Download PDF
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="feature-card">
+                                <div class="feature-icon" style="background: var(--gradient);">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <h3>Privacy by Psychology</h3>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Innovative framework for family-friendly privacy technology based on developmental psychology research.</p>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <a href="https://clarence1212.github.io/safeguardai-whitepaper/papers/CWP-Privacy-by-Psychology.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                        <i class="fas fa-download"></i> Download PDF
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Remaining white papers -->
+                            <div class="feature-card">
+                                <div class="feature-icon" style="background: var(--gradient);">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <h3>Brain Recovery Science</h3>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">How digital interventions can rewire teen brains for positive change through neuroplasticity.</p>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <a href="https://clarence1212.github.io/safeguardai-whitepaper/papers/WP-Brain-Recovery-Science.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                        <i class="fas fa-download"></i> Download PDF
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="feature-card">
+                                <div class="feature-icon" style="background: var(--gradient);">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <h3>Digital Content and Teen Psychology</h3>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Research on video platforms and their psychological impact on adolescent development.</p>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <a href="https://clarence1212.github.io/safeguardai-whitepaper/papers/WP-Digital-Content-and-Teen-Psychology.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                        <i class="fas fa-download"></i> Download PDF
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="feature-card">
+                                <div class="feature-icon" style="background: var(--gradient);">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <h3>Evidence-Based Digital Therapy</h3>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Implementation guide for video-first mental health platforms with 83% effectiveness rate.</p>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <a href="https://clarence1212.github.io/safeguardai-whitepaper/papers/WP-Evidence.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                        <i class="fas fa-download"></i> Download PDF
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="feature-card">
+                                <div class="feature-icon" style="background: var(--gradient);">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <h3>How Digital Media Reshapes Teen Brains</h3>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Neuroscience research translated for parents and educators on digital impact during adolescence.</p>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <a href="https://clarence1212.github.io/safeguardai-whitepaper/papers/WP-How-Digital-Media-Reshapes-Teen-Brains.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                        <i class="fas fa-download"></i> Download PDF
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="feature-card">
+                                <div class="feature-icon" style="background: var(--gradient);">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <h3>Privacy-Preserving AI Technical Analysis</h3>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Comprehensive analysis of federated learning and edge computing for teen mental health.</p>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <a href="https://clarence1212.github.io/safeguardai-whitepaper/papers/WP-Privacy.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                        <i class="fas fa-download"></i> Download PDF
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="feature-card">
+                                <div class="feature-icon" style="background: var(--gradient);">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <h3>Scalable AI Architectures</h3>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Implementation guide for real-time mental health assessment systems at scale.</p>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <a href="https://clarence1212.github.io/safeguardai-whitepaper/papers/WP-Scalable-AI-Architectures-for-Real.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                        <i class="fas fa-download"></i> Download PDF
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Academic Papers Section -->
+                    <div style="margin: 4rem 0;">
+                        <h3 style="font-size: 2rem; margin-bottom: 2rem; text-align: center; color: var(--primary);">Research Review Papers (10)</h3>
+                        <p style="text-align: center; margin-bottom: 2rem; color: var(--text-secondary);">Literature reviews, meta-analyses, and systematic reviews</p>
+                        
+                        <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <h3>Cognitive Rewiring Through Digital Interventions</h3>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Systematic review of 18 neuroimaging studies on therapeutic brain changes.</p>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <a href="https://clarence1212.github.io/safeguardai-academic-paper/papers/AP-Cognitive-Rewiring-Through-Digital-Intervention1.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                        <i class="fas fa-download"></i> Download PDF
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <h3>Digital Content Impact on Adolescent Psychology</h3>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Narrative review of video-based social media and mental health mechanisms.</p>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <a href="https://clarence1212.github.io/safeguardai-academic-paper/papers/AP-Digital-Content-Impact-on-Adolescent-Psychology.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                        <i class="fas fa-download"></i> Download PDF
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <h3>Digital Intervention Psychology for Adolescents</h3>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Systematic review of evidence-based therapy adaptations for video platforms.</p>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <a href="https://clarence1212.github.io/safeguardai-academic-paper/papers/AP-Digital-Intervention-Psychology-for-Adolescents.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                        <i class="fas fa-download"></i> Download PDF
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <h3>Neuroplasticity and Digital Media</h3>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Meta-analysis of neuroimaging studies on digital media brain impacts.</p>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <a href="https://clarence1212.github.io/safeguardai-academic-paper/papers/AP-Neuroplasticity-and-Digita-Media.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                        <i class="fas fa-download"></i> Download PDF
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <h3>Privacy-Preserving AI Technical Analysis</h3>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Technical feasibility study of federated learning for teen mental health.</p>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <a href="https://clarence1212.github.io/safeguardai-academic-paper/papers/AP-Privacy.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                        <i class="fas fa-download"></i> Download PDF
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <h3>Scalable AI Architectures Performance Analysis</h3>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Analysis of 52 systems for real-time mental health assessment.</p>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <a href="https://clarence1212.github.io/safeguardai-academic-paper/papers/AP-Scalable-AI-Architectures-for-Real.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                        <i class="fas fa-download"></i> Download PDF
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Clinical Assessment Papers Section -->
+                    <div style="margin: 4rem 0;">
+                        <h3 style="font-size: 2rem; margin-bottom: 2rem; text-align: center; color: var(--primary);">Clinical Assessment Papers (4)</h3>
+                        <p style="text-align: center; margin-bottom: 2rem; color: var(--text-secondary);">Clinical integration frameworks and assessment methodologies</p>
+                        
+                        <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
+                            <div class="feature-card">
+                                <div class="feature-icon" style="background: var(--secondary);">
+                                    <i class="fas fa-clipboard-check"></i>
+                                </div>
+                                <h3>Neuropsychological Digital Assessment</h3>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Comprehensive framework combining neuroscience with clinical psychology.</p>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <a href="https://clarence1212.github.io/safeguardai-academic-paper/papers/CAP-Neuropsychological-Digital-Assessment.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                        <i class="fas fa-download"></i> Download PDF
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="feature-card">
+                                <div class="feature-icon" style="background: var(--secondary);">
+                                    <i class="fas fa-clipboard-check"></i>
+                                </div>
+                                <h3>Privacy by Psychology Framework</h3>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Psychology-informed privacy design for healthy adolescent development.</p>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <a href="https://clarence1212.github.io/safeguardai-academic-paper/papers/CAP-Privacy-by-Psychology1.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                        <i class="fas fa-download"></i> Download PDF
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="feature-card">
+                                <div class="feature-icon" style="background: var(--secondary);">
+                                    <i class="fas fa-clipboard-check"></i>
+                                </div>
+                                <h3>Neurodevelopmentally-Informed AI Systems</h3>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Theoretical framework for age-appropriate digital mental health technologies.</p>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <a href="https://clarence1212.github.io/safeguardai-academic-paper/papers/CAP-Toward-Neurodevelopmentally.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                        <i class="fas fa-download"></i> Download PDF
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="feature-card">
+                                <div class="feature-icon" style="background: var(--secondary);">
+                                    <i class="fas fa-clipboard-check"></i>
+                                </div>
+                                <h3>Unified Digital Wellness Framework</h3>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Comprehensive integration of psychology, neuroscience, and AI research.</p>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <a href="https://clarence1212.github.io/safeguardai-academic-paper/papers/CAP-Unified-Digital-Wellness-Framework.pdf" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;" target="_blank">
+                                        <i class="fas fa-download"></i> Download PDF
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>How It Works</h3>
+                    <ul class="footer-links">
+                        <li><a>Technology</a></li>
+                        <li><a>Features</a></li>
+                        <li><a>Safety</a></li>
+                        <li><a>Pricing</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Research</h3>
+                    <ul class="footer-links">
+                        <li><a>Studies</a></li>
+                        <li><a>Insights</a></li>
+                        <li><a>Success Stories</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Solutions</h3>
+                    <ul class="footer-links">
+                        <li><a>For Families</a></li>
+                        <li><a>For Healthcare</a></li>
+                        <li><a>For Education</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a>Guides</a></li>
+                        <li><a>Support</a></li>
+                        <li><a>Community</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a>About Us</a></li>
+                        <li><a>Team</a></li>
+                        <li><a>Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 SafeGuardAI Research Institute. All rights reserved.</p>
+                <p style="margin-top: 0.5rem; font-style: italic;">"Technology that supports families, respects privacy, and promotes healthy digital habits."</p>
+                
+                <div class="trust-badges">
+                    <div class="trust-badge">Privacy & security certified</div>
+                    <div class="trust-badge">Compliant with child protection regulations</div>
+                    <div class="trust-badge">Regular independent audits</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab functionality
+        function showResearchTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active class from all tab buttons
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            tabButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab
+            const selectedTab = document.getElementById(tabName + '-tab');
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+            }
+            
+            // Add active class to clicked button
+            const clickedBtn = event.target.closest('.tab-btn');
+            if (clickedBtn) {
+                clickedBtn.classList.add('active');
+            }
+        }
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', function() {
+                const navMenu = document.getElementById('nav-menu');
+                if (navMenu) {
+                    navMenu.classList.toggle('active');
+                }
+            });
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (navbar) {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            }
+        });
+
+        // Button interactions
+        document.addEventListener('click', function(e) {
+            const target = e.target;
+            if (target.classList && target.classList.contains('btn')) {
+                const textContent = target.textContent || '';
+                if (textContent.includes('Try Free') || textContent.includes('Start Free Trial')) {
+                    e.preventDefault();
+                    alert('Free trial signup would redirect to registration page. Thank you for your interest!');
+                }
+            }
+        });
+
+        // Animation on scroll
+        window.addEventListener('scroll', function() {
+            const elements = document.querySelectorAll('.feature-card, .research-card');
+            elements.forEach(element => {
+                if (element) {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('animate-on-scroll');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

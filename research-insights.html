@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeGuardAI - Research Insights</title>
+    <meta name="description" content="Key insights from our research translated into actionable knowledge for parents, educators, and healthcare professionals.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0F172A;
+            --primary-light: #1E293B;
+            --secondary: #3B82F6;
+            --accent: #10B981;
+            --accent-light: #34D399;
+            --bg-dark: #000000;
+            --bg-light: #F1F5F9;
+            --bg-glass: rgba(255, 255, 255, 0.1);
+            --text-primary: #0F172A;
+            --text-secondary: #334155;
+            --text-light: #64748B;
+            --border: #E2E8F0;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #0F172A 0%, #3B82F6 50%, #10B981 100%);
+            --gradient-3: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        body {
+            font-family: 'Space Grotesk', 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--white);
+            overflow-x: hidden;
+            font-weight: 500;
+        }
+
+        /* Navigation (copied from research page) */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .nav-link:hover {
+            background: var(--bg-light);
+            color: var(--primary);
+        }
+
+        .nav-link.active {
+            background: var(--bg-light);
+            color: var(--primary);
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-link {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            margin-bottom: 0.25rem;
+            cursor: pointer;
+        }
+
+        .dropdown-link:hover {
+            background: var(--bg-light);
+            color: var(--primary);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .btn i {
+            font-size: 0.9em;
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover i {
+            transform: translateX(2px);
+        }
+
+        .btn-primary {
+            background: var(--gradient-2);
+            color: var(--white);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-primary);
+        }
+
+        /* Page Content */
+        .page {
+            padding-top: 100px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            letter-spacing: -0.025em;
+            line-height: 1.1;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        /* Insight Cards */
+        .insights-grid {
+            display: grid;
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+
+        .insight-card {
+            background: var(--white);
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+            transition: all 0.4s ease;
+        }
+
+        .insight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+            border-color: rgba(59, 130, 246, 0.2);
+        }
+
+        .insight-header {
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(16, 185, 129, 0.05));
+            border-bottom: 1px solid var(--border);
+        }
+
+        .insight-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .insight-description {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .insight-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            padding: 3rem;
+            align-items: center;
+        }
+
+        .insight-infographic {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .insight-details {
+            padding: 1rem;
+        }
+
+        .key-findings {
+            margin-bottom: 2rem;
+        }
+
+        .key-findings h3 {
+            font-size: 1.25rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .findings-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .findings-list li {
+            padding: 0.75rem 0;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            line-height: 1.5;
+        }
+
+        .findings-list li::before {
+            content: '→';
+            color: var(--secondary);
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+
+        .learn-more {
+            margin-top: 1.5rem;
+        }
+
+        .learn-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .learn-more-btn:hover {
+            background: rgba(59, 130, 246, 0.2);
+            transform: translateX(5px);
+        }
+
+        /* SVG Infographic Styles */
+        .infographic-svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-3);
+            opacity: 0.9;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .insight-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .insight-infographic {
+                order: -1;
+                padding: 1rem;
+            }
+
+            .infographic-svg {
+                max-height: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                border-top: 1px solid var(--border);
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">SafeGuardAI</div>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <div class="nav-link">Home</div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">
+                        Platform <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdown-link">Technology</div>
+                        <div class="dropdown-link">Features</div>
+                        <div class="dropdown-link">Safety</div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link active">
+                        Research <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown">
+                        <a href="research-studies.html" class="dropdown-link">Studies</a>
+                        <div class="dropdown-link active">Insights</div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">
+                        Solutions <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdown-link">For Families</div>
+                        <div class="dropdown-link">For Schools</div>
+                        <div class="dropdown-link">For Healthcare</div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">
+                        About <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdown-link">Our Mission</div>
+                        <div class="dropdown-link">Team</div>
+                        <div class="dropdown-link">Leadership</div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">
+                        Resources <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdown-link">Blog</div>
+                        <div class="dropdown-link">Guides</div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Contact</div>
+                </li>
+            </ul>
+
+            <div class="cta-buttons">
+                <div class="btn btn-secondary">
+                    <span>📚</span>
+                    Learn More
+                </div>
+                <div class="btn btn-primary">
+                    <span>▶️</span>
+                    Try Free for 30 Days
+                </div>
+            </div>
+
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Insights Page Content -->
+    <div class="page">
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h1 class="section-title">Research Insights</h1>
+                    <p class="section-subtitle">Key findings from our comprehensive research translated into actionable knowledge for families, educators, and healthcare professionals.</p>
+                </div>
+
+                <div class="insights-grid">
+                    <!-- Insight 1: Brain Development -->
+                    <div class="insight-card">
+                        <div class="insight-header">
+                            <h2 class="insight-title">Brain Development & Digital Impact</h2>
+                            <p class="insight-description">Understanding how digital media uniquely affects the developing adolescent brain during critical growth periods.</p>
+                        </div>
+                        <div class="insight-content">
+                            <div class="insight-infographic">
+                                <img src="https://clarence1212.github.io/safeguardai-website/brain-development-visual.png" 
+                                     alt="Adolescent Brain Plasticity - Peak at Ages 11-14" 
+                                     style="width: auto; height: auto; max-width: 420px; max-height: 420px; object-fit: contain; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                            </div>
+                            <div class="insight-details">
+                                <div class="key-findings">
+                                    <h3>Key Research Findings</h3>
+                                    <ul class="findings-list">
+                                        <li>Digital media exposure during ages 11-14 affects brain development differently than other ages</li>
+                                        <li>The adolescent brain shows 1.5-2x greater capacity for change compared to adults</li>
+                                        <li>Therapeutic interventions can accelerate positive brain changes by 2-4 weeks</li>
+                                        <li>Critical developmental windows exist for maximum intervention impact</li>
+                                    </ul>
+                                </div>
+                                <div class="learn-more">
+                                    <a href="research-studies.html" class="learn-more-btn">
+                                        View Related Research Papers
+                                        <i class="fas fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Insight 2: Privacy That Supports Development -->
+                    <div class="insight-card">
+                        <div class="insight-header">
+                            <h2 class="insight-title">Privacy That Supports Development</h2>
+                            <p class="insight-description">How psychology-informed privacy design enhances family relationships while protecting adolescent autonomy.</p>
+                        </div>
+                        <div class="insight-content">
+                            <div class="insight-infographic">
+                                <img src="https://clarence1212.github.io/safeguardai-website/privacy-development-visual.png" 
+                                     alt="Privacy Framework Impact - Traditional vs Psychology-Informed" 
+                                     style="width: auto; height: auto; max-width: 420px; max-height: 420px; object-fit: contain; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                            </div>
+                            <div class="insight-details">
+                                <div class="key-findings">
+                                    <h3>Key Research Findings</h3>
+                                    <ul class="findings-list">
+                                        <li>Traditional monitoring approaches may increase online risks while damaging family trust</li>
+                                        <li>Privacy frameworks should support healthy autonomy development</li>
+                                        <li>Psychology-informed privacy design enhances rather than harms family relationships</li>
+                                        <li>Collaborative approaches show better outcomes than surveillance-based methods</li>
+                                    </ul>
+                                </div>
+                                <div class="learn-more">
+                                    <a href="#" class="learn-more-btn">
+                                        View Related Research Papers
+                                        <i class="fas fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Insight 3: Digital Interventions That Work -->
+                    <div class="insight-card">
+                        <div class="insight-header">
+                            <h2 class="insight-title">Digital Interventions That Work</h2>
+                            <p class="insight-description">Evidence-based digital therapeutic approaches with proven effectiveness for adolescent mental health.</p>
+                        </div>
+                        <div class="insight-content">
+                            <div class="insight-infographic">
+                                <img src="https://clarence1212.github.io/safeguardai-website/digital-interventions-visual.png" 
+                                     alt="Digital Interventions Effectiveness - 83% Success Rate" 
+                                     style="width: auto; height: auto; max-width: 420px; max-height: 420px; object-fit: contain; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                            </div>
+                            <div class="insight-details">
+                                <div class="key-findings">
+                                    <h3>Key Research Findings</h3>
+                                    <ul class="findings-list">
+                                        <li>Mental health apps show 83% effectiveness rate for adolescents</li>
+                                        <li>Gamified interventions achieve measurable positive effects (g=0.38 effect size)</li>
+                                        <li>Video-based therapy delivery enhances engagement</li>
+                                        <li>No negative effects reported across reviewed studies</li>
+                                    </ul>
+                                </div>
+                                <div class="learn-more">
+                                    <a href="#" class="learn-more-btn">
+                                        View Related Research Papers
+                                        <i class="fas fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Insight 4: Implementation Best Practices -->
+                    <div class="insight-card">
+                        <div class="insight-header">
+                            <h2 class="insight-title">Implementation Best Practices</h2>
+                            <p class="insight-description">Technical insights for building scalable, privacy-preserving mental health solutions.</p>
+                        </div>
+                        <div class="insight-content">
+                            <div class="insight-infographic">
+                                <img src="https://clarence1212.github.io/safeguardai-website/implementation-practices-visual.png" 
+                                     alt="Implementation Best Practices - Technical Performance Metrics" 
+                                     style="width: auto; height: auto; max-width: 420px; max-height: 420px; object-fit: contain; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                            </div>
+                            <div class="insight-details">
+                                <div class="key-findings">
+                                    <h3>Key Research Findings</h3>
+                                    <ul class="findings-list">
+                                        <li>Federated learning maintains 85-98% accuracy while preserving privacy</li>
+                                        <li>Scalable architectures can support 10,000+ concurrent users</li>
+                                        <li>40-60% cost reduction possible through proper system design</li>
+                                        <li>Edge computing enables 50-200ms real-time inference</li>
+                                    </ul>
+                                </div>
+                                <div class="learn-more">
+                                    <a href="#" class="learn-more-btn">
+                                        View Related Research Papers
+                                        <i class="fas fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>How It Works</h3>
+                    <ul class="footer-links">
+                        <li><a>Technology</a></li>
+                        <li><a>Features</a></li>
+                        <li><a>Safety</a></li>
+                        <li><a>Pricing</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Research</h3>
+                    <ul class="footer-links">
+                        <li><a>Studies</a></li>
+                        <li><a>Insights</a></li>
+                        <li><a>Success Stories</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Solutions</h3>
+                    <ul class="footer-links">
+                        <li><a>For Families</a></li>
+                        <li><a>For Healthcare</a></li>
+                        <li><a>For Education</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a>Guides</a></li>
+                        <li><a>Support</a></li>
+                        <li><a>Community</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a>About Us</a></li>
+                        <li><a>Team</a></li>
+                        <li><a>Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 SafeGuardAI Research Institute. All rights reserved.</p>
+                <p style="margin-top: 0.5rem; font-style: italic;">"Technology that supports families, respects privacy, and promotes healthy digital habits."</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', function() {
+                const navMenu = document.getElementById('nav-menu');
+                if (navMenu) {
+                    navMenu.classList.toggle('active');
+                }
+            });
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (navbar) {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            }
+        });
+
+        // Button interactions
+        document.addEventListener('click', function(e) {
+            const target = e.target;
+            if (target.classList && target.classList.contains('btn')) {
+                const textContent = target.textContent || '';
+                if (textContent.includes('Try Free') || textContent.includes('Start Free Trial')) {
+                    e.preventDefault();
+                    alert('Free trial signup would redirect to registration page. Thank you for your interest!');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
