@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeGuardAI - About: Our Mission and Team</title>
+    <meta name="description" content="SafeGuardAI was founded to help families navigate digital life in a healthy, balanced way. Meet our team of experts in technology, psychology, and family wellness.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons - Multiple Sources for Better Compatibility -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0F172A;
+            --primary-light: #1E293B;
+            --secondary: #3B82F6;
+            --accent: #10B981;
+            --accent-light: #34D399;
+            --bg-dark: #000000;
+            --bg-light: #F1F5F9;
+            --bg-glass: rgba(255, 255, 255, 0.1);
+            --text-primary: #0F172A;
+            --text-secondary: #334155;
+            --text-light: #64748B;
+            --border: #E2E8F0;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #0F172A 0%, #3B82F6 50%, #10B981 100%);
+            --gradient-3: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+            --gradient-hero: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(59, 130, 246, 0.8) 50%, rgba(16, 185, 129, 0.7) 100%);
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        body {
+            font-family: 'Space Grotesk', 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--white);
+            overflow-x: hidden;
+            font-weight: 500;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .nav-link:hover {
+            background: var(--bg-light);
+            color: var(--primary);
+        }
+
+        .nav-link.active {
+            background: var(--bg-light);
+            color: var(--primary);
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-link {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            margin-bottom: 0.25rem;
+            cursor: pointer;
+        }
+
+        .dropdown-link:hover {
+            background: var(--bg-light);
+            color: var(--primary);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        /* Enhanced button styles with better icon spacing */
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .btn i {
+            font-size: 0.9em;
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover i {
+            transform: translateX(2px);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: var(--gradient-2);
+            color: var(--white);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-primary);
+        }
+
+        /* Page Content */
+        .page {
+            padding-top: 100px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            letter-spacing: -0.025em;
+            line-height: 1.1;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Special grid for 4 columns */
+        .features-grid-4 {
+            display: grid !important;
+            grid-template-columns: repeat(4, 1fr) !important;
+            gap: 1.5rem !important;
+            margin-top: 3rem;
+        }
+        
+        /* Force 4 columns for about page grids */
+        #about .features-grid-4 {
+            display: grid !important;
+            grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+            gap: 1.5rem !important;
+        }
+
+        /* Responsive adjustments for 4-column grid */
+        @media (max-width: 1400px) {
+            .features-grid-4,
+            #about .features-grid-4 {
+                gap: 1rem !important;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .features-grid-4,
+            #about .features-grid-4 {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 1.5rem !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .features-grid-4,
+            #about .features-grid-4 {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        /* Team Grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .team-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 3px solid var(--primary);
+        }
+
+        .team-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .team-name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        .team-role {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .team-bio {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-3);
+            opacity: 0.9;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            position: relative;
+            z-index: 2;
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                border-top: 1px solid var(--border);
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .dropdown {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                border: none;
+                padding: 0;
+                margin-left: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .cta-buttons {
+                display: none;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">SafeGuardAI</div>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <div class="nav-link">Home</div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">
+                        Platform <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdown-link">Technology</div>
+                        <div class="dropdown-link">Features</div>
+                        <div class="dropdown-link">Safety</div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">
+                        Research <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdown-link">Studies</div>
+                        <div class="dropdown-link">Insights</div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">
+                        Solutions <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdown-link">For Families</div>
+                        <div class="dropdown-link">For Schools</div>
+                        <div class="dropdown-link">For Healthcare</div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link active">
+                        About <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdown-link">Our Mission</div>
+                        <div class="dropdown-link">Team</div>
+                        <div class="dropdown-link">Leadership</div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">
+                        Resources <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdown-link">Blog</div>
+                        <div class="dropdown-link">Guides</div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Contact</div>
+                </li>
+            </ul>
+
+            <div class="cta-buttons">
+                <div class="btn btn-secondary">
+                    <span>📚</span>
+                    Learn More
+                </div>
+                <div class="btn btn-primary">
+                    <span>▶️</span>
+                    Try Free for 30 Days
+                </div>
+            </div>
+
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- About Page Content -->
+    <div id="about" class="page">
+        <section class="section" style="background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.9)), url('https://clarence1212.github.io/safeguardai-website/about-section.png'); background-size: cover; background-position: center; background-attachment: fixed; position: relative; min-height: 100vh;">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Our Mission and Team</h2>
+                    <p class="section-subtitle">SafeGuardAI was founded to help families navigate digital life in a healthy, balanced way.</p>
+                </div>
+
+                <div style="margin-bottom: 4rem; text-align: center;">
+                    <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
+                        We believe technology should support family relationships, not strain them. Our team combines expertise in technology, psychology, and family wellness to create tools that are both effective and respectful of privacy and family autonomy.
+                    </p>
+                </div>
+
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-avatar">
+                            <img src="https://clarence1212.github.io/safeguardai-website/team-elias.png" alt="Elias Kairos Chen, PhD" onerror="this.parentElement.innerHTML='<div style=\'background: var(--gradient); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: bold; border-radius: 50%;\'>EC</div>';">
+                        </div>
+                        <div class="team-name">Elias Kairos Chen, PhD</div>
+                        <div class="team-role">Founder & CEO</div>
+                        <div class="team-bio">Background in computer science and privacy-preserving technology. Experience in healthcare technology applications and advocate for responsible AI development.</div>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-avatar">
+                            <img src="https://clarence1212.github.io/safeguardai-website/team-victoria.png" alt="Victoria Tan" onerror="this.parentElement.innerHTML='<div style=\'background: var(--gradient); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: bold; border-radius: 50%;\'>VT</div>';">
+                        </div>
+                        <div class="team-name">Victoria Tan</div>
+                        <div class="team-role">Research Director</div>
+                        <div class="team-bio">Background in psychology with focus on digital behavior. Experience in research on technology and youth development.</div>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-avatar">
+                            <img src="https://clarence1212.github.io/safeguardai-website/team-kristina.png" alt="Dr. Kristina Garcia-Tan, MD" onerror="this.parentElement.innerHTML='<div style=\'background: var(--gradient); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: bold; border-radius: 50%;\'>KG</div>';">
+                        </div>
+                        <div class="team-name">Dr. Kristina Garcia-Tan, MD</div>
+                        <div class="team-role">Medical Advisor</div>
+                        <div class="team-bio">Practicing neurologist with experience in adolescent care. Advisor on clinical applications and ethical considerations.</div>
+                    </div>
+                </div>
+
+                <div style="background: var(--bg-light); padding: 3rem; border-radius: 1.5rem; text-align: center; margin-top: 4rem; position: relative;">
+                    <div style="position: absolute; top: -30px; left: 50%; transform: translateX(-50%); background: var(--white); padding: 1rem 2rem; border-radius: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                        <span style="font-size: 2rem;">✨</span>
+                    </div>
+                    <h3 style="margin-bottom: 2rem; color: var(--primary); margin-top: 1rem;">Our Values & Approach</h3>
+                    <div class="features-grid-4">
+                        <div style="text-align: center;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">🔒</div>
+                            <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Privacy & Trust</h4>
+                            <p style="color: var(--text-secondary);">We believe privacy is fundamental to healthy family relationships and effective support.</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">🧠</div>
+                            <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Evidence-Based</h4>
+                            <p style="color: var(--text-secondary);">Our recommendations are based on established research and best practices.</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">🤝</div>
+                            <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Family-Centered</h4>
+                            <p style="color: var(--text-secondary);">Families know their needs best; our role is to provide helpful information and tools.</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">⚡</div>
+                            <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Responsible Innovation</h4>
+                            <p style="color: var(--text-secondary);">We develop technology thoughtfully, with careful attention to potential impacts.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Leadership Section -->
+                <div style="margin-top: 6rem;">
+                    <h3 style="text-align: center; font-size: 2rem; margin-bottom: 3rem; color: var(--primary);">Advisory Board</h3>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
+                        <div style="background: var(--white); padding: 2rem; border-radius: 1rem; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); border: 1px solid var(--border);">
+                            <h4 style="color: var(--primary); margin-bottom: 1rem;">Clinical Advisory</h4>
+                            <p style="color: var(--text-secondary); line-height: 1.8;">
+                                Our clinical advisors include psychologists, psychiatrists, and pediatricians who specialize in adolescent development and digital wellness. They ensure our approach aligns with current best practices in mental health care.
+                            </p>
+                        </div>
+                        
+                        <div style="background: var(--white); padding: 2rem; border-radius: 1rem; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); border: 1px solid var(--border);">
+                            <h4 style="color: var(--primary); margin-bottom: 1rem;">Technical Advisory</h4>
+                            <p style="color: var(--text-secondary); line-height: 1.8;">
+                                Leading experts in privacy-preserving technology, AI ethics, and cybersecurity guide our technical development to ensure we maintain the highest standards of data protection and ethical AI use.
+                            </p>
+                        </div>
+                        
+                        <div style="background: var(--white); padding: 2rem; border-radius: 1rem; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); border: 1px solid var(--border);">
+                            <h4 style="color: var(--primary); margin-bottom: 1rem;">Family Advisory</h4>
+                            <p style="color: var(--text-secondary); line-height: 1.8;">
+                                Parents, educators, and youth advocates help us understand the real-world challenges families face and ensure our solutions are practical, accessible, and truly helpful.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Company Timeline -->
+                <div style="margin-top: 6rem; padding: 3rem; background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(16, 185, 129, 0.05) 100%); border-radius: 1.5rem;">
+                    <h3 style="text-align: center; font-size: 2rem; margin-bottom: 3rem; color: var(--primary);">Our Journey</h3>
+                    
+                    <div style="max-width: 800px; margin: 0 auto;">
+                        <div style="display: flex; align-items: center; gap: 2rem; margin-bottom: 2rem;">
+                            <div style="flex: 0 0 100px; text-align: right; font-weight: 600; color: var(--secondary);">2022</div>
+                            <div style="flex: 1; padding: 1rem; background: var(--white); border-radius: 0.5rem; border-left: 4px solid var(--secondary);">
+                                <strong>Foundation</strong> - SafeGuardAI Research Institute established with initial research focus on digital wellness
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; gap: 2rem; margin-bottom: 2rem;">
+                            <div style="flex: 0 0 100px; text-align: right; font-weight: 600; color: var(--accent);">2023</div>
+                            <div style="flex: 1; padding: 1rem; background: var(--white); border-radius: 0.5rem; border-left: 4px solid var(--accent);">
+                                <strong>Research Phase</strong> - Published first white papers and began pilot programs with healthcare partners
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; gap: 2rem; margin-bottom: 2rem;">
+                            <div style="flex: 0 0 100px; text-align: right; font-weight: 600; color: var(--primary);">2024</div>
+                            <div style="flex: 1; padding: 1rem; background: var(--white); border-radius: 0.5rem; border-left: 4px solid var(--primary);">
+                                <strong>Platform Launch</strong> - Released privacy-preserving AI platform based on research findings
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; gap: 2rem;">
+                            <div style="flex: 0 0 100px; text-align: right; font-weight: 600; color: var(--gradient); background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">2025</div>
+                            <div style="flex: 1; padding: 1rem; background: var(--white); border-radius: 0.5rem; border-left: 4px solid var(--secondary);">
+                                <strong>Expansion</strong> - Growing partnerships with schools, healthcare providers, and families worldwide
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>How It Works</h3>
+                    <ul class="footer-links">
+                        <li><a>Technology</a></li>
+                        <li><a>Features</a></li>
+                        <li><a>Safety</a></li>
+                        <li><a>Pricing</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Research</h3>
+                    <ul class="footer-links">
+                        <li><a>Studies</a></li>
+                        <li><a>Insights</a></li>
+                        <li><a>Success Stories</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Solutions</h3>
+                    <ul class="footer-links">
+                        <li><a>For Families</a></li>
+                        <li><a>For Healthcare</a></li>
+                        <li><a>For Education</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a>Guides</a></li>
+                        <li><a>Support</a></li>
+                        <li><a>Community</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a>About Us</a></li>
+                        <li><a>Team</a></li>
+                        <li><a>Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 SafeGuardAI Research Institute. All rights reserved.</p>
+                <p style="margin-top: 0.5rem; font-style: italic;">"Technology that supports families, respects privacy, and promotes healthy digital habits."</p>
+                
+                <div class="trust-badges">
+                    <div class="trust-badge">Privacy & security certified</div>
+                    <div class="trust-badge">Compliant with child protection regulations</div>
+                    <div class="trust-badge">Regular independent audits</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', function() {
+                const navMenu = document.getElementById('nav-menu');
+                if (navMenu) {
+                    navMenu.classList.toggle('active');
+                }
+            });
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (navbar) {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            }
+        });
+
+        // Button interactions
+        document.addEventListener('click', function(e) {
+            const target = e.target;
+            if (target.classList && target.classList.contains('btn')) {
+                const textContent = target.textContent || '';
+                if (textContent.includes('Try Free') || textContent.includes('Start Free Trial')) {
+                    e.preventDefault();
+                    alert('Free trial signup would redirect to registration page. Thank you for your interest!');
+                }
+            }
+        });
+
+        // Animation on scroll
+        window.addEventListener('scroll', function() {
+            const elements = document.querySelectorAll('.team-card');
+            elements.forEach(element => {
+                if (element) {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('animate-on-scroll');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

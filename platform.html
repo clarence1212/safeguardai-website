@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeGuardAI - Platform: Technology, Features & Security</title>
+    <meta name="description" content="Learn about SafeGuardAI's privacy-preserving technology, comprehensive features for families and professionals, and industry-leading security standards.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons - Multiple Sources for Better Compatibility -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0F172A;
+            --primary-light: #1E293B;
+            --secondary: #3B82F6;
+            --accent: #10B981;
+            --accent-light: #34D399;
+            --bg-dark: #000000;
+            --bg-light: #F1F5F9;
+            --bg-glass: rgba(255, 255, 255, 0.1);
+            --text-primary: #0F172A;
+            --text-secondary: #334155;
+            --text-light: #64748B;
+            --border: #E2E8F0;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #0F172A 0%, #3B82F6 50%, #10B981 100%);
+            --gradient-3: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+            --gradient-hero: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(59, 130, 246, 0.8) 50%, rgba(16, 185, 129, 0.7) 100%);
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        body {
+            font-family: 'Space Grotesk', 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--white);
+            overflow-x: hidden;
+            font-weight: 500;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .nav-link:hover {
+            background: var(--bg-light);
+            color: var(--primary);
+        }
+
+        .nav-link.active {
+            background: var(--bg-light);
+            color: var(--primary);
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-link {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            margin-bottom: 0.25rem;
+            cursor: pointer;
+        }
+
+        .dropdown-link:hover {
+            background: var(--bg-light);
+            color: var(--primary);
+        }
+
+        .dropdown-link.active {
+            background: var(--bg-light);
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        /* Enhanced button styles with better icon spacing */
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .btn i {
+            font-size: 0.9em;
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover i {
+            transform: translateX(2px);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: var(--gradient-2);
+            color: var(--white);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-primary);
+        }
+
+        /* Page Content */
+        .page {
+            padding-top: 100px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Tab Navigation */
+        .tab-nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0;
+        }
+
+        .tab-btn {
+            padding: 1rem 2rem;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: -2px;
+        }
+
+        .tab-btn:hover {
+            color: var(--primary);
+        }
+
+        .tab-btn.active {
+            color: var(--primary);
+            border-bottom-color: var(--secondary);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            letter-spacing: -0.025em;
+            line-height: 1.1;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Special grid for 4 columns - used on technology page */
+        .features-grid-4 {
+            display: grid !important;
+            grid-template-columns: repeat(4, 1fr) !important;
+            gap: 1.5rem !important;
+            margin-top: 3rem;
+        }
+        
+        /* Force 4 columns for specific grids */
+        #technology .features-grid,
+        #technology .features-grid-4 {
+            display: grid !important;
+            grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+            gap: 1.5rem !important;
+        }
+
+        /* Ensure cards fit in 4-column layout */
+        #technology .feature-card {
+            padding: 1.5rem !important;
+        }
+
+        #technology .feature-icon {
+            width: 60px !important;
+            height: 60px !important;
+            font-size: 1.4rem !important;
+            margin-bottom: 1rem !important;
+        }
+
+        #technology .feature-card h3 {
+            font-size: 1.25rem !important;
+            margin-bottom: 0.75rem !important;
+        }
+
+        #technology .feature-card p {
+            font-size: 0.9rem !important;
+        }
+
+        /* Responsive adjustments for 4-column grid */
+        @media (max-width: 1400px) {
+            .features-grid-4,
+            #technology .features-grid,
+            #technology .features-grid-4 {
+                gap: 1rem !important;
+            }
+            
+            .features-grid-4 .feature-card {
+                padding: 1.5rem !important;
+            }
+            
+            .features-grid-4 .feature-card h3 {
+                font-size: 1.25rem;
+            }
+            
+            .features-grid-4 .feature-list {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .features-grid-4,
+            #technology .features-grid,
+            #technology .features-grid-4 {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 1.5rem !important;
+            }
+            
+            .features-grid-4 .feature-card {
+                padding: 2rem !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .features-grid-4,
+            #technology .features-grid,
+            #technology .features-grid-4 {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 1.5rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .features-grid-4 .feature-list,
+        #technology .feature-list {
+            list-style: none !important;
+        }
+        
+        .features-grid-4 .feature-list li,
+        #technology .feature-list li {
+            font-size: 0.9rem !important;
+            padding: 0.3rem 0 0.3rem 1.5rem !important;
+            position: relative !important;
+            color: var(--text-secondary) !important;
+            font-weight: 500 !important;
+        }
+        
+        .features-grid-4 .feature-list li::before,
+        #technology .feature-list li::before {
+            content: '✓' !important;
+            color: var(--secondary) !important;
+            font-weight: bold !important;
+            position: absolute !important;
+            left: 0 !important;
+            top: 0.3rem !important;
+            font-size: 1rem !important;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-2);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+
+        .feature-card:hover::before {
+            opacity: 0.03;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-xl);
+            border-color: rgba(59, 130, 246, 0.2);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-2);
+            border-radius: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            color: var(--white);
+            font-size: 2rem;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-icon::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
+                conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: scale(0);
+            transition: transform 0.4s ease;
+            animation: iconShimmer 3s linear infinite;
+        }
+
+        @keyframes iconShimmer {
+            0% { transform: scale(0) rotate(0deg); }
+            50% { transform: scale(1) rotate(180deg); }
+            100% { transform: scale(0) rotate(360deg); }
+        }
+
+        .feature-card:hover .feature-icon::before {
+            transform: scale(1);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .feature-list li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            color: var(--secondary);
+            font-weight: bold;
+            flex-shrink: 0;
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-3);
+            opacity: 0.9;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            position: relative;
+            z-index: 2;
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                border-top: 1px solid var(--border);
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .dropdown {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                border: none;
+                padding: 0;
+                margin-left: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .cta-buttons {
+                display: none;
+            }
+
+            .tab-nav {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+
+            .tab-btn {
+                padding: 0.75rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">SafeGuardAI</div>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <div class="nav-link">Home</div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link active">
+                        Platform <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdown-link active" onclick="showTab('technology')">Technology</div>
+                        <div class="dropdown-link" onclick="showTab('features')">Features</div>
+                        <div class="dropdown-link" onclick="showTab('security')">Safety</div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">
+                        Research <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdown-link">Studies</div>
+                        <div class="dropdown-link">Insights</div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">
+                        Solutions <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdown-link">For Families</div>
+                        <div class="dropdown-link">For Schools</div>
+                        <div class="dropdown-link">For Healthcare</div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">
+                        About <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdown-link">Our Mission</div>
+                        <div class="dropdown-link">Team</div>
+                        <div class="dropdown-link">Leadership</div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">
+                        Resources <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdown-link">Blog</div>
+                        <div class="dropdown-link">Guides</div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Contact</div>
+                </li>
+            </ul>
+
+            <div class="cta-buttons">
+                <div class="btn btn-secondary">
+                    <span>📚</span>
+                    Learn More
+                </div>
+                <div class="btn btn-primary">
+                    <span>▶️</span>
+                    Try Free for 30 Days
+                </div>
+            </div>
+
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Platform Page Content -->
+    <div class="page">
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Platform Overview</h2>
+                    <p class="section-subtitle">Comprehensive digital wellness solutions built on cutting-edge technology, designed with privacy and security at the core.</p>
+                </div>
+
+                <!-- Tab Navigation -->
+                <div class="tab-nav">
+                    <button class="tab-btn active" onclick="showTab('technology')">Technology</button>
+                    <button class="tab-btn" onclick="showTab('features')">Features</button>
+                    <button class="tab-btn" onclick="showTab('security')">Safety & Security</button>
+                </div>
+
+                <!-- Technology Tab -->
+                <div id="technology" class="tab-content active">
+                    <div style="background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.9)), url('https://clarence1212.github.io/safeguardai-website/technology-section.png'); background-size: cover; background-position: center; background-attachment: fixed; position: relative; padding: 4rem; margin: -4rem; border-radius: 1rem;">
+                        <div class="section-header">
+                            <h2 class="section-title">Built on Research and Real-World Testing</h2>
+                            <p class="section-subtitle">Our platform is based on several years of research into privacy-preserving technology and digital wellness, with input from families, educators, and healthcare providers.</p>
+                        </div>
+
+                        <div class="features-grid">
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-microchip"></i>
+                                </div>
+                                <h3>Local Processing</h3>
+                                <p>Analysis happens on family devices, not in the cloud, ensuring personal information stays private while providing helpful insights.</p>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-network-wired"></i>
+                                </div>
+                                <h3>Federated Learning</h3>
+                                <p>Our system improves while keeping individual data private by learning from general patterns across many families.</p>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-user-shield"></i>
+                                </div>
+                                <h3>Differential Privacy</h3>
+                                <p>Mathematical techniques that protect personal information while still allowing for helpful analysis and recommendations.</p>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <h3>Safety and Compliance</h3>
+                                <ul class="feature-list" style="list-style: none; margin: 0; padding: 0;">
+                                    <li style="position: relative; padding-left: 1.5rem; padding-top: 0.3rem; padding-bottom: 0.3rem;"><span style="position: absolute; left: 0; top: 0.3rem; color: #3B82F6; font-weight: bold;">✓</span> COPPA Compliant: Meets requirements for protecting children's privacy</li>
+                                    <li style="position: relative; padding-left: 1.5rem; padding-top: 0.3rem; padding-bottom: 0.3rem;"><span style="position: absolute; left: 0; top: 0.3rem; color: #3B82F6; font-weight: bold;">✓</span> GDPR Compatible: Designed with European privacy standards</li>
+                                    <li style="position: relative; padding-left: 1.5rem; padding-top: 0.3rem; padding-bottom: 0.3rem;"><span style="position: absolute; left: 0; top: 0.3rem; color: #3B82F6; font-weight: bold;">✓</span> Security Certified: Regular third-party security assessments</li>
+                                    <li style="position: relative; padding-left: 1.5rem; padding-top: 0.3rem; padding-bottom: 0.3rem;"><span style="position: absolute; left: 0; top: 0.3rem; color: #3B82F6; font-weight: bold;">✓</span> Transparent Practices: Clear policies about how the system works</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Features Tab -->
+                <div id="features" class="tab-content">
+                    <div class="section-header">
+                        <h2 class="section-title">Solutions for Different Needs</h2>
+                        <p class="section-subtitle">Tailored features for families, healthcare providers, and educational institutions.</p>
+                    </div>
+
+                    <div style="margin-bottom: 4rem;">
+                        <h3 style="font-size: 2rem; margin-bottom: 2rem; text-align: center; color: var(--primary);">For Families</h3>
+                        <div class="features-grid-4">
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                                <h3>Early Awareness</h3>
+                                <ul class="feature-list">
+                                    <li>Spot patterns that might indicate digital wellness concerns</li>
+                                    <li>Receive gentle notifications with context</li>
+                                    <li>Get suggestions for family conversations and activities</li>
+                                    <li>Access resources for different situations</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <h3>Family-Centered Tools</h3>
+                                <ul class="feature-list">
+                                    <li>Conversation guides for discussing digital habits</li>
+                                    <li>Activity suggestions for offline time</li>
+                                    <li>Progress tracking for family digital wellness goals</li>
+                                    <li>Crisis resources and professional referrals when needed</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <h3>Transparent Insights</h3>
+                                <ul class="feature-list">
+                                    <li>See what patterns the system is tracking</li>
+                                    <li>Understand how recommendations are made</li>
+                                    <li>Customize privacy and sharing settings</li>
+                                    <li>Regular family check-ins with guided discussions</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 4rem;">
+                        <h3 style="font-size: 2rem; margin-bottom: 2rem; text-align: center; color: var(--primary);">For Healthcare Providers</h3>
+                        <div class="features-grid-4">
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-stethoscope"></i>
+                                </div>
+                                <h3>Clinical Support Tools</h3>
+                                <ul class="feature-list">
+                                    <li>Assessment tools that integrate with existing workflows</li>
+                                    <li>Population-level insights (anonymized)</li>
+                                    <li>Early warning systems for patients at risk</li>
+                                    <li>Evidence-based intervention recommendations</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 style="font-size: 2rem; margin-bottom: 2rem; text-align: center; color: var(--primary);">For Educational Institutions</h3>
+                        <div class="features-grid">
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <h3>School-Wide Support</h3>
+                                <ul class="feature-list">
+                                    <li>Anonymous monitoring of student digital wellness trends</li>
+                                    <li>Integration with existing counseling and support services</li>
+                                    <li>Professional development for staff</li>
+                                    <li>Parent and family engagement resources</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security Tab -->
+                <div id="security" class="tab-content">
+                    <div class="section-header">
+                        <h2 class="section-title">Your Privacy is Our Priority</h2>
+                        <p class="section-subtitle">We believe privacy is fundamental to healthy family relationships and effective support.</p>
+                    </div>
+
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <h3>Local Processing</h3>
+                            <ul class="feature-list">
+                                <li>Analysis happens on your devices, not on our servers</li>
+                                <li>Personal messages and content never leave your family's devices</li>
+                                <li>Only aggregate patterns are used to improve the system</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>Industry Standards</h3>
+                            <ul class="feature-list">
+                                <li>Regular security audits by independent firms</li>
+                                <li>Encryption for all data transmission</li>
+                                <li>Strict access controls for any system components</li>
+                                <li>Compliance with relevant privacy regulations</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <h3>Transparent Practices</h3>
+                            <ul class="feature-list">
+                                <li>Clear explanations of how the system works</li>
+                                <li>User control over all privacy settings</li>
+                                <li>Regular reports on privacy and security practices</li>
+                                <li>Independent oversight of our privacy commitments</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>How It Works</h3>
+                    <ul class="footer-links">
+                        <li><a>Technology</a></li>
+                        <li><a>Features</a></li>
+                        <li><a>Safety</a></li>
+                        <li><a>Pricing</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Research</h3>
+                    <ul class="footer-links">
+                        <li><a>Studies</a></li>
+                        <li><a>Insights</a></li>
+                        <li><a>Success Stories</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Solutions</h3>
+                    <ul class="footer-links">
+                        <li><a>For Families</a></li>
+                        <li><a>For Healthcare</a></li>
+                        <li><a>For Education</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a>Guides</a></li>
+                        <li><a>Support</a></li>
+                        <li><a>Community</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a>About Us</a></li>
+                        <li><a>Team</a></li>
+                        <li><a>Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 SafeGuardAI Research Institute. All rights reserved.</p>
+                <p style="margin-top: 0.5rem; font-style: italic;">"Technology that supports families, respects privacy, and promotes healthy digital habits."</p>
+                
+                <div class="trust-badges">
+                    <div class="trust-badge">Privacy & security certified</div>
+                    <div class="trust-badge">Compliant with child protection regulations</div>
+                    <div class="trust-badge">Regular independent audits</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab functionality
+        function showTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active class from all tab buttons
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            tabButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab
+            const selectedTab = document.getElementById(tabName);
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+            }
+            
+            // Add active class to clicked button
+            const clickedBtn = event.target;
+            if (clickedBtn && clickedBtn.classList) {
+                clickedBtn.classList.add('active');
+            }
+            
+            // Update dropdown active state
+            const dropdownLinks = document.querySelectorAll('.dropdown-link');
+            dropdownLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.textContent.toLowerCase().includes(tabName) || 
+                    (tabName === 'security' && link.textContent.includes('Safety'))) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', function() {
+                const navMenu = document.getElementById('nav-menu');
+                if (navMenu) {
+                    navMenu.classList.toggle('active');
+                }
+            });
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (navbar) {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            }
+        });
+
+        // Button interactions
+        document.addEventListener('click', function(e) {
+            const target = e.target;
+            if (target.classList && target.classList.contains('btn')) {
+                const textContent = target.textContent || '';
+                if (textContent.includes('Try Free') || textContent.includes('Start Free Trial')) {
+                    e.preventDefault();
+                    alert('Free trial signup would redirect to registration page. Thank you for your interest!');
+                }
+            }
+        });
+
+        // Animation on scroll
+        window.addEventListener('scroll', function() {
+            const elements = document.querySelectorAll('.feature-card');
+            elements.forEach(element => {
+                if (element) {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('animate-on-scroll');
+                    }
+                }
+            });
+        });
+
+        // Initialize with technology tab active
+        document.addEventListener('DOMContentLoaded', function() {
+            showTab('technology');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeGuardAI - Solutions: Real Impact in Real Communities</title>
+    <meta name="description" content="Success stories from healthcare providers, schools, and families who have found value in SafeGuardAI's digital wellness approach.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons - Multiple Sources for Better Compatibility -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0F172A;
+            --primary-light: #1E293B;
+            --secondary: #3B82F6;
+            --accent: #10B981;
+            --accent-light: #34D399;
+            --bg-dark: #000000;
+            --bg-light: #F1F5F9;
+            --bg-glass: rgba(255, 255, 255, 0.1);
+            --text-primary: #0F172A;
+            --text-secondary: #334155;
+            --text-light: #64748B;
+            --border: #E2E8F0;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #0F172A 0%, #3B82F6 50%, #10B981 100%);
+            --gradient-3: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+            --gradient-hero: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(59, 130, 246, 0.8) 50%, rgba(16, 185, 129, 0.7) 100%);
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        body {
+            font-family: 'Space Grotesk', 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--white);
+            overflow-x: hidden;
+            font-weight: 500;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .nav-link:hover {
+            background: var(--bg-light);
+            color: var(--primary);
+        }
+
+        .nav-link.active {
+            background: var(--bg-light);
+            color: var(--primary);
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-link {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            margin-bottom: 0.25rem;
+            cursor: pointer;
+        }
+
+        .dropdown-link:hover {
+            background: var(--bg-light);
+            color: var(--primary);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        /* Enhanced button styles with better icon spacing */
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .btn i {
+            font-size: 0.9em;
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover i {
+            transform: translateX(2px);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: var(--gradient-2);
+            color: var(--white);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-primary);
+        }
+
+        /* Page Content */
+        .page {
+            padding-top: 100px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            letter-spacing: -0.025em;
+            line-height: 1.1;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 1.5rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-2);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+
+        .feature-card:hover::before {
+            opacity: 0.03;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-xl);
+            border-color: rgba(59, 130, 246, 0.2);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-2);
+            border-radius: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            color: var(--white);
+            font-size: 2rem;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-icon::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
+                conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: scale(0);
+            transition: transform 0.4s ease;
+            animation: iconShimmer 3s linear infinite;
+        }
+
+        @keyframes iconShimmer {
+            0% { transform: scale(0) rotate(0deg); }
+            50% { transform: scale(1) rotate(180deg); }
+            100% { transform: scale(0) rotate(360deg); }
+        }
+
+        .feature-card:hover .feature-icon::before {
+            transform: scale(1);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .feature-list li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            color: var(--secondary);
+            font-weight: bold;
+            flex-shrink: 0;
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-3);
+            opacity: 0.9;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            position: relative;
+            z-index: 2;
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                border-top: 1px solid var(--border);
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .dropdown {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                border: none;
+                padding: 0;
+                margin-left: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .cta-buttons {
+                display: none;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">SafeGuardAI</div>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <div class="nav-link">Home</div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">
+                        Platform <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdown-link">Technology</div>
+                        <div class="dropdown-link">Features</div>
+                        <div class="dropdown-link">Safety</div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">
+                        Research <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdown-link">Studies</div>
+                        <div class="dropdown-link">Insights</div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link active">
+                        Solutions <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdown-link">For Families</div>
+                        <div class="dropdown-link">For Schools</div>
+                        <div class="dropdown-link">For Healthcare</div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">
+                        About <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdown-link">Our Mission</div>
+                        <div class="dropdown-link">Team</div>
+                        <div class="dropdown-link">Leadership</div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">
+                        Resources <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdown-link">Blog</div>
+                        <div class="dropdown-link">Guides</div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link">Contact</div>
+                </li>
+            </ul>
+
+            <div class="cta-buttons">
+                <div class="btn btn-secondary">
+                    <span>📚</span>
+                    Learn More
+                </div>
+                <div class="btn btn-primary">
+                    <span>▶️</span>
+                    Try Free for 30 Days
+                </div>
+            </div>
+
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Solutions Page Content -->
+    <div id="solutions" class="page">
+        <section class="section" style="background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.9)), url('https://clarence1212.github.io/safeguardai-website/solution-section.png'); background-size: cover; background-position: center; background-attachment: fixed; position: relative; min-height: 100vh;">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Real Impact in Real Communities</h2>
+                    <p class="section-subtitle">Success stories from healthcare providers, schools, and families who have found value in our approach.</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-hospital"></i>
+                        </div>
+                        <h3>Community Health Center</h3>
+                        <p style="margin-bottom: 1rem;"><strong>Situation:</strong> A community health center wanted better ways to support teen patients between appointments.</p>
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Results:</h4>
+                        <ul class="feature-list">
+                            <li>Earlier identification of patients who might benefit from additional support</li>
+                            <li>Improved patient engagement between appointments</li>
+                            <li>Better family communication about digital wellness</li>
+                            <li>Positive feedback from both teens and parents</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-school"></i>
+                        </div>
+                        <h3>School District Pilot</h3>
+                        <p style="margin-bottom: 1rem;"><strong>Situation:</strong> Mid-sized school district piloted digital wellness monitoring with interested families.</p>
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Results:</h4>
+                        <ul class="feature-list">
+                            <li>Participating families reported improved communication about technology use</li>
+                            <li>Earlier identification of students who might benefit from counseling support</li>
+                            <li>Positive reception from both parents and students</li>
+                            <li>Expansion to additional schools in the district</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Additional success stories section -->
+                <div style="margin-top: 6rem; padding: 3rem; background: var(--bg-light); border-radius: 1.5rem;">
+                    <h3 style="text-align: center; font-size: 2rem; margin-bottom: 3rem; color: var(--primary);">Solution Impact Metrics</h3>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center;">
+                        <div style="padding: 2rem; background: var(--white); border-radius: 1rem; box-shadow: var(--shadow-md);">
+                            <div style="font-size: 3rem; font-weight: 700; color: var(--secondary); margin-bottom: 0.5rem;">73%</div>
+                            <p style="color: var(--text-secondary); font-weight: 600;">Improvement in family digital wellness conversations</p>
+                        </div>
+                        
+                        <div style="padding: 2rem; background: var(--white); border-radius: 1rem; box-shadow: var(--shadow-md);">
+                            <div style="font-size: 3rem; font-weight: 700; color: var(--accent); margin-bottom: 0.5rem;">1,000+</div>
+                            <p style="color: var(--text-secondary); font-weight: 600;">Families actively using our platform</p>
+                        </div>
+                        
+                        <div style="padding: 2rem; background: var(--white); border-radius: 1rem; box-shadow: var(--shadow-md);">
+                            <div style="font-size: 3rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">15</div>
+                            <p style="color: var(--text-secondary); font-weight: 600;">Healthcare and educational institutions partnered</p>
+                        </div>
+                        
+                        <div style="padding: 2rem; background: var(--white); border-radius: 1rem; box-shadow: var(--shadow-md);">
+                            <div style="font-size: 3rem; font-weight: 700; color: var(--gradient); background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 0.5rem;">95%</div>
+                            <p style="color: var(--text-secondary); font-weight: 600;">User satisfaction rating</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call to action -->
+                <div style="margin-top: 6rem; text-align: center; padding: 4rem; background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(59, 130, 246, 0.8) 100%); border-radius: 1.5rem; color: white;">
+                    <h3 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: white;">Ready to Create Your Success Story?</h3>
+                    <p style="font-size: 1.25rem; margin-bottom: 2rem; opacity: 0.9; max-width: 600px; margin-left: auto; margin-right: auto;">
+                        Join healthcare providers, schools, and families who are already seeing the positive impact of evidence-based digital wellness support.
+                    </p>
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <button class="btn btn-primary" style="background: var(--white); color: var(--primary);">
+                            <span>🚀</span>
+                            Start Free Trial
+                        </button>
+                        <button class="btn btn-secondary">
+                            <span>📞</span>
+                            Schedule Demo
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>How It Works</h3>
+                    <ul class="footer-links">
+                        <li><a>Technology</a></li>
+                        <li><a>Features</a></li>
+                        <li><a>Safety</a></li>
+                        <li><a>Pricing</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Research</h3>
+                    <ul class="footer-links">
+                        <li><a>Studies</a></li>
+                        <li><a>Insights</a></li>
+                        <li><a>Success Stories</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Solutions</h3>
+                    <ul class="footer-links">
+                        <li><a>For Families</a></li>
+                        <li><a>For Healthcare</a></li>
+                        <li><a>For Education</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a>Guides</a></li>
+                        <li><a>Support</a></li>
+                        <li><a>Community</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a>About Us</a></li>
+                        <li><a>Team</a></li>
+                        <li><a>Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 SafeGuardAI Research Institute. All rights reserved.</p>
+                <p style="margin-top: 0.5rem; font-style: italic;">"Technology that supports families, respects privacy, and promotes healthy digital habits."</p>
+                
+                <div class="trust-badges">
+                    <div class="trust-badge">Privacy & security certified</div>
+                    <div class="trust-badge">Compliant with child protection regulations</div>
+                    <div class="trust-badge">Regular independent audits</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', function() {
+                const navMenu = document.getElementById('nav-menu');
+                if (navMenu) {
+                    navMenu.classList.toggle('active');
+                }
+            });
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (navbar) {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            }
+        });
+
+        // Button interactions
+        document.addEventListener('click', function(e) {
+            const target = e.target;
+            if (target.classList && target.classList.contains('btn')) {
+                const textContent = target.textContent || '';
+                if (textContent.includes('Try Free') || textContent.includes('Start Free Trial')) {
+                    e.preventDefault();
+                    alert('Free trial signup would redirect to registration page. Thank you for your interest!');
+                } else if (textContent.includes('Schedule Demo')) {
+                    e.preventDefault();
+                    alert('Demo scheduling would redirect to calendar booking. Thank you for your interest!');
+                }
+            }
+        });
+
+        // Animation on scroll
+        window.addEventListener('scroll', function() {
+            const elements = document.querySelectorAll('.feature-card');
+            elements.forEach(element => {
+                if (element) {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('animate-on-scroll');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
