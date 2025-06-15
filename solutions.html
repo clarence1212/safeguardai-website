@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SafeGuardAI - Platform: Technology, Features & Security</title>
-    <meta name="description" content="Learn about SafeGuardAI's privacy-preserving technology, comprehensive features for families and professionals, and industry-leading security standards.">
+    <title>SafeGuardAI - Solutions: Real Impact in Real Communities</title>
+    <meta name="description" content="Success stories from healthcare providers, schools, and families who have found value in SafeGuardAI's digital wellness approach.">
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -163,12 +163,6 @@
             color: var(--primary);
         }
 
-        .dropdown-link.active {
-            background: var(--bg-light);
-            color: var(--primary);
-            font-weight: 600;
-        }
-
         .cta-buttons {
             display: flex;
             gap: 1rem;
@@ -263,58 +257,6 @@
             padding: 0 2rem;
         }
 
-        /* Tab Navigation */
-        .tab-nav {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 3rem;
-            border-bottom: 2px solid var(--border);
-            padding-bottom: 0;
-        }
-
-        .tab-btn {
-            padding: 1rem 2rem;
-            background: none;
-            border: none;
-            border-bottom: 3px solid transparent;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-bottom: -2px;
-        }
-
-        .tab-btn:hover {
-            color: var(--primary);
-        }
-
-        .tab-btn.active {
-            color: var(--primary);
-            border-bottom-color: var(--secondary);
-        }
-
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         /* Section Styles */
         .section {
             padding: 6rem 0;
@@ -352,85 +294,6 @@
             margin-top: 3rem;
         }
 
-        /* Special grid for 4 columns - used on technology page */
-        .features-grid-4 {
-            display: grid !important;
-            grid-template-columns: repeat(4, 1fr) !important;
-            gap: 1.5rem !important;
-            margin-top: 3rem;
-        }
-        
-        /* Force 4 columns for specific grids */
-        #technology .features-grid,
-        #technology .features-grid-4 {
-            display: grid !important;
-            grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-            gap: 1.5rem !important;
-        }
-
-        /* Ensure cards fit in 4-column layout */
-        #technology .feature-card {
-            padding: 1.5rem !important;
-        }
-
-        #technology .feature-icon {
-            width: 60px !important;
-            height: 60px !important;
-            font-size: 1.4rem !important;
-            margin-bottom: 1rem !important;
-        }
-
-        #technology .feature-card h3 {
-            font-size: 1.25rem !important;
-            margin-bottom: 0.75rem !important;
-        }
-
-        #technology .feature-card p {
-            font-size: 0.9rem !important;
-        }
-
-        /* Responsive adjustments for 4-column grid */
-        @media (max-width: 1400px) {
-            .features-grid-4,
-            #technology .features-grid,
-            #technology .features-grid-4 {
-                gap: 1rem !important;
-            }
-            
-            .features-grid-4 .feature-card {
-                padding: 1.5rem !important;
-            }
-            
-            .features-grid-4 .feature-card h3 {
-                font-size: 1.25rem;
-            }
-            
-            .features-grid-4 .feature-list {
-                font-size: 0.9rem;
-            }
-        }
-
-        @media (max-width: 1200px) {
-            .features-grid-4,
-            #technology .features-grid,
-            #technology .features-grid-4 {
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 1.5rem !important;
-            }
-            
-            .features-grid-4 .feature-card {
-                padding: 2rem !important;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .features-grid-4,
-            #technology .features-grid,
-            #technology .features-grid-4 {
-                grid-template-columns: 1fr !important;
-            }
-        }
-
         .feature-card {
             background: var(--white);
             padding: 3rem;
@@ -441,31 +304,6 @@
             position: relative;
             overflow: hidden;
             backdrop-filter: blur(10px);
-        }
-
-        .features-grid-4 .feature-list,
-        #technology .feature-list {
-            list-style: none !important;
-        }
-        
-        .features-grid-4 .feature-list li,
-        #technology .feature-list li {
-            font-size: 0.9rem !important;
-            padding: 0.3rem 0 0.3rem 1.5rem !important;
-            position: relative !important;
-            color: var(--text-secondary) !important;
-            font-weight: 500 !important;
-        }
-        
-        .features-grid-4 .feature-list li::before,
-        #technology .feature-list li::before {
-            content: '✓' !important;
-            color: var(--secondary) !important;
-            font-weight: bold !important;
-            position: absolute !important;
-            left: 0 !important;
-            top: 0.3rem !important;
-            font-size: 1rem !important;
         }
 
         .feature-card::before {
@@ -686,16 +524,6 @@
             .cta-buttons {
                 display: none;
             }
-
-            .tab-nav {
-                flex-wrap: wrap;
-                gap: 0.5rem;
-            }
-
-            .tab-btn {
-                padding: 0.75rem 1rem;
-                font-size: 0.9rem;
-            }
         }
 
         /* Animations */
@@ -726,13 +554,13 @@
                     <a href="home.html" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="platform.html" class="nav-link active">
+                    <a href="platform.html" class="nav-link">
                         Platform <i class="fas fa-chevron-down"></i>
                     </a>
                     <div class="dropdown">
-                        <a href="platform.html#technology" class="dropdown-link active" onclick="showTab('technology')">Technology</a>
-                        <a href="platform.html#features" class="dropdown-link" onclick="showTab('features')">Features</a>
-                        <a href="platform.html#safety" class="dropdown-link" onclick="showTab('security')">Safety</a>
+                        <a href="platform.html#technology" class="dropdown-link">Technology</a>
+                        <a href="platform.html#features" class="dropdown-link">Features</a>
+                        <a href="platform.html#safety" class="dropdown-link">Safety</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -745,7 +573,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="solutions.html" class="nav-link">
+                    <a href="solutions.html" class="nav-link active">
                         Solutions <i class="fas fa-chevron-down"></i>
                     </a>
                     <div class="dropdown">
@@ -795,204 +623,89 @@
         </div>
     </nav>
 
-    <!-- Platform Page Content -->
-    <div class="page">
-        <section class="section">
+    <!-- Solutions Page Content -->
+    <div id="solutions" class="page">
+        <section class="section" style="background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.9)), url('https://clarence1212.github.io/safeguardai-website/solution-section.png'); background-size: cover; background-position: center; background-attachment: fixed; position: relative; min-height: 100vh;">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Platform Overview</h2>
-                    <p class="section-subtitle">Comprehensive digital wellness solutions built on cutting-edge technology, designed with privacy and security at the core.</p>
+                    <h2 class="section-title">Real Impact in Real Communities</h2>
+                    <p class="section-subtitle">Success stories from healthcare providers, schools, and families who have found value in our approach.</p>
                 </div>
 
-                <!-- Tab Navigation -->
-                <div class="tab-nav">
-                    <button class="tab-btn active" onclick="showTab('technology')">Technology</button>
-                    <button class="tab-btn" onclick="showTab('features')">Features</button>
-                    <button class="tab-btn" onclick="showTab('security')">Safety & Security</button>
-                </div>
-
-                <!-- Technology Tab -->
-                <div id="technology" class="tab-content active">
-                    <div style="background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.9)), url('https://clarence1212.github.io/safeguardai-website/technology-section.png'); background-size: cover; background-position: center; background-attachment: fixed; position: relative; padding: 4rem; margin: -4rem; border-radius: 1rem;">
-                        <div class="section-header">
-                            <h2 class="section-title">Built on Research and Real-World Testing</h2>
-                            <p class="section-subtitle">Our platform is based on several years of research into privacy-preserving technology and digital wellness, with input from families, educators, and healthcare providers.</p>
+                <div class="features-grid" id="families">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-hospital"></i>
                         </div>
-
-                        <div class="features-grid">
-                            <div class="feature-card">
-                                <div class="feature-icon">
-                                    <i class="fas fa-microchip"></i>
-                                </div>
-                                <h3>Local Processing</h3>
-                                <p>Analysis happens on family devices, not in the cloud, ensuring personal information stays private while providing helpful insights.</p>
-                            </div>
-                            
-                            <div class="feature-card">
-                                <div class="feature-icon">
-                                    <i class="fas fa-network-wired"></i>
-                                </div>
-                                <h3>Federated Learning</h3>
-                                <p>Our system improves while keeping individual data private by learning from general patterns across many families.</p>
-                            </div>
-                            
-                            <div class="feature-card">
-                                <div class="feature-icon">
-                                    <i class="fas fa-user-shield"></i>
-                                </div>
-                                <h3>Differential Privacy</h3>
-                                <p>Mathematical techniques that protect personal information while still allowing for helpful analysis and recommendations.</p>
-                            </div>
-                            
-                            <div class="feature-card">
-                                <div class="feature-icon">
-                                    <i class="fas fa-certificate"></i>
-                                </div>
-                                <h3>Safety and Compliance</h3>
-                                <ul class="feature-list" style="list-style: none; margin: 0; padding: 0;">
-                                    <li style="position: relative; padding-left: 1.5rem; padding-top: 0.3rem; padding-bottom: 0.3rem;"><span style="position: absolute; left: 0; top: 0.3rem; color: #3B82F6; font-weight: bold;">✓</span> COPPA Compliant: Meets requirements for protecting children's privacy</li>
-                                    <li style="position: relative; padding-left: 1.5rem; padding-top: 0.3rem; padding-bottom: 0.3rem;"><span style="position: absolute; left: 0; top: 0.3rem; color: #3B82F6; font-weight: bold;">✓</span> GDPR Compatible: Designed with European privacy standards</li>
-                                    <li style="position: relative; padding-left: 1.5rem; padding-top: 0.3rem; padding-bottom: 0.3rem;"><span style="position: absolute; left: 0; top: 0.3rem; color: #3B82F6; font-weight: bold;">✓</span> Security Certified: Regular third-party security assessments</li>
-                                    <li style="position: relative; padding-left: 1.5rem; padding-top: 0.3rem; padding-bottom: 0.3rem;"><span style="position: absolute; left: 0; top: 0.3rem; color: #3B82F6; font-weight: bold;">✓</span> Transparent Practices: Clear policies about how the system works</li>
-                                </ul>
-                            </div>
+                        <h3>Community Health Center</h3>
+                        <p style="margin-bottom: 1rem;"><strong>Situation:</strong> A community health center wanted better ways to support teen patients between appointments.</p>
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Results:</h4>
+                        <ul class="feature-list">
+                            <li>Earlier identification of patients who might benefit from additional support</li>
+                            <li>Improved patient engagement between appointments</li>
+                            <li>Better family communication about digital wellness</li>
+                            <li>Positive feedback from both teens and parents</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card" id="schools">
+                        <div class="feature-icon">
+                            <i class="fas fa-school"></i>
                         </div>
+                        <h3>School District Pilot</h3>
+                        <p style="margin-bottom: 1rem;"><strong>Situation:</strong> Mid-sized school district piloted digital wellness monitoring with interested families.</p>
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Results:</h4>
+                        <ul class="feature-list">
+                            <li>Participating families reported improved communication about technology use</li>
+                            <li>Earlier identification of students who might benefit from counseling support</li>
+                            <li>Positive reception from both parents and students</li>
+                            <li>Expansion to additional schools in the district</li>
+                        </ul>
                     </div>
                 </div>
 
-                <!-- Features Tab -->
-                <div id="features" class="tab-content">
-                    <div class="section-header">
-                        <h2 class="section-title">Solutions for Different Needs</h2>
-                        <p class="section-subtitle">Tailored features for families, healthcare providers, and educational institutions.</p>
-                    </div>
-
-                    <div style="margin-bottom: 4rem;">
-                        <h3 style="font-size: 2rem; margin-bottom: 2rem; text-align: center; color: var(--primary);">For Families</h3>
-                        <div class="features-grid-4">
-                            <div class="feature-card">
-                                <div class="feature-icon">
-                                    <i class="fas fa-exclamation-triangle"></i>
-                                </div>
-                                <h3>Early Awareness</h3>
-                                <ul class="feature-list">
-                                    <li>Spot patterns that might indicate digital wellness concerns</li>
-                                    <li>Receive gentle notifications with context</li>
-                                    <li>Get suggestions for family conversations and activities</li>
-                                    <li>Access resources for different situations</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="feature-card">
-                                <div class="feature-icon">
-                                    <i class="fas fa-tools"></i>
-                                </div>
-                                <h3>Family-Centered Tools</h3>
-                                <ul class="feature-list">
-                                    <li>Conversation guides for discussing digital habits</li>
-                                    <li>Activity suggestions for offline time</li>
-                                    <li>Progress tracking for family digital wellness goals</li>
-                                    <li>Crisis resources and professional referrals when needed</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="feature-card">
-                                <div class="feature-icon">
-                                    <i class="fas fa-eye"></i>
-                                </div>
-                                <h3>Transparent Insights</h3>
-                                <ul class="feature-list">
-                                    <li>See what patterns the system is tracking</li>
-                                    <li>Understand how recommendations are made</li>
-                                    <li>Customize privacy and sharing settings</li>
-                                    <li>Regular family check-ins with guided discussions</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div style="margin-bottom: 4rem;">
-                        <h3 style="font-size: 2rem; margin-bottom: 2rem; text-align: center; color: var(--primary);">For Healthcare Providers</h3>
-                        <div class="features-grid-4">
-                            <div class="feature-card">
-                                <div class="feature-icon">
-                                    <i class="fas fa-stethoscope"></i>
-                                </div>
-                                <h3>Clinical Support Tools</h3>
-                                <ul class="feature-list">
-                                    <li>Assessment tools that integrate with existing workflows</li>
-                                    <li>Population-level insights (anonymized)</li>
-                                    <li>Early warning systems for patients at risk</li>
-                                    <li>Evidence-based intervention recommendations</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h3 style="font-size: 2rem; margin-bottom: 2rem; text-align: center; color: var(--primary);">For Educational Institutions</h3>
-                        <div class="features-grid">
-                            <div class="feature-card">
-                                <div class="feature-icon">
-                                    <i class="fas fa-graduation-cap"></i>
-                                </div>
-                                <h3>School-Wide Support</h3>
-                                <ul class="feature-list">
-                                    <li>Anonymous monitoring of student digital wellness trends</li>
-                                    <li>Integration with existing counseling and support services</li>
-                                    <li>Professional development for staff</li>
-                                    <li>Parent and family engagement resources</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Security Tab -->
-                <div id="security" class="tab-content" id="safety">
-                    <div class="section-header">
-                        <h2 class="section-title">Your Privacy is Our Priority</h2>
-                        <p class="section-subtitle">We believe privacy is fundamental to healthy family relationships and effective support.</p>
-                    </div>
-
-                    <div class="features-grid">
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <i class="fas fa-database"></i>
-                            </div>
-                            <h3>Local Processing</h3>
-                            <ul class="feature-list">
-                                <li>Analysis happens on your devices, not on our servers</li>
-                                <li>Personal messages and content never leave your family's devices</li>
-                                <li>Only aggregate patterns are used to improve the system</li>
-                            </ul>
+                <!-- Additional success stories section -->
+                <div style="margin-top: 6rem; padding: 3rem; background: var(--bg-light); border-radius: 1.5rem;" id="healthcare">
+                    <h3 style="text-align: center; font-size: 2rem; margin-bottom: 3rem; color: var(--primary);">Solution Impact Metrics</h3>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center;">
+                        <div style="padding: 2rem; background: var(--white); border-radius: 1rem; box-shadow: var(--shadow-md);">
+                            <div style="font-size: 3rem; font-weight: 700; color: var(--secondary); margin-bottom: 0.5rem;">73%</div>
+                            <p style="color: var(--text-secondary); font-weight: 600;">Improvement in family digital wellness conversations</p>
                         </div>
                         
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <h3>Industry Standards</h3>
-                            <ul class="feature-list">
-                                <li>Regular security audits by independent firms</li>
-                                <li>Encryption for all data transmission</li>
-                                <li>Strict access controls for any system components</li>
-                                <li>Compliance with relevant privacy regulations</li>
-                            </ul>
+                        <div style="padding: 2rem; background: var(--white); border-radius: 1rem; box-shadow: var(--shadow-md);">
+                            <div style="font-size: 3rem; font-weight: 700; color: var(--accent); margin-bottom: 0.5rem;">1,000+</div>
+                            <p style="color: var(--text-secondary); font-weight: 600;">Families actively using our platform</p>
                         </div>
                         
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <i class="fas fa-balance-scale"></i>
-                            </div>
-                            <h3>Transparent Practices</h3>
-                            <ul class="feature-list">
-                                <li>Clear explanations of how the system works</li>
-                                <li>User control over all privacy settings</li>
-                                <li>Regular reports on privacy and security practices</li>
-                                <li>Independent oversight of our privacy commitments</li>
-                            </ul>
+                        <div style="padding: 2rem; background: var(--white); border-radius: 1rem; box-shadow: var(--shadow-md);">
+                            <div style="font-size: 3rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">15</div>
+                            <p style="color: var(--text-secondary); font-weight: 600;">Healthcare and educational institutions partnered</p>
                         </div>
+                        
+                        <div style="padding: 2rem; background: var(--white); border-radius: 1rem; box-shadow: var(--shadow-md);">
+                            <div style="font-size: 3rem; font-weight: 700; color: var(--gradient); background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 0.5rem;">95%</div>
+                            <p style="color: var(--text-secondary); font-weight: 600;">User satisfaction rating</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call to action -->
+                <div style="margin-top: 6rem; text-align: center; padding: 4rem; background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(59, 130, 246, 0.8) 100%); border-radius: 1.5rem; color: white;">
+                    <h3 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: white;">Ready to Create Your Success Story?</h3>
+                    <p style="font-size: 1.25rem; margin-bottom: 2rem; opacity: 0.9; max-width: 600px; margin-left: auto; margin-right: auto;">
+                        Join healthcare providers, schools, and families who are already seeing the positive impact of evidence-based digital wellness support.
+                    </p>
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <button class="btn btn-primary" style="background: var(--white); color: var(--primary);">
+                            <span>🚀</span>
+                            Start Free Trial
+                        </button>
+                        <button class="btn btn-secondary">
+                            <span>📞</span>
+                            Schedule Demo
+                        </button>
                     </div>
                 </div>
             </div>
@@ -1064,46 +777,6 @@
     </footer>
 
     <script>
-        // Tab functionality
-        function showTab(tabName) {
-            // Hide all tab contents
-            const tabContents = document.querySelectorAll('.tab-content');
-            tabContents.forEach(tab => {
-                tab.classList.remove('active');
-            });
-            
-            // Remove active class from all tab buttons
-            const tabButtons = document.querySelectorAll('.tab-btn');
-            tabButtons.forEach(btn => {
-                btn.classList.remove('active');
-            });
-            
-            // Show selected tab
-            const selectedTab = document.getElementById(tabName);
-            if (selectedTab) {
-                selectedTab.classList.add('active');
-            }
-            
-            // Add active class to clicked button
-            const clickedBtn = event.target;
-            if (clickedBtn && clickedBtn.classList) {
-                clickedBtn.classList.add('active');
-            }
-            
-            // Update dropdown active state
-            const dropdownLinks = document.querySelectorAll('.dropdown-link');
-            dropdownLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.textContent.toLowerCase().includes(tabName) || 
-                    (tabName === 'security' && link.textContent.includes('Safety'))) {
-                    link.classList.add('active');
-                }
-            });
-            
-            // Update URL hash
-            window.location.hash = tabName;
-        }
-
         // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         if (mobileMenuBtn) {
@@ -1135,6 +808,9 @@
                 if (textContent.includes('Try Free') || textContent.includes('Start Free Trial')) {
                     e.preventDefault();
                     alert('Free trial signup would redirect to registration page. Thank you for your interest!');
+                } else if (textContent.includes('Schedule Demo')) {
+                    e.preventDefault();
+                    alert('Demo scheduling would redirect to calendar booking. Thank you for your interest!');
                 }
             }
         });
@@ -1152,16 +828,6 @@
                     }
                 }
             });
-        });
-
-        // Initialize with technology tab active or from hash
-        document.addEventListener('DOMContentLoaded', function() {
-            const hash = window.location.hash.replace('#', '');
-            if (hash && (hash === 'technology' || hash === 'features' || hash === 'safety' || hash === 'security')) {
-                showTab(hash === 'safety' ? 'security' : hash);
-            } else {
-                showTab('technology');
-            }
         });
     </script>
 </body>
