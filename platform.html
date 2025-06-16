@@ -25,29 +25,21 @@
     <script>
         // Define switchTab function immediately so it's available for onclick handlers
         function switchTab(tabName) {
+            console.log('Switching to tab:', tabName);
+            
             // Hide all tabs
-            document.querySelectorAll('.tab-content').forEach(function(tab) {
-                tab.style.display = 'none';
-                tab.style.visibility = 'hidden';
-                tab.style.opacity = '0';
+            var allTabs = document.querySelectorAll('.tab-content');
+            allTabs.forEach(function(tab) {
                 tab.classList.remove('active');
+                tab.style.display = 'none';
             });
             
             // Show selected tab
             var selectedTab = document.getElementById(tabName);
             if (selectedTab) {
-                selectedTab.style.display = 'block';
-                selectedTab.style.visibility = 'visible';
-                selectedTab.style.opacity = '1';
                 selectedTab.classList.add('active');
-                
-                // Scroll to make sure tab is visible
-                setTimeout(function() {
-                    var tabsSection = document.querySelector('.tabs-section');
-                    if (tabsSection) {
-                        tabsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                }, 100);
+                selectedTab.style.display = 'block';
+                console.log('Tab shown:', tabName);
             }
             
             // Update buttons
@@ -296,11 +288,11 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%);
             padding: 8rem 0 4rem;
             margin-top: 5rem;
             position: relative;
             overflow: hidden;
+            color: var(--white);
         }
 
         .hero::before {
@@ -342,27 +334,27 @@
             font-size: 3.5rem;
             font-weight: 900;
             margin-bottom: 1.5rem;
-            background: var(--gradient-2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--white);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             line-height: 1.1;
         }
 
         .hero-subtitle {
             font-size: 1.5rem;
-            color: var(--text-secondary);
+            color: rgba(255, 255, 255, 0.95);
             margin-bottom: 1rem;
             font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
         }
 
         .hero-description {
             font-size: 1.125rem;
-            color: var(--text-light);
+            color: rgba(255, 255, 255, 0.9);
             margin-bottom: 3rem;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
         }
 
         /* Hero Image */
@@ -408,39 +400,41 @@
         .value-card {
             text-align: center;
             padding: 2rem;
-            background: var(--white);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 1rem;
-            box-shadow: var(--shadow-md);
-            border: 1px solid var(--border);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
             transition: all 0.3s ease;
         }
 
         .value-card:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow-xl);
-            border-color: rgba(59, 130, 246, 0.2);
+            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
+            background: rgba(255, 255, 255, 0.15);
         }
 
         .value-icon {
             width: 60px;
             height: 60px;
             margin: 0 auto 1rem;
-            background: var(--gradient-2);
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--white);
             font-size: 1.5rem;
+            backdrop-filter: blur(10px);
         }
 
         .value-card h3 {
             margin-bottom: 0.5rem;
-            color: var(--primary);
+            color: var(--white);
         }
 
         .value-card p {
-            color: var(--text-secondary);
+            color: rgba(255, 255, 255, 0.9);
             font-size: 0.9rem;
         }
 
@@ -1040,7 +1034,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" style="background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(59, 130, 246, 0.7) 50%, rgba(16, 185, 129, 0.6) 100%), url('https://clarence1212.github.io/safeguardai-website/platform-tech-bg.png') center/cover no-repeat; background-attachment: fixed;">
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">Privacy-First Technology That Puts Families in Control</h1>
@@ -1105,7 +1099,7 @@
 
             <!-- Technology Tab -->
             <div id="technology" class="tab-content active">
-                <div class="content-section" style="background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url('platform-tech-bg.png') center/cover no-repeat;">
+                <div class="content-section" style="background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('https://clarence1212.github.io/safeguardai-website/platform-tech-bg.png') center/cover no-repeat;">
                     <div class="section-header">
                         <h2 class="section-title">How SafeGuardAI Works</h2>
                         <p class="section-subtitle">
@@ -1316,7 +1310,7 @@
 
             <!-- Features Tab -->
             <div id="features" class="tab-content">
-                <div class="content-section">
+                <div class="content-section" style="background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('https://clarence1212.github.io/safeguardai-website/platform-features-bg.png') center/cover no-repeat;">
                     <div class="section-header">
                         <h2 class="section-title">Features That Make a Difference</h2>
                         <p class="section-subtitle">
@@ -1441,7 +1435,7 @@
 
             <!-- Safety Tab -->
             <div id="safety" class="tab-content">
-                <div class="content-section">
+                <div class="content-section" style="background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('https://clarence1212.github.io/safeguardai-website/platform-safety-bg.png') center/cover no-repeat;">
                     <div class="section-header">
                         <h2 class="section-title">Privacy & Safety First</h2>
                         <p class="section-subtitle">
@@ -1573,7 +1567,7 @@
 
                     <!-- Privacy Comparison Visual -->
                     <div style="margin-top: 4rem; text-align: center;">
-                        <div style="max-width: 800px; margin: 0 auto; padding: 3rem; background: var(--white); border-radius: 1.5rem; box-shadow: var(--shadow-lg);">
+                        <div style="max-width: 800px; margin: 0 auto; padding: 3rem; background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('https://clarence1212.github.io/safeguardai-website/platform-safety-bg.png') center/cover no-repeat; border-radius: 1.5rem; box-shadow: var(--shadow-lg);">
                             <h4 style="color: var(--primary); margin-bottom: 2rem;">Privacy-First Approach</h4>
                             
                             <!-- SVG Privacy Comparison -->
