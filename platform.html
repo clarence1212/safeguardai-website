@@ -1,18 +1,66 @@
-<!DOCTYPE html>
+/* Content Sections */
+        .content-section {
+            background: var(--white);
+            border-radius: 1.5rem;
+            padding: 3rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 1;
+        }<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SafeGuardAI - Platform: Technology, Features & Security</title>
-    <meta name="description" content="Learn about SafeGuardAI's privacy-preserving technology, comprehensive features for families and professionals, and industry-leading security standards.">
+    <title>Platform - SafeGuardAI</title>
+    <meta name="description" content="Learn how SafeGuardAI works with privacy-first technology, on-device processing, and psychology-backed design to support healthy digital habits for teens.">
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Icons - Multiple Sources for Better Compatibility -->
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css">
+    
+    <script>
+        // Define switchTab function immediately so it's available for onclick handlers
+        function switchTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(function(tab) {
+                tab.style.display = 'none';
+                tab.style.visibility = 'hidden';
+                tab.style.opacity = '0';
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab
+            var selectedTab = document.getElementById(tabName);
+            if (selectedTab) {
+                selectedTab.style.display = 'block';
+                selectedTab.style.visibility = 'visible';
+                selectedTab.style.opacity = '1';
+                selectedTab.classList.add('active');
+                
+                // Scroll to make sure tab is visible
+                setTimeout(function() {
+                    var tabsSection = document.querySelector('.tabs-section');
+                    if (tabsSection) {
+                        tabsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }, 100);
+            }
+            
+            // Update buttons
+            document.querySelectorAll('.tab-btn').forEach(function(btn) {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-tab') === tabName) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            return false;
+        }
+    </script>
     
     <style>
         * {
@@ -27,6 +75,7 @@
             --secondary: #3B82F6;
             --accent: #10B981;
             --accent-light: #34D399;
+            --warning: #F59E0B;
             --bg-dark: #000000;
             --bg-light: #F1F5F9;
             --bg-glass: rgba(255, 255, 255, 0.1);
@@ -163,19 +212,12 @@
             color: var(--primary);
         }
 
-        .dropdown-link.active {
-            background: var(--bg-light);
-            color: var(--primary);
-            font-weight: 600;
-        }
-
         .cta-buttons {
             display: flex;
             gap: 1rem;
             align-items: center;
         }
 
-        /* Enhanced button styles with better icon spacing */
         .btn {
             padding: 1rem 2rem;
             border-radius: 0.75rem;
@@ -229,32 +271,182 @@
         }
 
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--white);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
+            background: var(--white);
+            color: var(--primary);
+            border: 2px solid var(--border);
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.5);
+            background: var(--bg-light);
+            border-color: var(--primary);
             transform: translateY(-2px);
         }
 
-        /* Mobile Menu */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--text-primary);
+        .btn-outline {
+            background: transparent;
+            color: var(--secondary);
+            border: 2px solid var(--secondary);
         }
 
-        /* Page Content */
-        .page {
-            padding-top: 100px;
-            min-height: 100vh;
+        .btn-outline:hover {
+            background: var(--secondary);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%);
+            padding: 8rem 0 4rem;
+            margin-top: 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -25%;
+            width: 50%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: -25%;
+            width: 50%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+            animation: float 25s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Hero Image */
+        .hero-image {
+            margin-top: 3rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 3rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 1rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Value Props */
+        .value-props {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 1rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+            border-color: rgba(59, 130, 246, 0.2);
+        }
+
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            background: var(--gradient-2);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+
+        .value-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .value-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Tabs */
+        .tabs-section {
+            padding: 4rem 0;
         }
 
         .container {
@@ -263,76 +455,82 @@
             padding: 0 2rem;
         }
 
-        /* Tab Navigation */
-        .tab-nav {
+        .tabs {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 1rem;
             margin-bottom: 3rem;
-            border-bottom: 2px solid var(--border);
-            padding-bottom: 0;
+            flex-wrap: wrap;
         }
 
         .tab-btn {
             padding: 1rem 2rem;
-            background: none;
-            border: none;
-            border-bottom: 3px solid transparent;
-            font-size: 1.1rem;
+            background: var(--white);
+            border: 2px solid var(--border);
+            border-radius: 2rem;
+            font-size: 1rem;
             font-weight: 600;
             color: var(--text-secondary);
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-bottom: -2px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .tab-btn:hover {
             color: var(--primary);
+            border-color: var(--secondary);
+            transform: translateY(-2px);
         }
 
         .tab-btn.active {
-            color: var(--primary);
-            border-bottom-color: var(--secondary);
+            background: var(--gradient-2);
+            color: var(--white);
+            border-color: transparent;
         }
 
+        .tab-btn i {
+            font-size: 1.2rem;
+        }
+
+        /* Tab content - ensure visibility */
         .tab-content {
             display: none;
+            visibility: hidden;
+            opacity: 0;
+            position: relative;
         }
 
         .tab-content.active {
-            display: block;
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
             animation: fadeIn 0.5s ease;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Section Styles */
-        .section {
-            padding: 6rem 0;
+        /* Ensure content sections are visible */
+        .content-section {
+            background: var(--white);
+            border-radius: 1.5rem;
+            padding: 3rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+            margin-bottom: 3rem;
             position: relative;
+            z-index: 1;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
 
         .section-title {
-            font-size: 3rem;
-            font-weight: 900;
-            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            font-weight: 800;
             color: var(--primary);
-            letter-spacing: -0.025em;
-            line-height: 1.1;
+            margin-bottom: 1rem;
         }
 
         .section-subtitle {
@@ -340,132 +538,23 @@
             color: var(--text-secondary);
             max-width: 700px;
             margin: 0 auto;
-            line-height: 1.6;
-            font-weight: 500;
         }
 
-        /* Features Grid */
+        /* Feature Grid */
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
 
-        /* Special grid for 4 columns - used on technology page */
-        .features-grid-4 {
-            display: grid !important;
-            grid-template-columns: repeat(4, 1fr) !important;
-            gap: 1.5rem !important;
-            margin-top: 3rem;
-        }
-        
-        /* Force 4 columns for specific grids */
-        #technology .features-grid,
-        #technology .features-grid-4 {
-            display: grid !important;
-            grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-            gap: 1.5rem !important;
-        }
-
-        /* Ensure cards fit in 4-column layout */
-        #technology .feature-card {
-            padding: 1.5rem !important;
-        }
-
-        #technology .feature-icon {
-            width: 60px !important;
-            height: 60px !important;
-            font-size: 1.4rem !important;
-            margin-bottom: 1rem !important;
-        }
-
-        #technology .feature-card h3 {
-            font-size: 1.25rem !important;
-            margin-bottom: 0.75rem !important;
-        }
-
-        #technology .feature-card p {
-            font-size: 0.9rem !important;
-        }
-
-        /* Responsive adjustments for 4-column grid */
-        @media (max-width: 1400px) {
-            .features-grid-4,
-            #technology .features-grid,
-            #technology .features-grid-4 {
-                gap: 1rem !important;
-            }
-            
-            .features-grid-4 .feature-card {
-                padding: 1.5rem !important;
-            }
-            
-            .features-grid-4 .feature-card h3 {
-                font-size: 1.25rem;
-            }
-            
-            .features-grid-4 .feature-list {
-                font-size: 0.9rem;
-            }
-        }
-
-        @media (max-width: 1200px) {
-            .features-grid-4,
-            #technology .features-grid,
-            #technology .features-grid-4 {
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 1.5rem !important;
-            }
-            
-            .features-grid-4 .feature-card {
-                padding: 2rem !important;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .features-grid-4,
-            #technology .features-grid,
-            #technology .features-grid-4 {
-                grid-template-columns: 1fr !important;
-            }
-        }
-
         .feature-card {
-            background: var(--white);
-            padding: 3rem;
-            border-radius: 1.5rem;
-            box-shadow: var(--shadow-md);
-            border: 1px solid var(--border);
-            transition: all 0.4s ease;
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 1rem;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            backdrop-filter: blur(10px);
-        }
-
-        .features-grid-4 .feature-list,
-        #technology .feature-list {
-            list-style: none !important;
-        }
-        
-        .features-grid-4 .feature-list li,
-        #technology .feature-list li {
-            font-size: 0.9rem !important;
-            padding: 0.3rem 0 0.3rem 1.5rem !important;
-            position: relative !important;
-            color: var(--text-secondary) !important;
-            font-weight: 500 !important;
-        }
-        
-        .features-grid-4 .feature-list li::before,
-        #technology .feature-list li::before {
-            content: '✓' !important;
-            color: var(--secondary) !important;
-            font-weight: bold !important;
-            position: absolute !important;
-            left: 0 !important;
-            top: 0.3rem !important;
-            font-size: 1rem !important;
         }
 
         .feature-card::before {
@@ -473,70 +562,61 @@
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
+            width: 100%;
+            height: 4px;
             background: var(--gradient-2);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: -1;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
         }
 
         .feature-card:hover::before {
-            opacity: 0.03;
+            transform: scaleX(1);
         }
 
         .feature-card:hover {
-            transform: translateY(-12px);
-            box-shadow: var(--shadow-xl);
-            border-color: rgba(59, 130, 246, 0.2);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .feature-icon-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
         }
 
         .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--gradient-2);
-            border-radius: 1.5rem;
+            width: 50px;
+            height: 50px;
+            background: var(--white);
+            border-radius: 0.75rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 2rem;
+            color: var(--secondary);
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .feature-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--accent);
             color: var(--white);
-            font-size: 2rem;
-            box-shadow: var(--shadow-lg);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-icon::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: 
-                radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
-                conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transform: scale(0);
-            transition: transform 0.4s ease;
-            animation: iconShimmer 3s linear infinite;
-        }
-
-        @keyframes iconShimmer {
-            0% { transform: scale(0) rotate(0deg); }
-            50% { transform: scale(1) rotate(180deg); }
-            100% { transform: scale(0) rotate(360deg); }
-        }
-
-        .feature-card:hover .feature-icon::before {
-            transform: scale(1);
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
         }
 
         .feature-card h3 {
-            margin-bottom: 1.5rem;
             color: var(--primary);
-            font-size: 1.5rem;
-            font-weight: 800;
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
         }
 
         .feature-list {
@@ -548,21 +628,171 @@
             padding: 0.5rem 0;
             color: var(--text-secondary);
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 0.5rem;
-            font-weight: 500;
-            position: relative;
-            padding-left: 1.5rem;
+            font-size: 0.9rem;
         }
 
         .feature-list li::before {
             content: '✓';
-            color: var(--secondary);
+            color: var(--accent);
             font-weight: bold;
-            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+
+        /* Visual Workflow */
+        .workflow-section {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(16, 185, 129, 0.05) 100%);
+            padding: 4rem;
+            border-radius: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .workflow-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .workflow-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .workflow-step::after {
+            content: '→';
             position: absolute;
-            left: 0;
-            top: 0.5rem;
+            right: -1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: var(--secondary);
+            opacity: 0.3;
+        }
+
+        .workflow-step:last-child::after {
+            display: none;
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-size: 2rem;
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+
+        .step-number {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 30px;
+            height: 30px;
+            background: var(--accent);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            font-weight: bold;
+        }
+
+        .workflow-step h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .workflow-step p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            overflow-x: auto;
+            margin: 2rem 0;
+        }
+
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comparison-table th {
+            background: var(--bg-light);
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .comparison-table tr:hover {
+            background: var(--bg-light);
+        }
+
+        .comparison-table .feature-name {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .check {
+            color: var(--accent);
+            font-size: 1.25rem;
+        }
+
+        .cross {
+            color: #EF4444;
+            font-size: 1.25rem;
+        }
+
+        /* Trust Section */
+        .trust-section {
+            text-align: center;
+            padding: 4rem 0;
+            background: var(--bg-light);
+            border-radius: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 2rem;
+            background: var(--white);
+            border-radius: 0.75rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .trust-badge i {
+            font-size: 2rem;
+            color: var(--secondary);
         }
 
         /* Footer */
@@ -627,22 +857,40 @@
             z-index: 2;
         }
 
-        .trust-badges {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
-            flex-wrap: wrap;
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-primary);
         }
 
-        .trust-badge {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            font-size: 0.8rem;
+        /* Custom SVG Diagrams */
+        .architecture-diagram {
+            max-width: 100%;
+            height: auto;
+            margin: 2rem auto;
+            display: block;
         }
 
         /* Responsive Design */
+        @media (max-width: 968px) {
+            .value-props {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .workflow-step::after {
+                display: none;
+            }
+
+            .workflow-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
             .mobile-menu-btn {
                 display: block;
@@ -675,8 +923,12 @@
                 margin-left: 1rem;
             }
 
-            .section-title {
-                font-size: 2rem;
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.25rem;
             }
 
             .container {
@@ -687,31 +939,23 @@
                 display: none;
             }
 
-            .tab-nav {
-                flex-wrap: wrap;
+            .content-section {
+                padding: 2rem 1.5rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tabs {
+                flex-direction: column;
                 gap: 0.5rem;
             }
 
             .tab-btn {
-                padding: 0.75rem 1rem;
-                font-size: 0.9rem;
+                width: 100%;
+                justify-content: center;
             }
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-on-scroll {
-            animation: fadeInUp 0.6s ease-out;
         }
     </style>
 </head>
@@ -730,13 +974,13 @@
                         Platform <i class="fas fa-chevron-down"></i>
                     </a>
                     <div class="dropdown">
-                        <a href="platform.html#technology" class="dropdown-link active" onclick="showTab('technology')">Technology</a>
-                        <a href="platform.html#features" class="dropdown-link" onclick="showTab('features')">Features</a>
-                        <a href="platform.html#safety" class="dropdown-link" onclick="showTab('security')">Safety</a>
+                        <a href="javascript:void(0)" class="dropdown-link" data-tab-link="technology" onclick="switchTab('technology'); return false;">Technology</a>
+                        <a href="javascript:void(0)" class="dropdown-link" data-tab-link="features" onclick="switchTab('features'); return false;">Features</a>
+                        <a href="javascript:void(0)" class="dropdown-link" data-tab-link="safety" onclick="switchTab('safety'); return false;">Safety</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="research-studies.html" class="nav-link">
                         Research <i class="fas fa-chevron-down"></i>
                     </a>
                     <div class="dropdown">
@@ -783,7 +1027,7 @@
                     <span>📚</span>
                     Learn More
                 </a>
-                <a href="#" class="btn btn-primary">
+                <a href="contact.html" class="btn btn-primary">
                     <span>▶️</span>
                     Try Free for 30 Days
                 </a>
@@ -795,374 +1039,592 @@
         </div>
     </nav>
 
-    <!-- Platform Page Content -->
-    <div class="page">
-        <section class="section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Platform Overview</h2>
-                    <p class="section-subtitle">Comprehensive digital wellness solutions built on cutting-edge technology, designed with privacy and security at the core.</p>
-                </div>
-
-                <!-- Tab Navigation -->
-                <div class="tab-nav">
-                    <button class="tab-btn active" onclick="showTab('technology')">Technology</button>
-                    <button class="tab-btn" onclick="showTab('features')">Features</button>
-                    <button class="tab-btn" onclick="showTab('security')">Safety & Security</button>
-                </div>
-
-                <!-- Technology Tab -->
-                <div id="technology" class="tab-content active">
-                    <div style="background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.9)), url('https://clarence1212.github.io/safeguardai-website/technology-section.png'); background-size: cover; background-position: center; background-attachment: fixed; position: relative; padding: 4rem; margin: -4rem; border-radius: 1rem;">
-                        <div class="section-header">
-                            <h2 class="section-title">Built on Research and Real-World Testing</h2>
-                            <p class="section-subtitle">Our platform is based on several years of research into privacy-preserving technology and digital wellness, with input from families, educators, and healthcare providers.</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Privacy-First Technology That Puts Families in Control</h1>
+                <p class="hero-subtitle">Built on Three Core Principles</p>
+                <p class="hero-description">
+                    SafeGuardAI combines cutting-edge AI with proven psychology to support healthy digital habits. 
+                    All processing happens on your devices, ensuring complete privacy while providing meaningful insights.
+                </p>
+                
+                <div class="value-props">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-user-shield"></i>
                         </div>
-
-                        <div class="features-grid">
-                            <div class="feature-card">
-                                <div class="feature-icon">
-                                    <i class="fas fa-microchip"></i>
-                                </div>
-                                <h3>Local Processing</h3>
-                                <p>Analysis happens on family devices, not in the cloud, ensuring personal information stays private while providing helpful insights.</p>
-                            </div>
-                            
-                            <div class="feature-card">
-                                <div class="feature-icon">
-                                    <i class="fas fa-network-wired"></i>
-                                </div>
-                                <h3>Federated Learning</h3>
-                                <p>Our system improves while keeping individual data private by learning from general patterns across many families.</p>
-                            </div>
-                            
-                            <div class="feature-card">
-                                <div class="feature-icon">
-                                    <i class="fas fa-user-shield"></i>
-                                </div>
-                                <h3>Differential Privacy</h3>
-                                <p>Mathematical techniques that protect personal information while still allowing for helpful analysis and recommendations.</p>
-                            </div>
-                            
-                            <div class="feature-card">
-                                <div class="feature-icon">
-                                    <i class="fas fa-certificate"></i>
-                                </div>
-                                <h3>Safety and Compliance</h3>
-                                <ul class="feature-list" style="list-style: none; margin: 0; padding: 0;">
-                                    <li style="position: relative; padding-left: 1.5rem; padding-top: 0.3rem; padding-bottom: 0.3rem;"><span style="position: absolute; left: 0; top: 0.3rem; color: #3B82F6; font-weight: bold;">✓</span> COPPA Compliant: Meets requirements for protecting children's privacy</li>
-                                    <li style="position: relative; padding-left: 1.5rem; padding-top: 0.3rem; padding-bottom: 0.3rem;"><span style="position: absolute; left: 0; top: 0.3rem; color: #3B82F6; font-weight: bold;">✓</span> GDPR Compatible: Designed with European privacy standards</li>
-                                    <li style="position: relative; padding-left: 1.5rem; padding-top: 0.3rem; padding-bottom: 0.3rem;"><span style="position: absolute; left: 0; top: 0.3rem; color: #3B82F6; font-weight: bold;">✓</span> Security Certified: Regular third-party security assessments</li>
-                                    <li style="position: relative; padding-left: 1.5rem; padding-top: 0.3rem; padding-bottom: 0.3rem;"><span style="position: absolute; left: 0; top: 0.3rem; color: #3B82F6; font-weight: bold;">✓</span> Transparent Practices: Clear policies about how the system works</li>
-                                </ul>
-                            </div>
+                        <h3>100% Private</h3>
+                        <p>Your data never leaves your devices. No cloud storage, no data mining.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-brain"></i>
                         </div>
+                        <h3>Psychology-Based</h3>
+                        <p>Designed with adolescent development and family dynamics in mind.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-people-arrows"></i>
+                        </div>
+                        <h3>Family-Centered</h3>
+                        <p>Builds trust through transparency and collaborative wellness planning.</p>
                     </div>
                 </div>
 
-                <!-- Features Tab -->
-                <div id="features" class="tab-content">
+                <!-- Hero Image -->
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&w=1920&q=100" 
+                         alt="Data Analytics Dashboard" 
+                         loading="eager"
+                         style="width: 100%; height: auto; border-radius: 1rem; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tabs Section -->
+    <section class="tabs-section">
+        <div class="container">
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="technology" onclick="switchTab('technology'); return false;">
+                    <i class="fas fa-microchip"></i>
+                    How It Works
+                </button>
+                <button class="tab-btn" data-tab="features" onclick="switchTab('features'); return false;">
+                    <i class="fas fa-star"></i>
+                    Key Features
+                </button>
+                <button class="tab-btn" data-tab="safety" onclick="switchTab('safety'); return false;">
+                    <i class="fas fa-lock"></i>
+                    Privacy & Safety
+                </button>
+            </div>
+
+            <!-- Technology Tab -->
+            <div id="technology" class="tab-content active">
+                <div class="content-section">
                     <div class="section-header">
-                        <h2 class="section-title">Solutions for Different Needs</h2>
-                        <p class="section-subtitle">Tailored features for families, healthcare providers, and educational institutions.</p>
+                        <h2 class="section-title">How SafeGuardAI Works</h2>
+                        <p class="section-subtitle">
+                            Advanced technology that respects privacy while delivering meaningful insights
+                        </p>
                     </div>
 
-                    <div style="margin-bottom: 4rem;">
-                        <h3 style="font-size: 2rem; margin-bottom: 2rem; text-align: center; color: var(--primary);">For Families</h3>
-                        <div class="features-grid-4">
-                            <div class="feature-card">
-                                <div class="feature-icon">
-                                    <i class="fas fa-exclamation-triangle"></i>
+                    <!-- Visual Workflow -->
+                    <div class="workflow-section">
+                        <h3 style="text-align: center; margin-bottom: 1rem;">Your Data Journey</h3>
+                        <div class="workflow-steps">
+                            <div class="workflow-step">
+                                <div class="step-icon">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <span class="step-number">1</span>
                                 </div>
-                                <h3>Early Awareness</h3>
-                                <ul class="feature-list">
-                                    <li>Spot patterns that might indicate digital wellness concerns</li>
-                                    <li>Receive gentle notifications with context</li>
-                                    <li>Get suggestions for family conversations and activities</li>
-                                    <li>Access resources for different situations</li>
-                                </ul>
+                                <h4>On-Device Analysis</h4>
+                                <p>AI processes data locally on your teen's device</p>
                             </div>
+                            <div class="workflow-step">
+                                <div class="step-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span class="step-number">2</span>
+                                </div>
+                                <h4>Pattern Recognition</h4>
+                                <p>Identifies wellness patterns without seeing content</p>
+                            </div>
+                            <div class="workflow-step">
+                                <div class="step-icon">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <span class="step-number">3</span>
+                                </div>
+                                <h4>Smart Insights</h4>
+                                <p>Generates actionable recommendations</p>
+                            </div>
+                            <div class="workflow-step">
+                                <div class="step-icon">
+                                    <i class="fas fa-home"></i>
+                                    <span class="step-number">4</span>
+                                </div>
+                                <h4>Family Sharing</h4>
+                                <p>Insights shared based on privacy settings</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SVG Architecture Diagram -->
+                    <div style="margin: 3rem 0; padding: 3rem; background: var(--bg-light); border-radius: 1.5rem; text-align: center;">
+                        <h4 style="color: var(--primary); margin-bottom: 2rem;">Privacy-Preserving Architecture</h4>
+                        <svg class="architecture-diagram" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Background -->
+                            <rect x="0" y="0" width="800" height="400" fill="#F8FAFC" rx="20"/>
                             
-                            <div class="feature-card">
-                                <div class="feature-icon">
-                                    <i class="fas fa-tools"></i>
-                                </div>
-                                <h3>Family-Centered Tools</h3>
-                                <ul class="feature-list">
-                                    <li>Conversation guides for discussing digital habits</li>
-                                    <li>Activity suggestions for offline time</li>
-                                    <li>Progress tracking for family digital wellness goals</li>
-                                    <li>Crisis resources and professional referrals when needed</li>
-                                </ul>
-                            </div>
+                            <!-- Teen's Device -->
+                            <g transform="translate(100, 150)">
+                                <rect x="0" y="0" width="150" height="100" fill="#3B82F6" rx="10" stroke="#2563EB" stroke-width="2"/>
+                                <text x="75" y="30" text-anchor="middle" fill="white" font-family="Arial" font-size="14" font-weight="bold">Teen's Device</text>
+                                <text x="75" y="50" text-anchor="middle" fill="white" font-family="Arial" font-size="12">Local AI Processing</text>
+                                <text x="75" y="70" text-anchor="middle" fill="white" font-family="Arial" font-size="12">Private Storage</text>
+                            </g>
                             
-                            <div class="feature-card">
-                                <div class="feature-icon">
-                                    <i class="fas fa-eye"></i>
-                                </div>
-                                <h3>Transparent Insights</h3>
-                                <ul class="feature-list">
-                                    <li>See what patterns the system is tracking</li>
-                                    <li>Understand how recommendations are made</li>
-                                    <li>Customize privacy and sharing settings</li>
-                                    <li>Regular family check-ins with guided discussions</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div style="margin-bottom: 4rem;">
-                        <h3 style="font-size: 2rem; margin-bottom: 2rem; text-align: center; color: var(--primary);">For Healthcare Providers</h3>
-                        <div class="features-grid-4">
-                            <div class="feature-card">
-                                <div class="feature-icon">
-                                    <i class="fas fa-stethoscope"></i>
-                                </div>
-                                <h3>Clinical Support Tools</h3>
-                                <ul class="feature-list">
-                                    <li>Assessment tools that integrate with existing workflows</li>
-                                    <li>Population-level insights (anonymized)</li>
-                                    <li>Early warning systems for patients at risk</li>
-                                    <li>Evidence-based intervention recommendations</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h3 style="font-size: 2rem; margin-bottom: 2rem; text-align: center; color: var(--primary);">For Educational Institutions</h3>
-                        <div class="features-grid">
-                            <div class="feature-card">
-                                <div class="feature-icon">
-                                    <i class="fas fa-graduation-cap"></i>
-                                </div>
-                                <h3>School-Wide Support</h3>
-                                <ul class="feature-list">
-                                    <li>Anonymous monitoring of student digital wellness trends</li>
-                                    <li>Integration with existing counseling and support services</li>
-                                    <li>Professional development for staff</li>
-                                    <li>Parent and family engagement resources</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Security Tab -->
-                <div id="security" class="tab-content" id="safety">
-                    <div class="section-header">
-                        <h2 class="section-title">Your Privacy is Our Priority</h2>
-                        <p class="section-subtitle">We believe privacy is fundamental to healthy family relationships and effective support.</p>
+                            <!-- Privacy Shield -->
+                            <g transform="translate(300, 100)">
+                                <circle cx="50" cy="100" r="80" fill="none" stroke="#10B981" stroke-width="3" stroke-dasharray="5,5"/>
+                                <path d="M50 40 L80 60 L80 100 L50 120 L20 100 L20 60 Z" fill="#10B981" opacity="0.2"/>
+                                <path d="M50 40 L80 60 L80 100 L50 120 L20 100 L20 60 Z" fill="none" stroke="#10B981" stroke-width="2"/>
+                                <text x="50" y="85" text-anchor="middle" fill="#059669" font-family="Arial" font-size="12" font-weight="bold">Privacy</text>
+                                <text x="50" y="100" text-anchor="middle" fill="#059669" font-family="Arial" font-size="12" font-weight="bold">Shield</text>
+                            </g>
+                            
+                            <!-- Family Dashboard -->
+                            <g transform="translate(500, 150)">
+                                <rect x="0" y="0" width="150" height="100" fill="#0F172A" rx="10" stroke="#1E293B" stroke-width="2"/>
+                                <text x="75" y="30" text-anchor="middle" fill="white" font-family="Arial" font-size="14" font-weight="bold">Family Dashboard</text>
+                                <text x="75" y="50" text-anchor="middle" fill="white" font-family="Arial" font-size="12">Insights Only</text>
+                                <text x="75" y="70" text-anchor="middle" fill="white" font-family="Arial" font-size="12">No Raw Data</text>
+                            </g>
+                            
+                            <!-- Arrows -->
+                            <path d="M250 200 L300 200" stroke="#64748B" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                            <path d="M400 200 L500 200" stroke="#64748B" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                            
+                            <!-- Arrow marker -->
+                            <defs>
+                                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                    <polygon points="0 0, 10 3.5, 0 7" fill="#64748B"/>
+                                </marker>
+                            </defs>
+                            
+                            <!-- Labels -->
+                            <text x="275" y="190" text-anchor="middle" fill="#64748B" font-family="Arial" font-size="11">Encrypted</text>
+                            <text x="275" y="220" text-anchor="middle" fill="#64748B" font-family="Arial" font-size="11">Insights</text>
+                            
+                            <text x="450" y="190" text-anchor="middle" fill="#64748B" font-family="Arial" font-size="11">Privacy</text>
+                            <text x="450" y="220" text-anchor="middle" fill="#64748B" font-family="Arial" font-size="11">Filtered</text>
+                            
+                            <!-- No Cloud Icon -->
+                            <g transform="translate(350, 50)">
+                                <path d="M30 20 C30 10, 50 10, 50 20 C60 20, 60 35, 50 35 L30 35 C20 35, 20 20, 30 20" fill="#E5E7EB" stroke="#9CA3AF" stroke-width="2"/>
+                                <line x1="20" y1="15" x2="55" y2="40" stroke="#EF4444" stroke-width="3"/>
+                                <line x1="55" y1="15" x2="20" y2="40" stroke="#EF4444" stroke-width="3"/>
+                            </g>
+                            
+                            <text x="400" y="20" text-anchor="middle" fill="#6B7280" font-family="Arial" font-size="12" font-weight="bold">No Cloud Storage</text>
+                        </svg>
                     </div>
 
                     <div class="features-grid">
                         <div class="feature-card">
-                            <div class="feature-icon">
-                                <i class="fas fa-database"></i>
+                            <div class="feature-icon-wrapper">
+                                <div class="feature-icon">
+                                    <i class="fas fa-microchip"></i>
+                                </div>
+                                <h3>On-Device Processing</h3>
                             </div>
-                            <h3>Local Processing</h3>
+                            <p>All AI analysis happens locally on your family's devices. Personal messages and content never leave your devices or get sent to any servers.</p>
                             <ul class="feature-list">
-                                <li>Analysis happens on your devices, not on our servers</li>
-                                <li>Personal messages and content never leave your family's devices</li>
-                                <li>Only aggregate patterns are used to improve the system</li>
+                                <li>No cloud processing</li>
+                                <li>No data transmission</li>
+                                <li>Complete privacy control</li>
                             </ul>
                         </div>
-                        
+
                         <div class="feature-card">
-                            <div class="feature-icon">
-                                <i class="fas fa-shield-alt"></i>
+                            <div class="feature-icon-wrapper">
+                                <div class="feature-icon">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <h3>Advanced AI Models</h3>
                             </div>
-                            <h3>Industry Standards</h3>
+                            <p>Lightweight models designed specifically for teen digital wellness, trained on research insights rather than personal data.</p>
                             <ul class="feature-list">
-                                <li>Regular security audits by independent firms</li>
-                                <li>Encryption for all data transmission</li>
-                                <li>Strict access controls for any system components</li>
-                                <li>Compliance with relevant privacy regulations</li>
+                                <li>Psychology-informed algorithms</li>
+                                <li>Age-appropriate analysis</li>
+                                <li>Continuous improvement</li>
                             </ul>
                         </div>
-                        
+
                         <div class="feature-card">
-                            <div class="feature-icon">
-                                <i class="fas fa-balance-scale"></i>
+                            <div class="feature-icon-wrapper">
+                                <div class="feature-icon">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <h3>Real-Time Analysis</h3>
                             </div>
-                            <h3>Transparent Practices</h3>
+                            <p>Instant pattern recognition and early warning system for digital wellness concerns, all processed locally.</p>
                             <ul class="feature-list">
-                                <li>Clear explanations of how the system works</li>
-                                <li>User control over all privacy settings</li>
-                                <li>Regular reports on privacy and security practices</li>
-                                <li>Independent oversight of our privacy commitments</li>
+                                <li>Immediate insights</li>
+                                <li>Proactive alerts</li>
+                                <li>Trend detection</li>
+                            </ul>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon-wrapper">
+                                <div class="feature-icon">
+                                    <i class="fas fa-seedling"></i>
+                                </div>
+                                <h3>Learning System</h3>
+                            </div>
+                            <p>Adapts to your family's unique needs and communication style while maintaining complete privacy.</p>
+                            <ul class="feature-list">
+                                <li>Personalized recommendations</li>
+                                <li>Family-specific insights</li>
+                                <li>Evolving support</li>
                             </ul>
                         </div>
                     </div>
+
+                    <!-- Technology Illustrations -->
+                    <div style="margin: 4rem 0; text-align: center;">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 900px; margin: 0 auto;">
+                            <div style="padding: 2rem; background: var(--white); border-radius: 1rem; box-shadow: var(--shadow-md); overflow: hidden;">
+                                <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&w=800&q=100" 
+                                     alt="Edge Computing" 
+                                     style="width: 100%; height: 250px; object-fit: cover; border-radius: 0.5rem; margin-bottom: 1rem; transition: transform 0.3s ease;"
+                                     loading="lazy"
+                                     onmouseover="this.style.transform='scale(1.05)'" 
+                                     onmouseout="this.style.transform='scale(1)'">
+                                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Edge Computing</h4>
+                                <p style="color: var(--text-secondary); font-size: 0.875rem;">
+                                    All processing happens on your device
+                                </p>
+                            </div>
+                            <div style="padding: 2rem; background: var(--white); border-radius: 1rem; box-shadow: var(--shadow-md); overflow: hidden;">
+                                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&w=800&q=100" 
+                                     alt="AI Analysis" 
+                                     style="width: 100%; height: 250px; object-fit: cover; border-radius: 0.5rem; margin-bottom: 1rem; transition: transform 0.3s ease;"
+                                     loading="lazy"
+                                     onmouseover="this.style.transform='scale(1.05)'" 
+                                     onmouseout="this.style.transform='scale(1)'">
+                                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">AI Analysis</h4>
+                                <p style="color: var(--text-secondary); font-size: 0.875rem;">
+                                    Advanced pattern recognition with privacy
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 3rem;">
+                        <a href="javascript:void(0)" class="btn btn-outline" data-tab-link="features">
+                            See All Features
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </section>
-    </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>How It Works</h3>
-                    <ul class="footer-links">
-                        <li><a href="platform.html#technology">Technology</a></li>
-                        <li><a href="platform.html#features">Features</a></li>
-                        <li><a href="platform.html#safety">Safety</a></li>
-                        <li><a href="contact.html">Pricing</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Research</h3>
-                    <ul class="footer-links">
-                        <li><a href="research-studies.html">Studies</a></li>
-                        <li><a href="research-insights.html">Insights</a></li>
-                        <li><a href="solutions.html">Success Stories</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Solutions</h3>
-                    <ul class="footer-links">
-                        <li><a href="solutions.html#families">For Families</a></li>
-                        <li><a href="solutions.html#healthcare">For Healthcare</a></li>
-                        <li><a href="solutions.html#education">For Education</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Resources</h3>
-                    <ul class="footer-links">
-                        <li><a href="resources.html#guides">Guides</a></li>
-                        <li><a href="resources.html#support">Support</a></li>
-                        <li><a href="resources.html#community">Community</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Company</h3>
-                    <ul class="footer-links">
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="about.html#team">Team</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
+            <!-- Features Tab -->
+            <div id="features" class="tab-content">
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Features That Make a Difference</h2>
+                        <p class="section-subtitle">
+                            Comprehensive tools designed for modern families navigating digital wellness
+                        </p>
+                    </div>
+
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon-wrapper">
+                                <div class="feature-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <span class="feature-badge">Most Popular</span>
+                            </div>
+                            <h3>Wellness Dashboard</h3>
+                            <p>See patterns in digital habits, mood trends, and areas of concern at a glance.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon-wrapper">
+                                <div class="feature-icon">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                            </div>
+                            <h3>Smart Alerts</h3>
+                            <p>Get notified about potential concerns while respecting your teen's privacy.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon-wrapper">
+                                <div class="feature-icon">
+                                    <i class="fas fa-comment-dots"></i>
+                                </div>
+                            </div>
+                            <h3>Conversation Starters</h3>
+                            <p>Research-backed prompts to help families discuss digital wellness constructively.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon-wrapper">
+                                <div class="feature-icon">
+                                    <i class="fas fa-chart-bar"></i>
+                                </div>
+                            </div>
+                            <h3>Usage Insights</h3>
+                            <p>Understand app usage patterns and screen time without invasive monitoring.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon-wrapper">
+                                <div class="feature-icon">
+                                    <i class="fas fa-smile"></i>
+                                </div>
+                            </div>
+                            <h3>Mood Tracking</h3>
+                            <p>Optional self-reporting tools help teens express how they're feeling.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon-wrapper">
+                                <div class="feature-icon">
+                                    <i class="fas fa-user-lock"></i>
+                                </div>
+                            </div>
+                            <h3>Privacy Controls</h3>
+                            <p>Teens control what's shared, building trust while staying safe.</p>
+                        </div>
+                    </div>
+
+                    <!-- Features Screenshot Gallery -->
+                    <div style="margin-top: 4rem; padding: 3rem; background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(16, 185, 129, 0.05) 100%); border-radius: 1.5rem;">
+                        <h3 style="text-align: center; margin-bottom: 2rem; color: var(--primary);">Feature Showcase</h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                            <div style="background: var(--white); padding: 0; border-radius: 1rem; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&w=600&q=100" 
+                                     alt="Mobile Dashboard" 
+                                     style="width: 100%; height: 250px; object-fit: cover;"
+                                     loading="lazy">
+                                <div style="padding: 1.5rem;">
+                                    <h5 style="color: var(--primary); margin-bottom: 0.5rem;">Mobile Dashboard</h5>
+                                    <p style="color: var(--text-secondary); font-size: 0.875rem;">
+                                        Real-time wellness insights on the go
+                                    </p>
+                                </div>
+                            </div>
+                            <div style="background: var(--white); padding: 0; border-radius: 1rem; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&w=600&q=100" 
+                                     alt="Analytics View" 
+                                     style="width: 100%; height: 250px; object-fit: cover;"
+                                     loading="lazy">
+                                <div style="padding: 1.5rem;">
+                                    <h5 style="color: var(--primary); margin-bottom: 0.5rem;">Analytics View</h5>
+                                    <p style="color: var(--text-secondary); font-size: 0.875rem;">
+                                        Detailed patterns and trends analysis
+                                    </p>
+                                </div>
+                            </div>
+                            <div style="background: var(--white); padding: 0; border-radius: 1rem; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                                <img src="https://images.unsplash.com/photo-1633265486064-086b219458ec?ixlib=rb-4.0.3&w=600&q=100" 
+                                     alt="Privacy Settings" 
+                                     style="width: 100%; height: 250px; object-fit: cover;"
+                                     loading="lazy">
+                                <div style="padding: 1.5rem;">
+                                    <h5 style="color: var(--primary); margin-bottom: 0.5rem;">Privacy Settings</h5>
+                                    <p style="color: var(--text-secondary); font-size: 0.875rem;">
+                                        Complete control over data sharing
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 3rem;">
+                        <a href="contact.html" class="btn btn-primary">
+                            Start Your Free Trial
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 SafeGuardAI Research Institute. All rights reserved.</p>
-                <p style="margin-top: 0.5rem; font-style: italic;">"Technology that supports families, respects privacy, and promotes healthy digital habits."</p>
-                
-                <div class="trust-badges">
-                    <div class="trust-badge">Privacy & security certified</div>
-                    <div class="trust-badge">Compliant with child protection regulations</div>
-                    <div class="trust-badge">Regular independent audits</div>
-                </div>
-            </div>
-        </div>
-    </footer>
 
-    <script>
-        // Tab functionality
-        function showTab(tabName) {
-            // Hide all tab contents
-            const tabContents = document.querySelectorAll('.tab-content');
-            tabContents.forEach(tab => {
-                tab.classList.remove('active');
-            });
-            
-            // Remove active class from all tab buttons
-            const tabButtons = document.querySelectorAll('.tab-btn');
-            tabButtons.forEach(btn => {
-                btn.classList.remove('active');
-            });
-            
-            // Show selected tab
-            const selectedTab = document.getElementById(tabName);
-            if (selectedTab) {
-                selectedTab.classList.add('active');
-            }
-            
-            // Add active class to clicked button
-            const clickedBtn = event.target;
-            if (clickedBtn && clickedBtn.classList) {
-                clickedBtn.classList.add('active');
-            }
-            
-            // Update dropdown active state
-            const dropdownLinks = document.querySelectorAll('.dropdown-link');
-            dropdownLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.textContent.toLowerCase().includes(tabName) || 
-                    (tabName === 'security' && link.textContent.includes('Safety'))) {
-                    link.classList.add('active');
-                }
-            });
-            
-            // Update URL hash
-            window.location.hash = tabName;
-        }
+            <!-- Safety Tab -->
+            <div id="safety" class="tab-content">
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Privacy & Safety First</h2>
+                        <p class="section-subtitle">
+                            Your family's trust is our top priority. Here's how we protect it.
+                        </p>
+                    </div>
 
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        if (mobileMenuBtn) {
-            mobileMenuBtn.addEventListener('click', function() {
-                const navMenu = document.getElementById('nav-menu');
-                if (navMenu) {
-                    navMenu.classList.toggle('active');
-                }
-            });
-        }
+                    <!-- Comparison Table -->
+                    <div class="comparison-table">
+                        <h3 style="margin-bottom: 1.5rem;">SafeGuardAI vs. Traditional Monitoring Apps</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Feature</th>
+                                    <th>SafeGuardAI</th>
+                                    <th>Traditional Apps</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="feature-name">Data Storage</td>
+                                    <td><span class="check">✓</span> On your devices only</td>
+                                    <td><span class="cross">✗</span> Cloud servers</td>
+                                </tr>
+                                <tr>
+                                    <td class="feature-name">Message Content</td>
+                                    <td><span class="check">✓</span> Never accessed</td>
+                                    <td><span class="cross">✗</span> Often readable</td>
+                                </tr>
+                                <tr>
+                                    <td class="feature-name">Teen Privacy</td>
+                                    <td><span class="check">✓</span> Respected & protected</td>
+                                    <td><span class="cross">✗</span> Limited or none</td>
+                                </tr>
+                                <tr>
+                                    <td class="feature-name">Trust Building</td>
+                                    <td><span class="check">✓</span> Core design principle</td>
+                                    <td><span class="cross">✗</span> Often damages trust</td>
+                                </tr>
+                                <tr>
+                                    <td class="feature-name">Data Ownership</td>
+                                    <td><span class="check">✓</span> You own everything</td>
+                                    <td><span class="cross">✗</span> Company owns data</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (navbar) {
-                if (window.scrollY > 50) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
-            }
-        });
+                    <div class="features-grid" style="margin-top: 3rem;">
+                        <div class="feature-card">
+                            <div class="feature-icon-wrapper">
+                                <div class="feature-icon">
+                                    <i class="fas fa-ban"></i>
+                                </div>
+                            </div>
+                            <h3>What We DON'T Collect</h3>
+                            <ul class="feature-list">
+                                <li>Message content or conversations</li>
+                                <li>Photos or videos</li>
+                                <li>Location data</li>
+                                <li>Contact lists</li>
+                                <li>Browsing history details</li>
+                            </ul>
+                        </div>
 
-        // Button interactions
-        document.addEventListener('click', function(e) {
-            const target = e.target;
-            if (target.classList && target.classList.contains('btn')) {
-                const textContent = target.textContent || '';
-                if (textContent.includes('Try Free') || textContent.includes('Start Free Trial')) {
-                    e.preventDefault();
-                    alert('Free trial signup would redirect to registration page. Thank you for your interest!');
-                }
-            }
-        });
+                        <div class="feature-card">
+                            <div class="feature-icon-wrapper">
+                                <div class="feature-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                            </div>
+                            <h3>What We DO Provide</h3>
+                            <ul class="feature-list">
+                                <li>Pattern insights without content</li>
+                                <li>Wellness trend analysis</li>
+                                <li>Risk indicators</li>
+                                <li>Conversation recommendations</li>
+                                <li>Family wellness reports</li>
+                            </ul>
+                        </div>
 
-        // Animation on scroll
-        window.addEventListener('scroll', function() {
-            const elements = document.querySelectorAll('.feature-card');
-            elements.forEach(element => {
-                if (element) {
-                    const elementTop = element.getBoundingClientRect().top;
-                    const elementVisible = 150;
-                    
-                    if (elementTop < window.innerHeight - elementVisible) {
-                        element.classList.add('animate-on-scroll');
-                    }
-                }
-            });
-        });
+                        <div class="feature-card">
+                            <div class="feature-icon-wrapper">
+                                <div class="feature-icon">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                            </div>
+                            <h3>Our Commitments</h3>
+                            <ul class="feature-list">
+                                <li>Regular security audits</li>
+                                <li>Transparent practices</li>
+                                <li>COPPA compliant</li>
+                                <li>GDPR compliant</li>
+                                <li>Open source components</li>
+                            </ul>
+                        </div>
+                    </div>
 
-        // Initialize with technology tab active or from hash
-        document.addEventListener('DOMContentLoaded', function() {
-            const hash = window.location.hash.replace('#', '');
-            if (hash && (hash === 'technology' || hash === 'features' || hash === 'safety' || hash === 'security')) {
-                showTab(hash === 'safety' ? 'security' : hash);
-            } else {
-                showTab('technology');
-            }
-        });
-    </script>
-</body>
-</html>
+                    <!-- Trust Section -->
+                    <div class="trust-section">
+                        <h3>Building Trust Through Transparency</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+                            We believe in complete transparency about how our technology works
+                        </p>
+                        <div class="trust-badges">
+                            <div class="trust-badge">
+                                <i class="fas fa-shield-alt"></i>
+                                <div>
+                                    <strong>Privacy Certified</strong>
+                                    <p style="font-size: 0.875rem; color: var(--text-secondary);">Third-party verified</p>
+                                </div>
+                            </div>
+                            <div class="trust-badge">
+                                <i class="fas fa-user-check"></i>
+                                <div>
+                                    <strong>Teen Approved</strong>
+                                    <p style="font-size: 0.875rem; color: var(--text-secondary);">Designed with teens</p>
+                                </div>
+                            </div>
+                            <div class="trust-badge">
+                                <i class="fas fa-balance-scale"></i>
+                                <div>
+                                    <strong>Ethically Built</strong>
+                                    <p style="font-size: 0.875rem; color: var(--text-secondary);">Psychology-first approach</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Privacy Comparison Visual -->
+                    <div style="margin-top: 4rem; text-align: center;">
+                        <div style="max-width: 800px; margin: 0 auto; padding: 3rem; background: var(--white); border-radius: 1.5rem; box-shadow: var(--shadow-lg);">
+                            <h4 style="color: var(--primary); margin-bottom: 2rem;">Privacy-First Approach</h4>
+                            
+                            <!-- SVG Privacy Comparison -->
+                            <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" style="max-width: 100%; height: auto;">
+                                <!-- SafeGuardAI Side -->
+                                <g transform="translate(50, 50)">
+                                    <rect x="0" y="0" width="250" height="200" fill="#ECFDF5" stroke="#10B981" stroke-width="2" rx="10"/>
+                                    <text x="125" y="30" text-anchor="middle" fill="#059669" font-family="Arial" font-size="18" font-weight="bold">SafeGuardAI</text>
+                                    
+                                    <!-- Device Icon -->
+                                    <rect x="90" y="50" width="70" height="40" fill="#10B981" rx="5"/>
+                                    <text x="125" y="75" text-anchor="middle" fill="white" font-family="Arial" font-size="12">Device</text>
+                                    
+                                    <!-- Shield -->
+                                    <path d="M125 110 L145 120 L145 140 L125 150 L105 140 L105 120 Z" fill="#10B981" opacity="0.3"/>
+                                    <text x="125" y="135" text-anchor="middle" fill="#059669" font-family="Arial" font-size="11">Private</text>
+                                    
+                                    <!-- Features -->
+                                    <text x="20" y="180" fill="#059669" font-family="Arial" font-size="12">✓ Data stays on device</text>
+                                </g>
+                                
+                                <!-- Traditional Apps Side -->
+                                <g transform="translate(400, 50)">
+                                    <rect x="0" y="0" width="250" height="200" fill="#FEF2F2" stroke="#EF4444" stroke-width="2" rx="10"/>
+                                    <text x="125" y="30" text-anchor="middle" fill="#DC2626" font-family="Arial" font-size="18" font-weight="bold">Traditional Apps</text>
+                                    
+                                    <!-- Device to Cloud -->
+                                    <rect x="40" y="50" width="50" height="30" fill="#9CA3AF" rx="5"/>
+                                    <text x="65" y="70" text-anchor="middle" fill="white" font-family="Arial" font-size="10">Device</text>
+                                    
+                                    <!-- Arrow -->
+                                    <path d="M90 65 L120 65" stroke="#EF4444" stroke-width="2" marker-end="url(#redarrow)"/>
+                                    
+                                    <!-- Cloud -->
+                                    <path d="M140 55 C140 45, 160 45, 160 55 C170 55, 170 70, 160 70 L140 70 C130 70, 130 55, 140 55" fill="#EF4444" opacity="0.3"/>
+                                    <text x="150" y="65" text-anchor="middle" fill="#DC2626" font-family="Arial" font-size="10">Cloud</text>
+                                    
+                                    <!-- Warning -->
+                                    <text x="125" y="135" text-anchor="middle" fill="#DC2626" font-family="Arial" font-size="12">⚠️ Exposed</text>
+                                    
+                                    <!-- Features -->
+                                    <text x="20" y="180" fill="#DC2626" font-family="Arial" font-size="12">✗ Data sent to servers</text>
+                                </g>
+                                
+                                <!-- Arrow marker -->
+                                <defs>
+                                    <marker id="redarrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                        <polygon points="0 0, 10 3.5, 0 7" fill="#EF4444"/>
+                                    </marker>
+                                </defs>
+                                
+                                <!-- VS Label -->
+                                <text x="350" y="150" text-anchor="middle" fill="#6B7280" font-family="Arial" font-size="24" font-weight="bold">VS</text>
+                            </svg>
