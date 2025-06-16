@@ -11,8 +11,6 @@
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css">
     
     <style>
         * {
@@ -27,6 +25,7 @@
             --secondary: #3B82F6;
             --accent: #10B981;
             --accent-light: #34D399;
+            --warning: #F59E0B;
             --bg-dark: #000000;
             --bg-light: #F1F5F9;
             --bg-glass: rgba(255, 255, 255, 0.1);
@@ -223,15 +222,14 @@
         }
 
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--white);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
+            background: var(--white);
+            color: var(--primary);
+            border: 2px solid var(--border);
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.5);
+            background: var(--bg-light);
+            border-color: var(--primary);
             transform: translateY(-2px);
         }
 
@@ -245,160 +243,474 @@
             color: var(--text-primary);
         }
 
-        /* Page Content */
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%);
+            padding: 8rem 0 4rem;
+            margin-top: 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -25%;
+            width: 50%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Search Bar */
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            position: relative;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 1.5rem 4rem 1.5rem 1.5rem;
+            border: 2px solid var(--border);
+            border-radius: 2rem;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            background: var(--white);
+            box-shadow: var(--shadow-md);
+        }
+
+        .search-bar:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 0.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--gradient-2);
+            color: var(--white);
+            border: none;
+            border-radius: 1.5rem;
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .search-btn:hover {
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        /* Quick Access */
+        .quick-access {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .quick-btn {
+            padding: 0.75rem 1.5rem;
+            background: var(--white);
+            border: 2px solid var(--border);
+            border-radius: 2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .quick-btn:hover {
+            border-color: var(--secondary);
+            background: var(--bg-light);
+            transform: translateY(-2px);
+        }
+
+        .quick-btn.active {
+            background: var(--gradient-2);
+            color: var(--white);
+            border-color: transparent;
+        }
+
+        /* Stats */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 1rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
+        /* Section */
         .section {
-            padding: 6rem 0;
-            padding-top: 8rem;
+            padding: 4rem 0;
             position: relative;
-            min-height: 100vh;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
 
         .section-title {
-            font-size: 3rem;
-            font-weight: 900;
-            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
             color: var(--primary);
-            letter-spacing: -0.025em;
-            line-height: 1.1;
         }
 
         .section-subtitle {
-            font-size: 1.25rem;
+            font-size: 1.125rem;
             color: var(--text-secondary);
             max-width: 700px;
             margin: 0 auto;
-            line-height: 1.6;
-            font-weight: 500;
         }
 
-        /* Features Grid */
-        .features-grid-4 {
-            display: grid !important;
-            grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-            gap: 1.5rem !important;
-            margin-top: 3rem;
+        /* Resource Categories */
+        .categories-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
         }
 
-        .feature-card {
+        .category-btn {
+            padding: 0.75rem 1.5rem;
             background: var(--white);
-            padding: 1.5rem !important;
-            border-radius: 1.5rem;
+            border: 2px solid var(--border);
+            border-radius: 0.75rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .category-btn:hover {
+            border-color: var(--secondary);
+            background: var(--bg-light);
+        }
+
+        .category-btn.active {
+            background: var(--secondary);
+            color: var(--white);
+            border-color: var(--secondary);
+        }
+
+        /* Resource Grid */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .resource-card {
+            background: var(--white);
+            border-radius: 1rem;
+            overflow: hidden;
             box-shadow: var(--shadow-md);
             border: 1px solid var(--border);
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
             position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
         }
 
-        .feature-card::before {
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+            border-color: rgba(59, 130, 246, 0.2);
+        }
+
+        .resource-header {
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--bg-light) 0%, var(--white) 100%);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .resource-type {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--secondary);
+            color: var(--white);
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .resource-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .resource-meta {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        .resource-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .resource-body {
+            padding: 2rem;
+        }
+
+        .resource-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .resource-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            padding: 0.25rem 0.75rem;
+            background: var(--bg-light);
+            border-radius: 2rem;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .resource-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .difficulty {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .difficulty-indicator {
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        .difficulty-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--border);
+        }
+
+        .difficulty-dot.active {
+            background: var(--accent);
+        }
+
+        /* New Badge */
+        .new-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--warning);
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* Featured Section */
+        .featured-section {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(16, 185, 129, 0.05) 100%);
+            padding: 4rem 0;
+            margin: 4rem 0;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .featured-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+
+        .featured-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .featured-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: var(--gradient-2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 2rem;
+        }
+
+        .featured-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .featured-count {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            background: var(--primary);
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter-section::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: var(--gradient-2);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: -1;
+            background: var(--gradient-3);
+            opacity: 0.9;
         }
 
-        .feature-card:hover::before {
-            opacity: 0.03;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-12px);
-            box-shadow: var(--shadow-xl);
-            border-color: rgba(59, 130, 246, 0.2);
-        }
-
-        .feature-icon {
-            width: 60px !important;
-            height: 60px !important;
-            background: var(--gradient-2);
-            border-radius: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem !important;
-            color: var(--white);
-            font-size: 1.4rem !important;
-            box-shadow: var(--shadow-lg);
+        .newsletter-content {
             position: relative;
-            overflow: hidden;
+            z-index: 1;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        .feature-icon::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: 
-                radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
-                conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transform: scale(0);
-            transition: transform 0.4s ease;
-            animation: iconShimmer 3s linear infinite;
-        }
-
-        @keyframes iconShimmer {
-            0% { transform: scale(0) rotate(0deg); }
-            50% { transform: scale(1) rotate(180deg); }
-            100% { transform: scale(0) rotate(360deg); }
-        }
-
-        .feature-card:hover .feature-icon::before {
-            transform: scale(1);
-        }
-
-        .feature-card h3 {
-            font-size: 1.25rem !important;
-            margin-bottom: 0.75rem !important;
-            color: var(--primary);
+        .newsletter-title {
+            font-size: 2rem;
             font-weight: 800;
+            margin-bottom: 1rem;
         }
 
-        .feature-card p {
-            font-size: 0.9rem !important;
-            color: var(--text-secondary);
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
         }
 
-        .feature-list {
-            list-style: none !important;
-            margin-top: 1rem;
+        .newsletter-input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 0.75rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            font-size: 1rem;
         }
 
-        .feature-list li {
-            font-size: 0.9rem !important;
-            padding: 0.3rem 0 0.3rem 1.5rem !important;
-            position: relative !important;
-            color: var(--text-secondary) !important;
-            font-weight: 500 !important;
-        }
-
-        .feature-list li::before {
-            content: '✓' !important;
-            color: var(--secondary) !important;
-            font-weight: bold !important;
-            position: absolute !important;
-            left: 0 !important;
-            top: 0.3rem !important;
-            font-size: 1rem !important;
+        .newsletter-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
         }
 
         /* Footer */
@@ -463,21 +775,6 @@
             z-index: 2;
         }
 
-        .trust-badges {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .trust-badge {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            font-size: 0.8rem;
-        }
-
         /* Responsive Design */
         @media (max-width: 768px) {
             .mobile-menu-btn {
@@ -511,8 +808,8 @@
                 margin-left: 1rem;
             }
 
-            .section-title {
-                font-size: 2rem;
+            .hero-title {
+                font-size: 2.5rem;
             }
 
             .container {
@@ -522,39 +819,19 @@
             .cta-buttons {
                 display: none;
             }
-        }
 
-        @media (max-width: 1200px) {
-            .features-grid-4 {
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 1.5rem !important;
+            .stats-container {
+                grid-template-columns: 1fr;
+                gap: 1rem;
             }
-            
-            .feature-card {
-                padding: 2rem !important;
-            }
-        }
 
-        @media (max-width: 768px) {
-            .features-grid-4 {
-                grid-template-columns: 1fr !important;
+            .resources-grid {
+                grid-template-columns: 1fr;
             }
-        }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
+            .newsletter-form {
+                flex-direction: column;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-on-scroll {
-            animation: fadeInUp 0.6s ease-out;
         }
     </style>
 </head>
@@ -562,33 +839,33 @@
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">SafeGuardAI</a>
+            <a href="home.html" class="logo">SafeGuardAI</a>
             
             <ul class="nav-menu" id="nav-menu">
                 <li class="nav-item">
-                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="home.html" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="platform.html" class="nav-link">
                         Platform <i class="fas fa-chevron-down"></i>
                     </a>
                     <div class="dropdown">
-                        <a href="technology.html" class="dropdown-link">Technology</a>
-                        <a href="features.html" class="dropdown-link">Features</a>
-                        <a href="security.html" class="dropdown-link">Safety</a>
+                        <a href="platform.html#technology" class="dropdown-link">Technology</a>
+                        <a href="platform.html#features" class="dropdown-link">Features</a>
+                        <a href="platform.html#safety" class="dropdown-link">Safety</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="research-studies.html" class="nav-link">
                         Research <i class="fas fa-chevron-down"></i>
                     </a>
                     <div class="dropdown">
-                        <a href="research.html" class="dropdown-link">Studies</a>
-                        <a href="research.html#insights" class="dropdown-link">Insights</a>
+                        <a href="research-studies.html" class="dropdown-link">Studies</a>
+                        <a href="research-insights.html" class="dropdown-link">Insights</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="solutions.html" class="nav-link">
                         Solutions <i class="fas fa-chevron-down"></i>
                     </a>
                     <div class="dropdown">
@@ -598,7 +875,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="about.html" class="nav-link">
                         About <i class="fas fa-chevron-down"></i>
                     </a>
                     <div class="dropdown">
@@ -608,12 +885,13 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link active">
+                    <a href="resources.html" class="nav-link active">
                         Resources <i class="fas fa-chevron-down"></i>
                     </a>
                     <div class="dropdown">
-                        <a href="resources.html#blog" class="dropdown-link">Blog</a>
-                        <a href="resources.html#guides" class="dropdown-link">Guides</a>
+                        <a href="#guides" class="dropdown-link">Guides</a>
+                        <a href="#videos" class="dropdown-link">Videos</a>
+                        <a href="#webinars" class="dropdown-link">Webinars</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -626,7 +904,7 @@
                     <span>📚</span>
                     Learn More
                 </a>
-                <a href="#" class="btn btn-primary">
+                <a href="contact.html" class="btn btn-primary">
                     <span>▶️</span>
                     Try Free for 30 Days
                 </a>
@@ -638,66 +916,308 @@
         </div>
     </nav>
 
-    <!-- Resources Page Content -->
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Resource Center</h1>
+                <p class="hero-subtitle">
+                    Everything you need to support your family's digital wellness journey. 
+                    From quick guides to in-depth resources, we're here to help.
+                </p>
+
+                <!-- Search Bar -->
+                <div class="search-container">
+                    <input type="text" class="search-bar" placeholder="Search for guides, videos, articles...">
+                    <button class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+
+                <!-- Quick Access Buttons -->
+                <div class="quick-access">
+                    <button class="quick-btn active">
+                        <i class="fas fa-fire"></i>
+                        Popular
+                    </button>
+                    <button class="quick-btn">
+                        <i class="fas fa-sparkles"></i>
+                        New
+                    </button>
+                    <button class="quick-btn">
+                        <i class="fas fa-user"></i>
+                        For Parents
+                    </button>
+                    <button class="quick-btn">
+                        <i class="fas fa-graduation-cap"></i>
+                        For Educators
+                    </button>
+                    <button class="quick-btn">
+                        <i class="fas fa-stethoscope"></i>
+                        For Healthcare
+                    </button>
+                </div>
+
+                <!-- Stats -->
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <div class="stat-number">150+</div>
+                        <div class="stat-label">Resources Available</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">50K+</div>
+                        <div class="stat-label">Downloads</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">4.8/5</div>
+                        <div class="stat-label">User Rating</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Resources Section -->
     <section class="section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Getting the Most from SafeGuardAI</h2>
-                <p class="section-subtitle">Educational resources and support materials for families and professionals.</p>
+                <h2 class="section-title">Browse Resources</h2>
+                <p class="section-subtitle">
+                    Filter by category to find exactly what you need
+                </p>
             </div>
 
-            <div class="features-grid-4">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-book"></i>
+            <!-- Category Navigation -->
+            <div class="categories-nav">
+                <button class="category-btn active">
+                    <i class="fas fa-th"></i>
+                    All Resources
+                </button>
+                <button class="category-btn">
+                    <i class="fas fa-book"></i>
+                    Guides
+                </button>
+                <button class="category-btn">
+                    <i class="fas fa-video"></i>
+                    Videos
+                </button>
+                <button class="category-btn">
+                    <i class="fas fa-file-pdf"></i>
+                    Downloads
+                </button>
+                <button class="category-btn">
+                    <i class="fas fa-podcast"></i>
+                    Webinars
+                </button>
+                <button class="category-btn">
+                    <i class="fas fa-newspaper"></i>
+                    Articles
+                </button>
+            </div>
+
+            <!-- Resources Grid -->
+            <div class="resources-grid">
+                <!-- Resource Card 1 -->
+                <div class="resource-card">
+                    <span class="new-badge">New</span>
+                    <div class="resource-header">
+                        <div class="resource-type">
+                            <i class="fas fa-book"></i>
+                            Guide
+                        </div>
+                        <h3 class="resource-title">Getting Started with SafeGuardAI</h3>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-clock"></i> 15 min read</span>
+                            <span><i class="fas fa-eye"></i> 12.5K views</span>
+                        </div>
                     </div>
-                    <h3>Getting Started Guides</h3>
-                    <ul class="feature-list">
-                        <li>Setting up SafeGuardAI with your family</li>
-                        <li>Having productive conversations about digital wellness</li>
-                        <li>Understanding your privacy settings</li>
-                        <li>Making the most of insights and recommendations</li>
-                    </ul>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-users"></i>
+                    <div class="resource-body">
+                        <p class="resource-description">
+                            Complete guide to setting up SafeGuardAI for your family, including privacy settings and initial conversations.
+                        </p>
+                        <div class="resource-tags">
+                            <span class="tag">Setup</span>
+                            <span class="tag">Basics</span>
+                            <span class="tag">Family</span>
+                        </div>
+                        <div class="resource-footer">
+                            <div class="difficulty">
+                                <span>Difficulty:</span>
+                                <div class="difficulty-indicator">
+                                    <span class="difficulty-dot active"></span>
+                                    <span class="difficulty-dot"></span>
+                                    <span class="difficulty-dot"></span>
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-secondary">
+                                Read Guide <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
-                    <h3>Ongoing Support</h3>
-                    <ul class="feature-list">
-                        <li>Regular webinars on digital wellness topics</li>
-                        <li>Community forum for families using SafeGuardAI</li>
-                        <li>Resource library with articles and research summaries</li>
-                        <li>Direct support when you have questions</li>
-                    </ul>
                 </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-stethoscope"></i>
+
+                <!-- Resource Card 2 -->
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-type" style="background: var(--accent);">
+                            <i class="fas fa-video"></i>
+                            Video
+                        </div>
+                        <h3 class="resource-title">Understanding Digital Wellness</h3>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-clock"></i> 8 min watch</span>
+                            <span><i class="fas fa-eye"></i> 8.2K views</span>
+                        </div>
                     </div>
-                    <h3>For Healthcare Providers</h3>
-                    <ul class="feature-list">
-                        <li>Integration guides for clinical workflows</li>
-                        <li>Training materials for staff</li>
-                        <li>Research summaries and evidence base</li>
-                        <li>Compliance and privacy documentation</li>
-                    </ul>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-graduation-cap"></i>
+                    <div class="resource-body">
+                        <p class="resource-description">
+                            Video overview of digital wellness concepts and how SafeGuardAI helps families build healthy habits.
+                        </p>
+                        <div class="resource-tags">
+                            <span class="tag">Wellness</span>
+                            <span class="tag">Education</span>
+                            <span class="tag">Video</span>
+                        </div>
+                        <div class="resource-footer">
+                            <div class="difficulty">
+                                <span>Difficulty:</span>
+                                <div class="difficulty-indicator">
+                                    <span class="difficulty-dot active"></span>
+                                    <span class="difficulty-dot"></span>
+                                    <span class="difficulty-dot"></span>
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-secondary">
+                                Watch Video <i class="fas fa-play"></i>
+                            </a>
+                        </div>
                     </div>
-                    <h3>For Educators</h3>
-                    <ul class="feature-list">
-                        <li>School implementation guides</li>
-                        <li>Professional development materials</li>
-                        <li>Parent engagement resources</li>
-                        <li>Student privacy considerations</li>
-                    </ul>
                 </div>
+
+                <!-- Resource Card 3 -->
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-type" style="background: var(--warning);">
+                            <i class="fas fa-file-pdf"></i>
+                            Download
+                        </div>
+                        <h3 class="resource-title">Family Conversation Starters</h3>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-download"></i> 5.3K downloads</span>
+                            <span><i class="fas fa-file"></i> PDF</span>
+                        </div>
+                    </div>
+                    <div class="resource-body">
+                        <p class="resource-description">
+                            Printable conversation cards to help families discuss digital wellness topics in a comfortable, engaging way.
+                        </p>
+                        <div class="resource-tags">
+                            <span class="tag">Communication</span>
+                            <span class="tag">Printable</span>
+                            <span class="tag">Family</span>
+                        </div>
+                        <div class="resource-footer">
+                            <div class="difficulty">
+                                <span>Difficulty:</span>
+                                <div class="difficulty-indicator">
+                                    <span class="difficulty-dot active"></span>
+                                    <span class="difficulty-dot"></span>
+                                    <span class="difficulty-dot"></span>
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-secondary">
+                                Download PDF <i class="fas fa-download"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- More resource cards would go here -->
+            </div>
+
+            <!-- Load More Button -->
+            <div style="text-align: center; margin-top: 3rem;">
+                <button class="btn btn-primary">
+                    Load More Resources <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Resources Section -->
+    <section class="featured-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Popular Collections</h2>
+                <p class="section-subtitle">
+                    Curated resource bundles for specific needs
+                </p>
+            </div>
+
+            <div class="featured-grid">
+                <div class="featured-card">
+                    <div class="featured-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="featured-title">Quick Start Bundle</h3>
+                    <div class="featured-count">12</div>
+                    <p>Essential resources for new families</p>
+                    <a href="#" class="btn btn-secondary" style="margin-top: 1rem;">
+                        View Collection
+                    </a>
+                </div>
+
+                <div class="featured-card">
+                    <div class="featured-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 class="featured-title">Communication Pack</h3>
+                    <div class="featured-count">8</div>
+                    <p>Tools for better family conversations</p>
+                    <a href="#" class="btn btn-secondary" style="margin-top: 1rem;">
+                        View Collection
+                    </a>
+                </div>
+
+                <div class="featured-card">
+                    <div class="featured-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="featured-title">Privacy & Safety</h3>
+                    <div class="featured-count">15</div>
+                    <p>Everything about protecting your family</p>
+                    <a href="#" class="btn btn-secondary" style="margin-top: 1rem;">
+                        View Collection
+                    </a>
+                </div>
+
+                <div class="featured-card">
+                    <div class="featured-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="featured-title">Wellness Toolkit</h3>
+                    <div class="featured-count">20</div>
+                    <p>Resources for digital wellness</p>
+                    <a href="#" class="btn btn-secondary" style="margin-top: 1rem;">
+                        View Collection
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2 class="newsletter-title">Get New Resources in Your Inbox</h2>
+                <p>Stay updated with the latest guides, videos, and tools for digital wellness</p>
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email">
+                    <button type="submit" class="btn btn-primary">
+                        Subscribe <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
             </div>
         </div>
     </section>
@@ -709,19 +1229,19 @@
                 <div class="footer-section">
                     <h3>How It Works</h3>
                     <ul class="footer-links">
-                        <li><a href="technology.html">Technology</a></li>
-                        <li><a href="features.html">Features</a></li>
-                        <li><a href="security.html">Safety</a></li>
-                        <li><a href="contact.html">Pricing</a></li>
+                        <li><a href="platform.html#technology">Technology</a></li>
+                        <li><a href="platform.html#features">Features</a></li>
+                        <li><a href="platform.html#safety">Safety</a></li>
+                        <li><a href="platform.html">Pricing</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
                     <h3>Research</h3>
                     <ul class="footer-links">
-                        <li><a href="research.html">Studies</a></li>
-                        <li><a href="research.html#insights">Insights</a></li>
-                        <li><a href="solutions.html">Success Stories</a></li>
+                        <li><a href="research-studies.html">Studies</a></li>
+                        <li><a href="research-insights.html">Insights</a></li>
+                        <li><a href="research-studies.html">Success Stories</a></li>
                     </ul>
                 </div>
                 
@@ -730,16 +1250,16 @@
                     <ul class="footer-links">
                         <li><a href="solutions.html#families">For Families</a></li>
                         <li><a href="solutions.html#healthcare">For Healthcare</a></li>
-                        <li><a href="solutions.html#education">For Education</a></li>
+                        <li><a href="solutions.html#schools">For Education</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
                     <h3>Resources</h3>
                     <ul class="footer-links">
-                        <li><a href="resources.html#guides">Guides</a></li>
-                        <li><a href="resources.html#support">Support</a></li>
-                        <li><a href="resources.html#community">Community</a></li>
+                        <li><a href="#guides">Guides</a></li>
+                        <li><a href="#videos">Videos</a></li>
+                        <li><a href="#webinars">Webinars</a></li>
                     </ul>
                 </div>
                 
@@ -756,12 +1276,6 @@
             <div class="footer-bottom">
                 <p>&copy; 2025 SafeGuardAI Research Institute. All rights reserved.</p>
                 <p style="margin-top: 0.5rem; font-style: italic;">"Technology that supports families, respects privacy, and promotes healthy digital habits."</p>
-                
-                <div class="trust-badges">
-                    <div class="trust-badge">Privacy & security certified</div>
-                    <div class="trust-badge">Compliant with child protection regulations</div>
-                    <div class="trust-badge">Regular independent audits</div>
-                </div>
             </div>
         </div>
     </footer>
@@ -789,45 +1303,23 @@
             }
         });
 
-        // Animation on scroll
-        window.addEventListener('scroll', function() {
-            const elements = document.querySelectorAll('.feature-card');
-            elements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < window.innerHeight - elementVisible) {
-                    element.classList.add('animate-on-scroll');
-                }
+        // Category filter
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
             });
         });
 
-        // Handle button clicks
-        document.addEventListener('click', function(e) {
-            if (e.target.classList.contains('btn')) {
-                if (e.target.textContent.includes('Try Free') || e.target.textContent.includes('Start Free Trial')) {
-                    e.preventDefault();
-                    alert('Free trial signup would redirect to registration page. Thank you for your interest!');
-                }
-            }
+        // Quick access filter
+        const quickBtns = document.querySelectorAll('.quick-btn');
+        quickBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                quickBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
         });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.nav-container')) {
-                navMenu.classList.remove('active');
-            }
-        });
-
-        // Accessibility - close mobile menu on Escape
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                navMenu.classList.remove('active');
-            }
-        });
-
-        // Initial check for elements in view
-        window.dispatchEvent(new Event('scroll'));
     </script>
 </body>
 </html>
