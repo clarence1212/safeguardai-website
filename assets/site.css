@@ -277,3 +277,14 @@ p,ul,ol{margin:0}
 .refs h2{font-size:22px;margin:0 0 14px}
 .refs ol{padding-left:22px;display:grid;gap:10px;font-size:15px;color:var(--muted);line-height:1.55}
 .refs a{color:var(--accent)}
+/* family agreement */
+.agree-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
+.agree,.notif{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:24px;display:grid;gap:14px;align-content:start}
+.agree ol{padding-left:20px;display:grid;gap:10px;font-size:15px;color:var(--muted)}
+.notif-card{border:1px solid var(--line);border-radius:16px;padding:16px;background:var(--bg);display:grid;gap:10px;font-size:14.5px}
+.notif-h{display:flex;align-items:center;gap:8px}
+.notif-h svg{width:20px;height:20px;color:var(--accent)}
+.notif-h b{font-weight:600;font-size:14px}
+.notif-h small{margin-left:auto;color:var(--faint);font-size:12.5px}
+.notif-g{color:var(--accent);font-size:14px}
+@media (max-width:900px){.agree-grid{grid-template-columns:minmax(0,1fr)}}
